@@ -9,7 +9,7 @@ public class CharacterStateMachine : MonoBehaviour
     private CharacterStateInAir _inAirState;
     private CharacterStateLedgeGrab _ledgeGrabState;
     private CharacterStateLedgeClimb _ledgeClimbState;
-
+    private CharacterStateWallSlide _wallSlideState;
     private PlayerInputHandler _inputHandler;
     private CharacterMovement _movement;
     private CharacterLedgeHandler _ledgeHandler;
@@ -22,34 +22,40 @@ public class CharacterStateMachine : MonoBehaviour
         _inputHandler = GetComponent<PlayerInputHandler>();
         _ledgeHandler = GetComponent<CharacterLedgeHandler>();
         _rb = GetComponent<Rigidbody2D>();
-        _groundedState = new CharacterStateGrounded(this, _movement, _rb);
-        _jumpingState = new CharacterStateJump(this, _movement, _rb);
-        _inAirState = new CharacterStateInAir(this, _movement, _rb);
-        _ledgeGrabState = new CharacterStateLedgeGrab(this, _movement, _rb, _ledgeHandler);
-        _ledgeClimbState = new CharacterStateLedgeClimb(this, _movement, _rb, _ledgeHandler);
 
-        CurrentState = _groundedState; // Начальное состояние
+        InintStates();
     }
 
     private void OnEnable()
     {
         _inputHandler.OnMoveInput += Move;
-        _inputHandler.OnJumpInput += Jump;
-        _ledgeHandler.OnLedgeGrabbed += GrabLedge;
-        _ledgeHandler.OnClimbFinished += Land;
+        _inputHandler.OnJumpInput += OnJump;
+        //_ledgeHandler.OnLedgeGrabbed += SetStateGrabLedge;
+        _ledgeHandler.OnClimbFinished += SetStateLand;
     }
 
     private void OnDisable()
     {
         _inputHandler.OnMoveInput -= Move;
-        _inputHandler.OnJumpInput -= Jump;
-        _ledgeHandler.OnLedgeGrabbed -= GrabLedge;
-        _ledgeHandler.OnClimbFinished -= Land;
+        _inputHandler.OnJumpInput -= OnJump;
+        //_ledgeHandler.OnLedgeGrabbed -= SetStateGrabLedge;
+        _ledgeHandler.OnClimbFinished -= SetStateLand;
     }
 
     private void FixedUpdate()
     {
         CurrentState.Update();
+    }
+
+    private void InintStates()
+    {
+        _groundedState = new CharacterStateGrounded(this, _movement, _rb, _ledgeHandler);
+        _jumpingState = new CharacterStateJump(this, _movement, _rb, _ledgeHandler);
+        _inAirState = new CharacterStateInAir(this, _movement, _rb, _ledgeHandler);
+        _ledgeGrabState = new CharacterStateLedgeGrab(this, _movement, _rb, _ledgeHandler);
+        _ledgeClimbState = new CharacterStateLedgeClimb(this, _movement, _rb, _ledgeHandler);
+        _wallSlideState = new CharacterStateWallSlide(this, _movement, _rb, _ledgeHandler);
+        CurrentState = _groundedState; // Начальное состояние
     }
 
     public void SetState(CharacterStateBase newState)
@@ -64,29 +70,38 @@ public class CharacterStateMachine : MonoBehaviour
         CurrentState.Move(direction);
     }
 
-    public void Jump()
+    public void OnJump()
     {
-        if (CurrentState == _groundedState)
-            SetState(_jumpingState);
+        CurrentState.Jump();
     }
 
-    public void Fall()
+    public void SetStateJump()
+    {
+        SetState(_jumpingState);
+    }
+
+    public void SetStateFall()
     {
         SetState(_inAirState);
     }
 
-    public void Land()
+    public void SetStateLand()
     {
         SetState(_groundedState);
     }
 
-    public void GrabLedge()
+    public void SetStateGrabLedge()
     {
         SetState(_ledgeGrabState);
     }
 
-    public void ClimbLedge()
+    public void SetStateClimbLedge()
     {
         SetState(_ledgeClimbState);
+    }
+
+    public void SetStateWallSlide()
+    {
+        SetState(_wallSlideState);
     }
 }

@@ -9,7 +9,12 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private float _groundCheckRadius = 0.2f;
-    private float _gravity;
+    [SerializeField] private bool _isFacingRight = true;
+
+    [SerializeField] private Transform _wallCheckPivot;
+    [SerializeField] private float _wallCheckRadius = 0.1f;
+    [SerializeField] private float _wallSlideSpeed = 1; // —ила замедлени€ при скольжении
+    private bool _isWallSliding;
 
     private Rigidbody2D _rb;
 
@@ -18,54 +23,63 @@ public class CharacterMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
     }
 
+    public bool IsWallSliding()
+    {
+        return Physics2D.OverlapCircle(_wallCheckPivot.position, _wallCheckRadius, _groundLayer);
+    }
+
     public void GroundMovement(float direction)
     {
         _rb.linearVelocityX = direction * _moveSpeed;
+        CheckDirection(direction);
     }
 
     public void AirMovement(float direction)
     {
         _rb.AddForce(new Vector2(direction * _airMoveSpeed, 0), ForceMode2D.Force);
+        CheckDirection(direction);
+    }
+
+    public void WallSliding()
+    {
+        _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, -_wallSlideSpeed);
     }
 
     public void Jump()
     {
         _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
-        Debug.Log("Jump");
     }
-        
+
+    public void WallJump()
+    {
+        float direction = transform.localScale.x;
+        _rb.AddForce(new Vector2(_jumpForce * - direction, _jumpForce), ForceMode2D.Impulse);
+        FlipDirection();
+    }
+
     public bool IsGrounded()
     {
         return Physics2D.OverlapCircle(_groundCheck.position, _groundCheckRadius, _groundLayer);
     }
 
-    public void GrabLedge()
+    private void CheckDirection(float direction)
     {
-        _rb.linearVelocity = Vector2.zero;
-        _rb.gravityScale = 0;
-    }
-
-    public void ClimbLedge()
-    {
-        StartCoroutine(ClimbRoutine());
-    }
-
-    public void DropLedge()
-    {
-        _rb.gravityScale = 1;
-    }
-
-    private IEnumerator ClimbRoutine()
-    {
-        float duration = 0.3f; // ƒлительность подт€гивани€
-        Vector3 startPosition = transform.position;
-        Vector3 endPosition = startPosition + new Vector3(1, 1.7f, 0); // —мещаем вверх
-        float elapsed = 0f;
-        while (elapsed < duration)
+        if ((direction > 0 && !_isFacingRight) || (direction < 0 && _isFacingRight))
         {
-            elapsed += Time.deltaTime;
-            transform.position = Vector3.Lerp(startPosition, endPosition, elapsed / duration);
-            yield return null;
+            FlipDirection();
         }
+    }
+
+    public void FlipDirection()
+    {
+        _isFacingRight = !_isFacingRight;
+        Vector3 localScale = transform.localScale;
+        localScale.x *= -1;
+        transform.localScale = localScale;
+    }
+
+    public void CheckWallSlide()
+    {
+        _isWallSliding = IsWallSliding();
     }
 }

@@ -1,20 +1,19 @@
+using System.Collections;
 using UnityEngine;
 
 public class CharacterStateJump : CharacterStateBase
 {
-    public CharacterStateJump(CharacterStateMachine stateMachine, CharacterMovement movement, Rigidbody2D rb)
-        : base(stateMachine, movement, rb) { }
+    public CharacterStateJump(CharacterStateMachine stateMachine, CharacterMovement movement, Rigidbody2D rb, CharacterLedgeHandler ledgeHandler)
+        : base(stateMachine, movement, rb, ledgeHandler) { }
 
     public override void Enter()
     {
-        _movement.Jump();
-    }
+        //_ledgeHandler.OnLedgeGrabbed += GrabLedge;
+        // Включаем анимацию и звук прыжка
+        // _movement.PlayJumpAnimation();
+        // _movement.PlayJumpSound();
 
-    public override void Update()
-    {
-        if (_rb.linearVelocity.y < 0)
-        {
-            _stateMachine.Fall();
-        }
+        // Моментально переходим в состояние полета (без проверки скорости)
+        _stateMachine.SetStateFall();
     }
 }

@@ -33,7 +33,6 @@ public class LightGlow : MonoBehaviour
 
     private IEnumerator GlowEffect()
     {
-        Debug.Log("Started");
         while (true)
         {
             Color startColor = _light.color;

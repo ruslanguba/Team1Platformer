@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CharacterLedgeHandler : MonoBehaviour
 {
-    public event Action OnLedgeGrabbed;
     public event Action OnClimbFinished;
 
     private LedgeGrabDetector _ledgeDetector;
@@ -12,7 +11,6 @@ public class CharacterLedgeHandler : MonoBehaviour
 
     private Rigidbody2D _rb;
     private bool _isGrabbingLedge;
-    private bool _canDetectLedge = true;
 
     private void Awake()
     {
@@ -32,24 +30,21 @@ public class CharacterLedgeHandler : MonoBehaviour
 
     private void HandleLedgeDetected()
     {
-        if (!_canDetectLedge || _isGrabbingLedge) return;
-
         _isGrabbingLedge = true;
-        _canDetectLedge = false;
-        GrabLedge();
-        OnLedgeGrabbed?.Invoke();
     }
 
     public void GrabLedge()
     {
+        Debug.Log("Character Ledge Handler GrabLedge");
         _rb.linearVelocity = Vector2.zero;
-        _rb.gravityScale = 0;
+        _rb.bodyType = RigidbodyType2D.Kinematic;
     }
 
     public void ReleaseLedge()
     {
         _isGrabbingLedge = false;
-        _rb.gravityScale = 1;
+        _rb.bodyType = RigidbodyType2D.Dynamic;
+        _ledgeDetector.PauseDetection();
     }
 
     public void ClimbLedge()
@@ -60,7 +55,7 @@ public class CharacterLedgeHandler : MonoBehaviour
     private IEnumerator ClimbRoutine()
     {
         Vector3 startPosition = transform.position;
-        Vector3 endPosition = startPosition + new Vector3(1, 1.7f, 0);
+        Vector3 endPosition = startPosition + new Vector3(1 * transform.localScale.x, 1.7f, 0);
         float elapsed = 0f;
 
         while (elapsed < _climbDuration)
@@ -73,19 +68,10 @@ public class CharacterLedgeHandler : MonoBehaviour
         ReleaseLedge();
 
         OnClimbFinished?.Invoke();
-        yield return new WaitForSeconds(0.1f);
-        _canDetectLedge = true;
     }
 
-    public void DisableLedgeDetection(float delay = 0.2f)
+    public bool IsGrabbingLedge()
     {
-        StartCoroutine(EnableLedgeDetectionAfterDelay(delay));
-    }
-
-    private IEnumerator EnableLedgeDetectionAfterDelay(float delay)
-    {
-        _canDetectLedge = false;
-        yield return new WaitForSeconds(delay);
-        _canDetectLedge = true;
+        return _isGrabbingLedge;
     }
 }

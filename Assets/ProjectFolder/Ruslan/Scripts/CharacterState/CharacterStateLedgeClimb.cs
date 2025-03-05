@@ -2,10 +2,8 @@ using UnityEngine;
 
 public class CharacterStateLedgeClimb : CharacterStateBase
 {
-    private CharacterLedgeHandler _ledgeHandler;
-
     public CharacterStateLedgeClimb(CharacterStateMachine stateMachine, CharacterMovement movement, Rigidbody2D rb, CharacterLedgeHandler ledgeHandler)
-        : base(stateMachine, movement, rb)
+        : base(stateMachine, movement, rb, ledgeHandler)
     {
         _ledgeHandler = ledgeHandler;
     }
