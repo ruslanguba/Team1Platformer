@@ -45,6 +45,10 @@ public class CharacterStateWallSlide : CharacterStateBase
         {
             _rb.gravityScale = 1;
         }
+        if (direction.y > 0)
+        {
+            _rb.gravityScale = 0;
+        }
     }
 
     public override void Jump()

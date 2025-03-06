@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class CharacterStateInAir : CharacterStateBase
 {
+    private int _jumpsLeft;
     public CharacterStateInAir(CharacterStateMachine stateMachine, CharacterMovement movement, Rigidbody2D rb, CharacterLedgeHandler ledgeHandler)
         : base(stateMachine, movement, rb, ledgeHandler) { }
 
     public override void Enter()
     {
-        Debug.Log("Enter StateInAir");
+        Debug.Log("Enter State In Air");
+        _jumpsLeft = 1;
     }
 
     public override void Update()
@@ -38,8 +40,20 @@ public class CharacterStateInAir : CharacterStateBase
     public override void Move(Vector2 direction)
     {
         _movement.AirMovement(direction.x);
+        if (!_movement.IsGrounded() && _movement.IsWallSliding())
+        {
+            _stateMachine.SetStateWallSlide();
+            return;
+        }
     }
-
+    public override void Jump()
+    {
+        if(_jumpsLeft > 0)
+        {
+            _jumpsLeft--;
+            _movement.DoubleJump();
+        }
+    }
     public override void Exit()
     {
     }

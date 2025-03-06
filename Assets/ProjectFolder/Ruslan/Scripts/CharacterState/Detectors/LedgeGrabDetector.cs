@@ -5,35 +5,43 @@ using UnityEngine;
 public class LedgeGrabDetector : MonoBehaviour
 {
     public event Action OnLedgeDetected;
+    public event Action OnLedgeLost;
 
     [SerializeField] private Transform _upPoint;
     [SerializeField] private Transform _downPoint;
     [SerializeField] private LayerMask _wallLayer;
     [SerializeField] private float _checkRadius = 0.2f;
-    [SerializeField] private float _stopCheckingTime = 0.2f;
+    [SerializeField] private float _stopCheckingTime = 1;
 
     private bool _canDetectLedge = true;
 
-    private void FixedUpdate()
-    {
-        if (!_canDetectLedge) return;
+    //private void FixedUpdate()
+    //{
+    //    if (!_canDetectLedge) return;
 
-        if (CheckForLedge())
+    //    if (CheckForLedge())
+    //    {
+    //        OnLedgeDetected?.Invoke();
+    //        PauseDetection();
+    //    }
+    //    else
+    //    {
+    //        OnLedgeLost?.Invoke();
+    //    }
+    //}
+
+    public bool CheckForLedge()
+    {
+        if (!_canDetectLedge)
         {
-            OnLedgeDetected?.Invoke();
-            DisableLedgeDetection();
+            return false;
         }
-    }
-
-    private bool CheckForLedge()
-    {
-        bool lowHit = Physics2D.OverlapCircle(_downPoint.position, _checkRadius, _wallLayer);
-        bool highHit = Physics2D.OverlapCircle(_upPoint.position, _checkRadius, _wallLayer);
-        return lowHit && !highHit;
-
-        //bool lowHit = Physics2D.Raycast(_downPoint.position, Vector2.right, _checkDistance, _wallLayer);
-        //bool highHit = Physics2D.Raycast(_upPoint.position, Vector2.right, _checkDistance, _wallLayer);
-        //return lowHit && !highHit;
+        else
+        {
+            bool lowHit = Physics2D.OverlapCircle(_downPoint.position, _checkRadius, _wallLayer);
+            bool highHit = Physics2D.OverlapCircle(_upPoint.position, _checkRadius, _wallLayer);
+            return lowHit && !highHit;
+        }
     }
 
     private void EnableLedgeDetection()

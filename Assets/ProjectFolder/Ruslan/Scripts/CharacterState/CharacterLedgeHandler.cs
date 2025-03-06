@@ -21,11 +21,13 @@ public class CharacterLedgeHandler : MonoBehaviour
     private void OnEnable()
     {
         _ledgeDetector.OnLedgeDetected += HandleLedgeDetected;
+        _ledgeDetector.OnLedgeLost += ReleaseLedge;
     }
 
     private void OnDisable()
     {
         _ledgeDetector.OnLedgeDetected -= HandleLedgeDetected;
+        _ledgeDetector.OnLedgeLost -= ReleaseLedge;
     }
 
     private void HandleLedgeDetected()
@@ -35,7 +37,6 @@ public class CharacterLedgeHandler : MonoBehaviour
 
     public void GrabLedge()
     {
-        Debug.Log("Character Ledge Handler GrabLedge");
         _rb.linearVelocity = Vector2.zero;
         _rb.bodyType = RigidbodyType2D.Kinematic;
     }
@@ -72,6 +73,7 @@ public class CharacterLedgeHandler : MonoBehaviour
 
     public bool IsGrabbingLedge()
     {
-        return _isGrabbingLedge;
+        return _ledgeDetector.CheckForLedge();
+        //return _isGrabbingLedge;
     }
 }

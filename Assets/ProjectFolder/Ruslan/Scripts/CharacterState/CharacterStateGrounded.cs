@@ -7,7 +7,7 @@ public class CharacterStateGrounded : CharacterStateBase
 
     public override void Enter()
     {
-        Debug.Log("Персонаж стоит на земле");
+        _rb.linearVelocity = new Vector2(0, _rb.linearVelocity.y);
     }
 
     public override void Update()
@@ -25,7 +25,14 @@ public class CharacterStateGrounded : CharacterStateBase
 
     public override void Jump()
     {
-        _movement.Jump();
-        _stateMachine.SetStateJump();
+        if (_ledgeHandler.IsGrabbingLedge())
+        {
+            _stateMachine.SetStateClimbLedge();
+        }
+        else
+        {
+            _movement.Jump();
+            _stateMachine.SetStateJump();
+        }
     }
 }
