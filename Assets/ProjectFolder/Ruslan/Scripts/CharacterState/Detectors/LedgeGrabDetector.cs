@@ -15,21 +15,6 @@ public class LedgeGrabDetector : MonoBehaviour
 
     private bool _canDetectLedge = true;
 
-    //private void FixedUpdate()
-    //{
-    //    if (!_canDetectLedge) return;
-
-    //    if (CheckForLedge())
-    //    {
-    //        OnLedgeDetected?.Invoke();
-    //        PauseDetection();
-    //    }
-    //    else
-    //    {
-    //        OnLedgeLost?.Invoke();
-    //    }
-    //}
-
     public bool CheckForLedge()
     {
         if (!_canDetectLedge)

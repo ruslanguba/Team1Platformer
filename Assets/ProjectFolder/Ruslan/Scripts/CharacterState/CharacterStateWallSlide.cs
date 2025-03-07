@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class CharacterStateWallSlide : CharacterStateBase
 {
-
     public CharacterStateWallSlide(CharacterStateMachine stateMachine, CharacterMovement movement, Rigidbody2D rb, CharacterLedgeHandler ledgeHandler)
         : base(stateMachine, movement, rb, ledgeHandler) { }
 

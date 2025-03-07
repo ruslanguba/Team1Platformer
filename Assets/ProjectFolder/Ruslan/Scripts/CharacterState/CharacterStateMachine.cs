@@ -10,6 +10,7 @@ public class CharacterStateMachine : MonoBehaviour
     private CharacterStateLedgeGrab _ledgeGrabState;
     private CharacterStateLedgeClimb _ledgeClimbState;
     private CharacterStateWallSlide _wallSlideState;
+    private CharacterStateWater _waterState;
     private PlayerInputHandler _inputHandler;
     private CharacterMovement _movement;
     private CharacterLedgeHandler _ledgeHandler;
@@ -55,6 +56,7 @@ public class CharacterStateMachine : MonoBehaviour
         _ledgeGrabState = new CharacterStateLedgeGrab(this, _movement, _rb, _ledgeHandler);
         _ledgeClimbState = new CharacterStateLedgeClimb(this, _movement, _rb, _ledgeHandler);
         _wallSlideState = new CharacterStateWallSlide(this, _movement, _rb, _ledgeHandler);
+        _waterState = new CharacterStateWater(this, _movement, _rb, _ledgeHandler);
         CurrentState = _groundedState; // Начальное состояние
     }
 

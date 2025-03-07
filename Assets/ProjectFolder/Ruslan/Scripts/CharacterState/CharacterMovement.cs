@@ -37,13 +37,15 @@ public class CharacterMovement : MonoBehaviour
         {
             _rb.linearVelocityX = direction * _moveSpeed;
         }
+
         else if(!GROUND_VELOCITY_MODE)
         {
             _rb.AddForce(new Vector2(direction * _moveSpeed, 0), ForceMode2D.Force);
             if(direction == 0)
                 _rb.linearVelocityX = 0;
         }
-        CheckDirection(direction);
+
+        CheckDirection(direction );
     }
 
     public void AirMovement(float direction)
@@ -57,10 +59,8 @@ public class CharacterMovement : MonoBehaviour
             {
                 _rb.AddForce(new Vector2(direction * _airMoveSpeed, 0), ForceMode2D.Force);
             }
-        //_rb.AddForce(new Vector2(direction * _airMoveSpeed, 0), ForceMode2D.Force);
         CheckDirection(direction);
     }
-
 
     public void WallSliding()
     {

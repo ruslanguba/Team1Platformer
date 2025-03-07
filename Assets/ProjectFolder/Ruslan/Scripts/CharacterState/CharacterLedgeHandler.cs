@@ -10,29 +10,11 @@ public class CharacterLedgeHandler : MonoBehaviour
     [SerializeField] private float _climbDuration = 0.3f;
 
     private Rigidbody2D _rb;
-    private bool _isGrabbingLedge;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _ledgeDetector = GetComponent<LedgeGrabDetector>();
-    }
-
-    private void OnEnable()
-    {
-        _ledgeDetector.OnLedgeDetected += HandleLedgeDetected;
-        _ledgeDetector.OnLedgeLost += ReleaseLedge;
-    }
-
-    private void OnDisable()
-    {
-        _ledgeDetector.OnLedgeDetected -= HandleLedgeDetected;
-        _ledgeDetector.OnLedgeLost -= ReleaseLedge;
-    }
-
-    private void HandleLedgeDetected()
-    {
-        _isGrabbingLedge = true;
     }
 
     public void GrabLedge()
@@ -43,7 +25,6 @@ public class CharacterLedgeHandler : MonoBehaviour
 
     public void ReleaseLedge()
     {
-        _isGrabbingLedge = false;
         _rb.bodyType = RigidbodyType2D.Dynamic;
         _ledgeDetector.PauseDetection();
     }
@@ -74,6 +55,6 @@ public class CharacterLedgeHandler : MonoBehaviour
     public bool IsGrabbingLedge()
     {
         return _ledgeDetector.CheckForLedge();
-        //return _isGrabbingLedge;
+
     }
 }
