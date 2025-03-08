@@ -4,7 +4,6 @@ using UnityEngine;
 public class CharacterFire : FireBase
 {
     public event Action SaveGame;
-
     private void Start()
     {
         _isBurning = true;
@@ -14,10 +13,9 @@ public class CharacterFire : FireBase
     {
         if (collision.GetComponent<FireStopper>() != null)
         {
-            Debug.Log("StopFire");
             BraiseFire();
         }
-        if (collision.GetComponent<IFireable>() != null)
+        if (collision.TryGetComponent(out IFireable fireable))
         {
             HandleFire(collision.GetComponent<IFireable>());
         }

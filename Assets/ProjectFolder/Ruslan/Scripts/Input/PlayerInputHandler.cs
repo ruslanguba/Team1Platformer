@@ -5,14 +5,15 @@ public class PlayerInputHandler : MonoBehaviour
 {
     public event Action<Vector2> OnMoveInput;
     public event Action OnJumpInput;
+    public event Action OnUseInput;
 
     private PlayerInput _inputActions;
-    private PlayerInputData _inputData;
-    public PlayerInputData GetInputData() => _inputData;
+    //private PlayerInputData _inputData;
+    //public PlayerInputData GetInputData() => _inputData;
     private bool _isMoving = false;
     private void Awake()
     {
-        _inputData = new PlayerInputData();
+        //_inputData = new PlayerInputData();
         _inputActions = new PlayerInput();
         _inputActions.Enable();
         
@@ -22,7 +23,13 @@ public class PlayerInputHandler : MonoBehaviour
         _inputActions.Gameplay.Jump.performed += JumpPerformed;
         _inputActions.Gameplay.Movement.performed += MovementPerformed;
         _inputActions.Gameplay.Movement.canceled += MovementCanceled;
+        _inputActions.Gameplay.Use.performed += UsePerformed;
 
+    }
+
+    private void UsePerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnUseInput?.Invoke();
     }
 
     private void OnDisable()

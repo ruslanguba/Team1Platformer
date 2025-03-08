@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class IMovable
+public interface IMovable
 {
-    
+    public void Interract();
 }
