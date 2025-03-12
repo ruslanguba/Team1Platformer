@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CharacterFire : FireBase
 {
-    public event Action SaveGame;
+    public event Action OnRespawnPointFound;
     private void Start()
     {
         _isBurning = true;
@@ -30,7 +30,7 @@ public class CharacterFire : FireBase
         }
         if (fire is FireSaver)
         {
-            SaveGame?.Invoke();
+            OnRespawnPointFound?.Invoke();
         }
         fire.HandleFire(_isBurning);
     }

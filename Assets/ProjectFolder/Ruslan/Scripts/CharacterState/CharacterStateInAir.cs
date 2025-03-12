@@ -8,7 +8,6 @@ public class CharacterStateInAir : CharacterStateBase
 
     public override void Enter()
     {
-        Debug.Log("Enter State In Air");
         _jumpsLeft = 1;
     }
 

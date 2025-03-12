@@ -9,6 +9,7 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float _airMoveSpeed = 5;
     [SerializeField] private float _doubleJumpForce = 5;
     [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private LayerMask _wallLayer;
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private float _groundCheckRadius = 0.2f;
     [SerializeField] private bool _isFacingRight = true;
@@ -28,7 +29,7 @@ public class CharacterMovement : MonoBehaviour
 
     public bool IsWallSliding()
     {
-        return Physics2D.OverlapCircle(_wallCheckPivot.position, _wallCheckRadius, _groundLayer);
+        return Physics2D.OverlapCircle(_wallCheckPivot.position, _wallCheckRadius, _wallLayer);
     }
 
     public void GroundMovement(float direction)
@@ -53,11 +54,23 @@ public class CharacterMovement : MonoBehaviour
         if (direction != 0)
             if (AIR_VELOCITY_MODE)
             {
+                // напр€мую задаем скорость движени€ в воздухе, позвол€ем моментально развернутьс€
                 _rb.linearVelocity = new Vector2(direction * _airMoveSpeed, _rb.linearVelocity.y);
             }
             else if (!AIR_VELOCITY_MODE)
             {
-                _rb.AddForce(new Vector2(direction * _airMoveSpeed, 0), ForceMode2D.Force);
+                // ѕолучаем текущую горизонтальную скорость
+                float currentSpeed = Mathf.Abs(_rb.linearVelocity.x);
+
+                // ≈сли текуща€ скорость меньше максимальной, добавл€ем силу
+                if (currentSpeed < _airMoveSpeed)
+                {
+                    // –ассчитываем силу в нужном направлении
+                    Vector2 force = new Vector2(direction * _airMoveSpeed, 0);
+
+                    // ѕримен€ем силу
+                    _rb.AddForce(force, ForceMode2D.Force);
+                }
             }
         CheckDirection(direction);
     }
@@ -120,8 +133,8 @@ public class CharacterMovement : MonoBehaviour
     //////////////////////////////////////////////////////////////// TEST /////////////////////////////////////////////////////////////////////
 
     bool GROUND_VELOCITY_MODE = true;
-    bool AIR_VELOCITY_MODE = true;
-    bool DOUBLE_JUMP_ENABLE = true;
+    bool AIR_VELOCITY_MODE = false;
+    bool DOUBLE_JUMP_ENABLE = false;
   
     public void SetMoveSpeed(float speed)
     {
