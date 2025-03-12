@@ -10,5 +10,6 @@ public class Movable : MonoBehaviour, IInteractable
     public void OnInteract(CharacterInterractor interractor)
     {
         interractor.ConnectToObject(_rb);
+        
     }
 }

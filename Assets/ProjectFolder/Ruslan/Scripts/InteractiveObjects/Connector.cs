@@ -24,13 +24,18 @@ public class Connector
         _hingeJoint.enabled = true;
         _hingeJoint.connectedBody = rb;
         _isConnected = true;
+        //Забираем массу у толкаемого обьекта
+        rb.mass /= 4;
     }
 
     internal void DisconectObject()
     {
+        //Возвращаем массу толкаемому обьекта
+        _hingeJoint.connectedBody.mass *= 4;
+
         _hingeJoint.connectedBody = null;
         _hingeJoint.enabled = false;
-        _isConnected = false;
+        _isConnected = false;       
     }
 
     internal void FixedUpdate()
@@ -39,7 +44,7 @@ public class Connector
         {
             Rigidbody2D rb = _hingeJoint.connectedBody;
             float torque = rb.inertia * rb.angularVelocity;
-            if (torque > 100)
+            if (torque > 1)
             {
                 DisconectObject();
             }
