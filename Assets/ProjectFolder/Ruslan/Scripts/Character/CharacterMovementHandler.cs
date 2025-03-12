@@ -6,6 +6,7 @@ public class CharacterMovementHandler : MonoBehaviour
     [SerializeField] private float _moveSpeed = 5;
     [SerializeField] private float _jumpForce = 5;
     [SerializeField] private float _airMoveSpeed = 5;
+    [SerializeField] private float _gravity = -9.8f;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private float _groundCheckRadius = 0.2f;
@@ -54,7 +55,8 @@ public class CharacterMovementHandler : MonoBehaviour
 
     public void GroundMovement(float direction)
     {
-        _rb.linearVelocityX = direction * _moveSpeed;
+        //_rb.linearVelocityX = direction * _moveSpeed;
+        _rb.linearVelocity = new Vector2(direction * _moveSpeed, _rb.linearVelocityY);
         CheckDirection(direction);
     }
 

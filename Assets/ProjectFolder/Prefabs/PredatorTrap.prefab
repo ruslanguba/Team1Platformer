@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _trapObject: {fileID: 3939340297308601706}
+  _characterTransform: {fileID: 0}
   _speed: 5
 --- !u!61 &298691859242548411
 BoxCollider2D:
@@ -105,8 +106,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3939340297308601706}
   - component: {fileID: 1952626995573743342}
-  - component: {fileID: 6813070851265776577}
   - component: {fileID: 6662622231021433680}
+  - component: {fileID: 2398619996437103751}
   m_Layer: 0
   m_Name: Predator
   m_TagString: Untagged
@@ -184,19 +185,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6813070851265776577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2317300163509901461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a788a5be39ff414294caa9ffc696386, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawnPoint: {fileID: 0}
 --- !u!61 &6662622231021433680
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -243,6 +231,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2398619996437103751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2317300163509901461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ef15c647d86ac6419434c80212f860b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4723420349889262587
 GameObject:
   m_ObjectHideFlags: 0
