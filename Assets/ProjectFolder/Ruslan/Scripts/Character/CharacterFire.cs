@@ -28,10 +28,6 @@ public class CharacterFire : FireBase
             this._isBurning = true;
             _fire.SetActive(this._isBurning);
         }
-        if (fire is FireSaver)
-        {
-            OnRespawnPointFound?.Invoke();
-        }
         fire.HandleFire(_isBurning);
     }
 

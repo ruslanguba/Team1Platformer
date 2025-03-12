@@ -7,7 +7,6 @@ public class Bonfire : FireBase
     private Coroutine _burningCoroutine;
     public override void HandleFire(bool isFireStarterBurning)
     {
-        Debug.Log("Bonfire " + isFireStarterBurning);
         if (isFireStarterBurning)
         {
             if (_burningCoroutine != null)

@@ -3,37 +3,18 @@ using UnityEngine;
 
 public class FireStarter : FireBase
 {
-    public event Action SaveGame;
-
-    private void Start()
-    {
-        _isBurning = true;
-    }
+    [SerializeField] float _fireStarterRadius;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<IFireable>() != null)
+        if (collision.GetComponent<Flammable>() != null)
         {
-            HandleFire(collision.GetComponent<IFireable>());
+            collision.GetComponent<Flammable>().HandleFire(true);
+            Debug.Log(collision.name);
         }
-    }
-
-    private void HandleFire(IFireable fire)
-    {
-        if (fire is FireStopper)
+        if(collision.TryGetComponent(out Flammable flammable))
         {
-            this._isBurning = false;
-            _fire.SetActive(this._isBurning);
-            return;
+            flammable.HandleFire(this);
+            Debug.Log(flammable.name);
         }
-        if (fire.IsBurning)
-        {
-            this._isBurning = true;
-            _fire.SetActive(this._isBurning);
-        }
-        if (fire is FireSaver)
-        {
-            SaveGame?.Invoke();
-        }
-        fire.HandleFire(_isBurning);
     }
 }

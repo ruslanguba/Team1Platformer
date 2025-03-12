@@ -8,6 +8,7 @@ public class FireSaver : FireBase
         if(isFireStarterBurning)
         {
             _fire.SetActive(true);
+            _isBurning = true;
         }
     }
 }
