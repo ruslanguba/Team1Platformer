@@ -35,7 +35,6 @@ public class CharacterFire : FireBase
     {
         if (_isBurning)
         {
-            Debug.Log("BraiseFire");
             _isBurning = false;
             _fire.SetActive(_isBurning);
         }

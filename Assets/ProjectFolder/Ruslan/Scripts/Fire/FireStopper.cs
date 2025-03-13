@@ -4,9 +4,9 @@ public class FireStopper : MonoBehaviour
 {
     private void OnParticleCollision(GameObject other)
     {
-        if (other.gameObject.TryGetComponent(out CharacterFire characterFire))
+        if (other.gameObject.TryGetComponent(out FireBase fire))
         {
-            characterFire.BraiseFire();
+            fire.BraiseFire();
         }
     }
 }

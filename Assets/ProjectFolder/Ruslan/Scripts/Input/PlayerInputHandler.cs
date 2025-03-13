@@ -6,6 +6,7 @@ public class PlayerInputHandler : MonoBehaviour
     public event Action<Vector2> OnMoveInput;
     public event Action OnJumpInput;
     public event Action OnUseInput;
+    public event Action OnHelpInput;
     private PlayerInput _inputActions;
 
     private void Awake()
@@ -20,12 +21,7 @@ public class PlayerInputHandler : MonoBehaviour
         _inputActions.Gameplay.Movement.performed += MovementPerformed;
         _inputActions.Gameplay.Movement.canceled += MovementCanceled;
         _inputActions.Gameplay.Use.performed += UsePerformed;
-
-    }
-
-    private void UsePerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
-    {
-        OnUseInput?.Invoke();
+        _inputActions.Gameplay.Help.performed += HelpPerformed;
     }
 
     private void OnDisable()
@@ -34,6 +30,7 @@ public class PlayerInputHandler : MonoBehaviour
         _inputActions.Gameplay.Movement.performed -= MovementPerformed;
         _inputActions.Gameplay.Movement.canceled -= MovementCanceled;
         _inputActions.Gameplay.Use.performed -= UsePerformed;
+        _inputActions.Gameplay.Help.performed -= HelpPerformed;
     }
 
     private void MovementCanceled(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -50,5 +47,15 @@ public class PlayerInputHandler : MonoBehaviour
     private void JumpPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         OnJumpInput?.Invoke();
+    }
+
+    private void HelpPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnHelpInput?.Invoke();
+    }
+
+    private void UsePerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnUseInput?.Invoke();
     }
 }

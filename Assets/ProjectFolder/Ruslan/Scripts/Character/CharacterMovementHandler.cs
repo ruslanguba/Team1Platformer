@@ -5,7 +5,8 @@ public class CharacterMovementHandler : MonoBehaviour
     private PlayerInputHandler _inputHandler;
     [SerializeField] private float _moveSpeed = 5;
     [SerializeField] private float _jumpForce = 5;
-    [SerializeField] private float _airMoveSpeed = 5;
+    [SerializeField] private float _airAcceleration = 5;
+    [SerializeField] private float _airMaxSpeed = 5;
     [SerializeField] private float _gravity = -9.8f;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private Transform _groundCheck;
@@ -68,10 +69,10 @@ public class CharacterMovementHandler : MonoBehaviour
             float currentSpeed = Mathf.Abs(_rb.linearVelocity.x);
 
             // ≈сли текуща€ скорость меньше максимальной, добавл€ем силу
-            if (currentSpeed < _airMoveSpeed)
+            if (currentSpeed < _airMaxSpeed)
             {
                 // –ассчитываем силу в нужном направлении
-                Vector2 force = new Vector2(direction * _airMoveSpeed, 0);
+                Vector2 force = new Vector2(direction * _airAcceleration, 0);
 
                 // ѕримен€ем силу
                 _rb.AddForce(force, ForceMode2D.Force);
