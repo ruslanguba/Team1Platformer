@@ -31,6 +31,4 @@ public class CharacterHintActivator : MonoBehaviour
             hint.ShowHint(_hintShowDuration);
         }
     }
-
-
 }

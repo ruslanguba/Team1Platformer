@@ -30,13 +30,4 @@ public class CharacterFire : FireBase
         }
         fire.HandleFire(_isBurning);
     }
-
-    public void BraiseFire()
-    {
-        if (_isBurning)
-        {
-            _isBurning = false;
-            _fire.SetActive(_isBurning);
-        }
-    }
 }

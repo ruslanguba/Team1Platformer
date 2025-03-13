@@ -11,6 +11,7 @@ public class RainDrop : MonoBehaviour
         _layer = gameObject.layer;
         Physics2D.IgnoreLayerCollision(_layer, _layer);
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out IFireable fireable))
