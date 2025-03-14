@@ -98,6 +98,7 @@ public class CharacterMovementHandler : MonoBehaviour
     {
         if ((direction > 0 && !_isFacingRight) || (direction < 0 && _isFacingRight))
         {
+            _rb.linearVelocity = new Vector2(0, _rb.linearVelocity.y);
             FlipDirection();
         }
     }

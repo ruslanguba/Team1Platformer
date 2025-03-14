@@ -2733,7 +2733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 5
   _jumpForce: 8
-  _airAcceleration: 7
+  _airAcceleration: 10
   _airMaxSpeed: 5
   _gravity: -9.8
   _groundLayer:

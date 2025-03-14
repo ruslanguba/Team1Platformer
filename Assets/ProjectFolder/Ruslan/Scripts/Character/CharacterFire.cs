@@ -15,6 +15,12 @@ public class CharacterFire : FireBase
         {
             BraiseFire();
         }
+
+        if (collision.TryGetComponent(out FireStopper _))
+        {
+            BraiseFire();
+        }
+
         if (collision.TryGetComponent(out IFireable fireable))
         {
             HandleFire(collision.GetComponent<IFireable>());
