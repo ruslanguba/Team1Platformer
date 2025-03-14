@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 4342058490047061461}
   - component: {fileID: 2687040052392942894}
   m_Layer: 9
-  m_Name: FLAMMABLE
+  m_Name: Flammable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
