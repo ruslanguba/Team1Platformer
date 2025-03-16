@@ -26,8 +26,8 @@ Transform:
   m_GameObject: {fileID: 1390755034150063398}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0}
+  m_LocalScale: {x: 1.9999499, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1036628176052739388}
@@ -378,6 +378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fire: {fileID: 2156735466257923977}
+  _isBurning: 0
 --- !u!114 &3353416200510083864
 MonoBehaviour:
   m_ObjectHideFlags: 0
