@@ -5,6 +5,10 @@ public class DeathHandler : MonoBehaviour
 {
     public Action OnDeath;
     [SerializeField] private CharacterDeath _characterDeath;
+    private void Awake()
+    {
+        _characterDeath = FindFirstObjectByType<CharacterDeath>();
+    }
 
     private void OnEnable()
     {

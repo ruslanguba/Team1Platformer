@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 5069407727110367743}
   - component: {fileID: 3247052325903999855}
   - component: {fileID: 1399393957513109920}
+  - component: {fileID: 8494562720106708280}
   m_Layer: 3
   m_Name: BigStoneRainStopper 1
   m_TagString: Untagged
@@ -268,3 +269,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 4}
   m_EdgeRadius: 0
+--- !u!114 &8494562720106708280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4760781995157360338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd22cd63a7e09374c9789bda847d8dfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isFallRight: 0

@@ -2,28 +2,33 @@ using UnityEngine;
 
 public class SpiritTrap : TrapBase
 {
-    [SerializeField] private Collider2D _respawnTrigger;
     [SerializeField] private SpriteRenderer[] _sprites;
     [SerializeField] private Color _spritesStartColor;
     [SerializeField] private float _patrolSpeed;
     [SerializeField] private float _activeSpeed;
     [SerializeField] private Vector2 _patrolAreaMin = new Vector2(-2, 0);
     [SerializeField] private Vector2 _patrolAreaMax = new Vector2(2, 1);
+    private Collider2D _deathTrigger;
     private Vector3 _targetPoint;
+    private Transform _stoneParent;
     private float _stoppingDistance = 0.1f;
     private float _currentSpeed;
 
     private void Start()
     {
         PickNewTarget();
+        _stoneParent = transform.parent;
         _spritesStartColor = _sprites[0].color;
-        _respawnTrigger = _trapObject.GetComponent<Collider2D>();
-        _respawnTrigger.enabled = false;
+        _deathTrigger = _trapObject.GetComponent<Collider2D>();
+        _deathTrigger.enabled = false;
+        _currentSpeed = _patrolSpeed;
+        transform.parent = null;
     }
 
     private void Update()
     {
         MoveToTarget();
+        FollowStone();
     }
 
     protected override void ActivateTrap(CharacterFire characterFire)
@@ -36,18 +41,20 @@ public class SpiritTrap : TrapBase
             {
                 sprite.color = Color.red;
             }
-            _respawnTrigger.enabled = true;
+            _deathTrigger.enabled = true;
         }
     }
 
     protected override void DiactivateTrap()
     {
-        base.DiactivateTrap();PickNewTarget();
+        base.DiactivateTrap();
+        PickNewTarget();
+        _currentSpeed = _patrolSpeed;
         foreach (var sprite in _sprites)
         {
             sprite.color = _spritesStartColor;
         }
-        _respawnTrigger.enabled = false;
+        _deathTrigger.enabled = false;
     }
 
     private void SetTriggerCharaceter()
@@ -67,14 +74,18 @@ public class SpiritTrap : TrapBase
 
     private void PickNewTarget()
     {
-        // Выбираем случайную точку в локальных координатах
-        Vector2 localTarget = new Vector2(
+        // Получаем мировую позицию объекта как центр патрулирования
+        Vector2 patrolCenter = transform.position;
+        // Выбираем случайную точку в мировых координатах
+        Vector2 offset = new Vector2(
             Random.Range(_patrolAreaMin.x, _patrolAreaMax.x),
-            Random.Range(_patrolAreaMin.y, _patrolAreaMax.y)
-        );
+            Mathf.Abs(Random.Range(_patrolAreaMin.y, _patrolAreaMax.y)));
 
-        // Конвертируем в мировые координаты
-        _targetPoint = _trapObject.parent.TransformPoint(localTarget);
-        _currentSpeed = _patrolSpeed;
+        _targetPoint = patrolCenter + offset;
+    }
+
+    private void FollowStone()
+    {
+        transform.position = _stoneParent.position;
     }
 }

@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 1326974495551342522}
   - component: {fileID: 1964719650858875472}
   - component: {fileID: 8630440894222361463}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,15 +472,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _trapObject: {fileID: 8079396258197217221}
-  _characterTransform: {fileID: 0}
   _speed: 0
   _leftPart: {fileID: 6433585799555033085}
   _rightPart: {fileID: 4652832854326506028}
+  _trapCollider: {fileID: 0}
   _leftTargetAngle: -90
   _rigthtTargetAngle: 90
   _duration: 0.2
   _deathDelay: 0.5
-  _active: 0
+  _isStoneInTrap: 0
+  _stoneInTrapRigidbody: {fileID: 0}
+  _stoneInTrapCollider: {fileID: 0}
 --- !u!1 &5139943149455637419
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,7 +494,7 @@ GameObject:
   - component: {fileID: 338908318274059641}
   - component: {fileID: 29285448692725104}
   - component: {fileID: 14800359693562239}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}

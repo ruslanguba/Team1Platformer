@@ -19239,7 +19239,7 @@ EdgeCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1613529706}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -21551,6 +21551,7 @@ MonoBehaviour:
   _movement: {fileID: 0}
   _interractPivot: {fileID: 1921603894}
   _checkRadius: 0.1
+  _breakingTorque: 200
   _hingeJoint: {fileID: 0}
   _ignoreLayerMask:
     serializedVersion: 2
@@ -21627,7 +21628,7 @@ HingeJoint2D:
   serializedVersion: 4
   m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 0}
-  m_BreakForce: 500
+  m_BreakForce: 700
   m_BreakTorque: 200
   m_BreakAction: 1
   m_AutoConfigureConnectedAnchor: 1
@@ -22598,15 +22599,15 @@ PrefabInstance:
       objectReference: {fileID: 5725184139431673129, guid: 504e585c1bd2e5443808ee7f33951b2c, type: 3}
     - target: {fileID: 7894433811460462215, guid: 67ac2052f42782e49bd897d3bbef084d, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.01006
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7894433811460462215, guid: 67ac2052f42782e49bd897d3bbef084d, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.01006
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7894433811460462215, guid: 67ac2052f42782e49bd897d3bbef084d, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.50503
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7894433811460462215, guid: 67ac2052f42782e49bd897d3bbef084d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22648,9 +22649,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7894433811460462215, guid: 67ac2052f42782e49bd897d3bbef084d, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9182155209753029575, guid: 67ac2052f42782e49bd897d3bbef084d, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9182155209753029575, guid: 67ac2052f42782e49bd897d3bbef084d, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x

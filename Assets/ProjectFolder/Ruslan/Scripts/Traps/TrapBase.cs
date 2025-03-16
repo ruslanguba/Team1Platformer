@@ -3,25 +3,32 @@ using UnityEngine;
 public abstract class TrapBase : MonoBehaviour
 {
     [SerializeField] protected Transform _trapObject;
-    [SerializeField] protected Transform _characterTransform;
     [SerializeField] protected float _speed;
+    protected Transform _characterTransform;
 
-    protected void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out CharacterFire characterFire))
-        {
-            if(_characterTransform == null)
-            {
-                _characterTransform = characterFire.transform;
-            }
-            ActivateTrap(characterFire);
-            Debug.Log(characterFire.name);
-        }
+        HandleTriggerEnter(collision);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.TryGetComponent(out CharacterFire characterFire))
+        HandleTriggerExit(collision);
+    }
+    protected virtual void HandleTriggerEnter(Collider2D collision) 
+    {
+        if (collision.TryGetComponent(out CharacterFire characterFire))
+        {
+            if (_characterTransform == null)
+            {
+                _characterTransform = characterFire.transform;
+            }
+            ActivateTrap(characterFire);
+        }
+    }
+    protected virtual void HandleTriggerExit(Collider2D collision) 
+    {
+        if (collision.TryGetComponent(out CharacterFire characterFire))
         {
             DiactivateTrap();
         }

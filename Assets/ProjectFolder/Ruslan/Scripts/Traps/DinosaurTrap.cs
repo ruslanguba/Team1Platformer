@@ -5,23 +5,36 @@ public class DinosaurTrap : TrapBase
 {
     [SerializeField] private Transform _leftPart;
     [SerializeField] private Transform _rightPart;
+    [SerializeField] private Collider2D _trapCollider;
     [SerializeField] private float _leftTargetAngle = -90;
     [SerializeField] private float _rigthtTargetAngle = 90;
     [SerializeField] private float _duration = 0.5f;
     [SerializeField] private float _deathDelay = 0.5f;
-    [SerializeField] private bool _active;
+    [SerializeField] private bool _isStoneInTrap = false;
+    [SerializeField] private Rigidbody2D _stoneInTrapRigidbody;
+    [SerializeField] private Collider2D _stoneInTrapCollider;
 
     private void Start()
     {
         _trapObject.gameObject.SetActive(false);
+        _trapCollider = GetComponent<Collider2D>();
     }
-    protected override void ActivateTrap(CharacterFire characterFire)
+
+    protected override void HandleTriggerEnter(Collider2D collision)
     {
+        if(collision.TryGetComponent(out Movable movable))
+        {
+            _isStoneInTrap = true;
+            _trapCollider.enabled = false;
+            _stoneInTrapRigidbody = movable.GetComponent<Rigidbody2D>();
+            _stoneInTrapCollider = movable.GetComponent<Collider2D>();
+        }
         StartCoroutine(CloseJaws());
     }
 
     private IEnumerator CloseJaws()
     {
+        Debug.Log("Start close");
         Quaternion leftStartRotation = _leftPart.rotation;
         Quaternion leftTargetRotation = Quaternion.Euler(0, 0, _leftTargetAngle);
 
@@ -39,10 +52,18 @@ public class DinosaurTrap : TrapBase
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        yield return new WaitForSeconds(_deathDelay);
-        _trapObject.gameObject.SetActive(true);
         _leftPart.rotation = leftTargetRotation;
         _rightPart.rotation = rightTargetRotation;
+
+        if (_isStoneInTrap)
+        {
+            _stoneInTrapRigidbody.bodyType = RigidbodyType2D.Static;
+            _stoneInTrapCollider.transform.position = transform.position;
+            yield break;
+        }
+        yield return new WaitForSeconds(_deathDelay);
+        _trapObject.gameObject.SetActive(true);
+
         yield return new WaitForSeconds(1);
         _leftPart.rotation = leftStartRotation;
         _rightPart.rotation = rightStartRotation;

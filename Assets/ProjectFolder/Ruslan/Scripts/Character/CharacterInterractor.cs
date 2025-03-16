@@ -3,9 +3,10 @@ using UnityEngine;
 public class CharacterInterractor : MonoBehaviour
 {
     [SerializeField] private PlayerInputHandler _input; // ссылка на класс обработки ввода
-    [SerializeField] private CharacterMovement _movement;
+    [SerializeField] private CharacterMovementHandler _movement;
     [SerializeField] private Transform _interractPivot;
     [SerializeField] private float _checkRadius;
+    [SerializeField] private float _breakingTorque = 200;
     [SerializeField] private HingeJoint2D _hingeJoint;
     [SerializeField] private LayerMask _ignoreLayerMask;
     private Connector _connector;
@@ -25,8 +26,8 @@ public class CharacterInterractor : MonoBehaviour
     void Start()
     {
         _hingeJoint = GetComponent<HingeJoint2D>();
-        _connector = new Connector(_hingeJoint);
-        _movement = GetComponent<CharacterMovement>();
+        _connector = new Connector(_hingeJoint, _breakingTorque);
+        _movement = GetComponent<CharacterMovementHandler>();
     }
 
     public void Interact()
@@ -43,11 +44,6 @@ public class CharacterInterractor : MonoBehaviour
             {
                 interactable.OnInteract(this);
             }
-            //if (hit.gameObject.TryGetComponent(out IFireable fireable))
-            //{
-            //    GetComponent<CharacterFire>().BraiseFire();
-            //    fireable.HandleFire(this);
-            //}
         }
     }
 
