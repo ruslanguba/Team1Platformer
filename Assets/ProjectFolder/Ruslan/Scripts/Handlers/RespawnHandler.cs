@@ -28,7 +28,7 @@ public class RespawnHandler : MonoBehaviour
         _deathHandler = GetComponentInChildren<DeathHandler>();
         _characterTransform = _characterRespown.transform;
     }
-    private void RespawnCharacter()
+    public void RespawnCharacter()
     {
         // рср бяе врн днкфмн опнхяундхрэ опх пеяоюбме лнфмн янгдюрэ йнпсрхмс еякх врн-рн онщрюомн мюдн ядекюрэ
         _characterTransform.position = _respawnPosition;
