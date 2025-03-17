@@ -24,7 +24,6 @@ public class FireSpriteRandomiser : MonoBehaviour
         int rnd = Random.Range(0, _fireSpritesList.Length);
         int rndFlip = Random.Range(0, 2);
         _spriteRenderer.sprite = _fireSpritesList[rnd];
-        Debug.Log(rnd);
         if (rndFlip == 1 )
             _spriteRenderer.flipX = true;
         else 
