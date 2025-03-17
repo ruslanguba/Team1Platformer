@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class CharacterFire : FireBase
 {
-    public event Action OnRespawnPointFound;
     private void Start()
     {
         _isBurning = true;
@@ -11,19 +10,9 @@ public class CharacterFire : FireBase
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<FireStopper>() != null)
-        {
-            BraiseFire();
-        }
-
-        if (collision.TryGetComponent(out FireStopper _))
-        {
-            BraiseFire();
-        }
-
         if (collision.TryGetComponent(out IFireable fireable))
         {
-            HandleFire(collision.GetComponent<IFireable>());
+            HandleFire(fireable);
         }
     }
 

@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class Flammable : FireBase
 {
-    [SerializeField] private SpriteRenderer _spriteRenderer;
-    [SerializeField] private Collider2D _deathCollider;
     [SerializeField] private float _fireSpreadDelay;
     [SerializeField] private float _burnDuration;
     [SerializeField] private float _flameRadius;
+    private SpriteRenderer _spriteRenderer;
+    private Collider2D _deathCollider;
     private Coroutine _coroutine;
   
     private void Start()

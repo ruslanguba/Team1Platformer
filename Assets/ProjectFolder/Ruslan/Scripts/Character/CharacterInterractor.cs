@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class CharacterInterractor : MonoBehaviour
 {
-    [SerializeField] private PlayerInputHandler _input; // ссылка на класс обработки ввода
-    [SerializeField] private CharacterMovementHandler _movement;
     [SerializeField] private Transform _interractPivot;
     [SerializeField] private float _checkRadius;
     [SerializeField] private float _breakingTorque = 200;
-    [SerializeField] private HingeJoint2D _hingeJoint;
     [SerializeField] private LayerMask _ignoreLayerMask;
+    private HingeJoint2D _hingeJoint;
     private Connector _connector;
+    private PlayerInputHandler _input; // ссылка на класс обработки ввода
+    private CharacterMovementHandler _movement;
 
     private void Awake()
     {

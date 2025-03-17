@@ -11,6 +11,7 @@ public class RespawnHandler : MonoBehaviour
     private void Awake()
     {
         _deathHandler = GetComponent<DeathHandler>();
+        _characterRespown = FindFirstObjectByType<CharacterRespown>();
     }
     private void OnEnable()
     {

@@ -3,7 +3,7 @@ using UnityEngine;
 public class FireBase : MonoBehaviour, IFireable, IInteractable
 {
     [SerializeField] protected GameObject _fire;
-    [SerializeField] protected bool _isBurning = false;
+    protected bool _isBurning = false;
     public bool IsBurning => _isBurning;
 
     public virtual void HandleFire(bool isFireStarterBurning) { }

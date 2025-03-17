@@ -5,14 +5,14 @@ public class DinosaurTrap : TrapBase
 {
     [SerializeField] private Transform _leftPart;
     [SerializeField] private Transform _rightPart;
-    [SerializeField] private Collider2D _trapCollider;
     [SerializeField] private float _leftTargetAngle = -90;
     [SerializeField] private float _rigthtTargetAngle = 90;
     [SerializeField] private float _duration = 0.5f;
     [SerializeField] private float _deathDelay = 0.5f;
-    [SerializeField] private bool _isStoneInTrap = false;
-    [SerializeField] private Rigidbody2D _stoneInTrapRigidbody;
-    [SerializeField] private Collider2D _stoneInTrapCollider;
+    private bool _isStoneInTrap = false;
+    private Rigidbody2D _stoneInTrapRigidbody;
+    private Collider2D _trapCollider;
+    private Collider2D _stoneInTrapCollider;
 
     private void Start()
     {
@@ -28,6 +28,7 @@ public class DinosaurTrap : TrapBase
             _trapCollider.enabled = false;
             _stoneInTrapRigidbody = movable.GetComponent<Rigidbody2D>();
             _stoneInTrapCollider = movable.GetComponent<Collider2D>();
+            movable.enabled = false;
         }
         StartCoroutine(CloseJaws());
     }

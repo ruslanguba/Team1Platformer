@@ -1838,7 +1838,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fire: {fileID: 658230151}
-  _isBurning: 0
   _burningTime: 10
 --- !u!1001 &243502610
 PrefabInstance:
@@ -2466,7 +2465,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 008e4553c15a5844da945c0dcdf29f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterDeath: {fileID: 305850521}
 --- !u!114 &287701234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2711,11 +2709,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 365687d8424015d4cbfe68079b137be6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _input: {fileID: 0}
-  _movement: {fileID: 0}
   _interractPivot: {fileID: 934271144}
   _checkRadius: 0.1
-  _hingeJoint: {fileID: 0}
+  _breakingTorque: 200
   _ignoreLayerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -2732,7 +2728,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fire: {fileID: 732694350}
-  _isBurning: 0
 --- !u!114 &305850524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2901,13 +2896,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 274b20612a31ab54dbed22b08dc4578b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputHandler: {fileID: 0}
   _checkRadius: 5
   _hintShowDuration: 10
   _hintLayer:
     serializedVersion: 2
     m_Bits: 1024
-  _globalLight: {fileID: 0}
 --- !u!1 &307066203
 GameObject:
   m_ObjectHideFlags: 0
@@ -7882,7 +7875,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fire: {fileID: 447671950}
-  _isBurning: 0
   _burningTime: 30
 --- !u!4 &907747755
 Transform:
@@ -9414,7 +9406,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fire: {fileID: 1166766624}
-  _isBurning: 0
   _burningTime: 30
 --- !u!1 &1069133276
 GameObject:
@@ -12629,7 +12620,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fire: {fileID: 630708062}
-  _isBurning: 0
   _burningTime: 30
 --- !u!1 &1608776033
 GameObject:
@@ -14039,7 +14029,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fire: {fileID: 1048239186}
-  _isBurning: 0
   _burningTime: 30
 --- !u!4 &1772497398
 Transform:
