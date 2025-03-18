@@ -18,8 +18,9 @@ public class FireBase : MonoBehaviour, IFireable, IInteractable
     {
         if (_isBurning)
         {
+            Debug.Log("BraiseFire");
             _isBurning = false;
-            _fire.SetActive(_isBurning);
+            _fire.SetActive(false);
         }
     }
 }
