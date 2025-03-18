@@ -7473,6 +7473,14 @@ PrefabInstance:
       propertyPath: _kostilMoveBlockForce
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 6701366818296488690, guid: b5599707b21825f438d6ef435cfaeeac, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 19.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701366818296488690, guid: b5599707b21825f438d6ef435cfaeeac, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 3.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8054672202235499226, guid: b5599707b21825f438d6ef435cfaeeac, type: 3}
       propertyPath: m_Enabled
       value: 1

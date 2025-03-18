@@ -133,8 +133,8 @@ Transform:
   m_GameObject: {fileID: 2007600559988427287}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4446438070831124013}
@@ -5305,7 +5305,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 880188949, guid: 0847ec12ca55d8d47a53d52001637bf8, type: 3}
+  m_Sprite: {fileID: -5842718609361386727, guid: b18d9e80922e7f3468158c4a890ee798, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5359,6 +5359,7 @@ GameObject:
   - component: {fileID: 2905396702707273055}
   - component: {fileID: 8754275721166484843}
   - component: {fileID: 8961803866009940903}
+  - component: {fileID: 7973959274044525410}
   m_Layer: 6
   m_Name: CharacterNew
   m_TagString: Untagged
@@ -5466,7 +5467,7 @@ HingeJoint2D:
   m_BreakAction: 1
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 19.5, y: 3.2}
+  m_ConnectedAnchor: {x: 68, y: 28}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -5555,6 +5556,7 @@ MonoBehaviour:
   _ignoreLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  _kostilMoveBlockForce: 0
 --- !u!114 &6974031517562442786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5608,6 +5610,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cd7652df0e5f86c4c9d032a3e4ba50e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7973959274044525410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6525556814992272854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e2a6d13dc0b7f45982a09169a3c3b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6810906683258046097
