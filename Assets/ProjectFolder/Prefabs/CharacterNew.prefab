@@ -5509,8 +5509,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _groundCheck: {fileID: 4464238091824914050}
-  _groundCheckRadius: 0.5
+  _groundCheckRadius: 0.45
   _isFacingRight: 1
+  _isGrounded: 0
 --- !u!114 &317120166717371145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5634,7 +5635,7 @@ Transform:
   m_GameObject: {fileID: 6810906683258046097}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.6, z: 0}
+  m_LocalPosition: {x: -0.05, y: -0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
