@@ -13,6 +13,7 @@ public class CharacterMovementHandler : MonoBehaviour
     [SerializeField] private float _groundCheckRadius = 0.2f;
     [SerializeField] private bool _isFacingRight = true;
     [SerializeField] private bool _isGrounded;
+    [SerializeField] private bool _isJumpVelocity;
     private float _currentMoveDirection;
     private Rigidbody2D _rb;
 
@@ -86,7 +87,16 @@ public class CharacterMovementHandler : MonoBehaviour
     {
         if(IsGrounded())
         {
-            _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+            if(_isJumpVelocity)
+            {
+                _rb.linearVelocityY = _jumpForce;
+                Debug.Log("Velocity");
+            }
+            else
+            {
+                _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+                Debug.Log("AddForceJump");
+            }
         }
     }
 

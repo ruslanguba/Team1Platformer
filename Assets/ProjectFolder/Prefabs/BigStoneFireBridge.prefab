@@ -4860,9 +4860,9 @@ Transform:
   m_GameObject: {fileID: 2836582540419005950}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.17377855, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1.2, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8946117983147287462}
   - {fileID: 8126361295475872576}
@@ -9786,7 +9786,7 @@ Transform:
   m_GameObject: {fileID: 4515649118496530422}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.30000028, y: 0.32622147, z: 0}
+  m_LocalPosition: {x: 0.3, y: 0, z: 0}
   m_LocalScale: {x: 1.5000001, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24420,7 +24420,7 @@ GameObject:
   - component: {fileID: 3365418125290362019}
   - component: {fileID: 1825443534008185076}
   m_Layer: 3
-  m_Name: PriteAndCollider
+  m_Name: SpriteAndCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24570,7 +24570,7 @@ Transform:
   m_GameObject: {fileID: 8106255206719302316}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.20000017, y: 0.3262216, z: 0}
+  m_LocalPosition: {x: -0.2, y: 0, z: 0}
   m_LocalScale: {x: 1.5000001, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -29457,7 +29457,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.2}
   m_EdgeRadius: 0
 --- !u!114 &4627917496970827226
 MonoBehaviour:

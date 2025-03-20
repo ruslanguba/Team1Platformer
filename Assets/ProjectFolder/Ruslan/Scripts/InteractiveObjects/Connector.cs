@@ -26,14 +26,14 @@ public class Connector
         _hingeJoint.enabled = true;
         _hingeJoint.connectedBody = rb;
         _isConnected = true;
-        //Забираем массу у толкаемого обьекта
-        rb.mass /= 4;
+        ////Забираем массу у толкаемого обьекта
+        //rb.mass /= 4;
     }
 
     internal void DisconectObject()
     {
-        //Возвращаем массу толкаемому обьекта
-        _hingeJoint.connectedBody.mass *= 4;
+        ////Возвращаем массу толкаемому обьекта
+        //_hingeJoint.connectedBody.mass *= 4;
 
         _hingeJoint.connectedBody = null;
         _hingeJoint.enabled = false;

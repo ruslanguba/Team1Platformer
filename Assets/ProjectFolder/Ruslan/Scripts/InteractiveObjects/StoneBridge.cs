@@ -21,10 +21,9 @@ public class StoneBridge : MonoBehaviour, IInteractable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.TryGetComponent(out CharacterInterractor character))
+        if (collision.TryGetComponent(out CharacterFire character))
         {
-            _rb.bodyType = RigidbodyType2D.Dynamic;
-            StartCoroutine(CheckRotation());
+            OnTriggerEnterHandler(character);
         }
     }
 
@@ -38,6 +37,17 @@ public class StoneBridge : MonoBehaviour, IInteractable
         {
             _rb.AddForce(Vector2.left, ForceMode2D.Impulse);
         }
+    }
+
+    protected virtual void OnTriggerEnterHandler(CharacterFire character)
+    {
+        _rb.bodyType = RigidbodyType2D.Dynamic;
+        StartCheckRotation();
+    }
+
+    protected virtual void StartCheckRotation()
+    {
+        StartCoroutine(CheckRotation());
     }
 
     private void SetFallDirection()
@@ -64,7 +74,7 @@ public class StoneBridge : MonoBehaviour, IInteractable
         _joint.useLimits = true;
     }
 
-    IEnumerator CheckRotation()
+    private IEnumerator CheckRotation()
     {
         while (true)
         {
