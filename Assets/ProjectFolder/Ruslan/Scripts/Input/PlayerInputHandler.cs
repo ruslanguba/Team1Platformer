@@ -6,14 +6,11 @@ public class PlayerInputHandler : MonoBehaviour
     public event Action<Vector2> OnMoveInput;
     public event Action OnJumpInput;
     public event Action OnUseInput;
-
+    public event Action OnHelpInput;
     private PlayerInput _inputActions;
-    //private PlayerInputData _inputData;
-    //public PlayerInputData GetInputData() => _inputData;
-    private bool _isMoving = false;
+
     private void Awake()
     {
-        //_inputData = new PlayerInputData();
         _inputActions = new PlayerInput();
         _inputActions.Enable();
         
@@ -24,12 +21,7 @@ public class PlayerInputHandler : MonoBehaviour
         _inputActions.Gameplay.Movement.performed += MovementPerformed;
         _inputActions.Gameplay.Movement.canceled += MovementCanceled;
         _inputActions.Gameplay.Use.performed += UsePerformed;
-
-    }
-
-    private void UsePerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
-    {
-        OnUseInput?.Invoke();
+        _inputActions.Gameplay.Help.performed += HelpPerformed;
     }
 
     private void OnDisable()
@@ -37,35 +29,33 @@ public class PlayerInputHandler : MonoBehaviour
         _inputActions.Gameplay.Jump.performed -= JumpPerformed;
         _inputActions.Gameplay.Movement.performed -= MovementPerformed;
         _inputActions.Gameplay.Movement.canceled -= MovementCanceled;
+        _inputActions.Gameplay.Use.performed -= UsePerformed;
+        _inputActions.Gameplay.Help.performed -= HelpPerformed;
     }
 
     private void MovementCanceled(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         OnMoveInput?.Invoke(Vector2.zero);
-        _isMoving = false;
     }
 
     private void MovementPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        _isMoving = true;
+        Vector2 direction = _inputActions.Gameplay.Movement.ReadValue<Vector2>();
+        OnMoveInput?.Invoke(direction);
     }
 
     private void JumpPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        OnJumpInput?.Invoke(); // Отправляем событие при прыжке
+        OnJumpInput?.Invoke();
     }
 
-    private void Update()
+    private void HelpPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        HandleMooveInput();
+        OnHelpInput?.Invoke();
     }
 
-    private void HandleMooveInput()
+    private void UsePerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        if (_isMoving)
-        {
-            Vector2 direction = _inputActions.Gameplay.Movement.ReadValue<Vector2>();
-            OnMoveInput?.Invoke(direction);
-        }
+        OnUseInput?.Invoke();
     }
 }

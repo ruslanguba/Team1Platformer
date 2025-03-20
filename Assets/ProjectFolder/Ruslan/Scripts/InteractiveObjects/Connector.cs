@@ -4,11 +4,13 @@ public class Connector
 {
     internal HingeJoint2D _hingeJoint;
     internal bool _isConnected;
-    public Connector (HingeJoint2D hingeJoint)
+    internal float _breakingTorque;
+    public Connector (HingeJoint2D hingeJoint, float breakingTorque)
     {
         _hingeJoint = hingeJoint;
         _hingeJoint.enabled = false;
         _isConnected = false;
+        _breakingTorque = breakingTorque;
     }
 
     internal void OnInterract()
@@ -44,7 +46,11 @@ public class Connector
         {
             Rigidbody2D rb = _hingeJoint.connectedBody;
             float torque = rb.inertia * rb.angularVelocity;
+
             if (torque > 1)
+
+            if (torque > _breakingTorque)
+
             {
                 DisconectObject();
             }
