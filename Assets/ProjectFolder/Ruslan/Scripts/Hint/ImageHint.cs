@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class ImageHint : HintBase
 {
-    [SerializeField] private SpriteRenderer _sprite;
     [SerializeField] private float _showDuration;
-    [SerializeField] private Color _color;
-    [SerializeField] private Coroutine _coroutine;
+    private SpriteRenderer _sprite;
+    private Color _color;
+    private Coroutine _coroutine;
 
     private void Start()
     {

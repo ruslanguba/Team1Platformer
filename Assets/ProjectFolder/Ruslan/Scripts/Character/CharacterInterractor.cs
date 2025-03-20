@@ -2,14 +2,15 @@ using UnityEngine;
 
 public class CharacterInterractor : MonoBehaviour
 {
-    [SerializeField] private PlayerInputHandler _input; // ссылка на класс обработки ввода
-    [SerializeField] private CharacterMovementHandler _movement;
     [SerializeField] private Transform _interractPivot;
     [SerializeField] private float _checkRadius;
     [SerializeField] private float _breakingTorque = 200;
-    [SerializeField] private HingeJoint2D _hingeJoint;
     [SerializeField] private LayerMask _ignoreLayerMask;
+    [SerializeField] private float _kostilMoveBlockForce;
+    private HingeJoint2D _hingeJoint;
     private Connector _connector;
+    private PlayerInputHandler _input; // ссылка на класс обработки ввода
+    private CharacterMovementHandler _movement;
 
     private void Awake()
     {
@@ -43,6 +44,12 @@ public class CharacterInterractor : MonoBehaviour
             if (hit.gameObject.TryGetComponent(out IInteractable interactable))
             {
                 interactable.OnInteract(this);
+            }
+            if (!_movement.IsGrounded() && hit.gameObject.TryGetComponent(out Movable movable))
+            {
+                Vector2 force = new Vector2(_movement.GetFacingDirection() * _kostilMoveBlockForce, 0);
+                movable.GetComponent<Rigidbody2D>().AddForce(force, ForceMode2D.Impulse);
+                Debug.Log(movable.name);
             }
         }
     }

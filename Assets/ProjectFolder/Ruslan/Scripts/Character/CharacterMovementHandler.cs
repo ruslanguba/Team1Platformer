@@ -12,6 +12,7 @@ public class CharacterMovementHandler : MonoBehaviour
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private float _groundCheckRadius = 0.2f;
     [SerializeField] private bool _isFacingRight = true;
+    [SerializeField] private bool _isGrounded;
     private float _currentMoveDirection;
     private Rigidbody2D _rb;
 
@@ -56,8 +57,8 @@ public class CharacterMovementHandler : MonoBehaviour
 
     public void GroundMovement(float direction)
     {
-        //_rb.linearVelocityX = direction * _moveSpeed;
-        _rb.linearVelocity = new Vector2(direction * _moveSpeed, _rb.linearVelocityY);
+        _rb.linearVelocityX = direction * _moveSpeed;
+        //_rb.linearVelocity = new Vector2(direction * _moveSpeed, _rb.linearVelocityY);
         CheckDirection(direction);
     }
 
@@ -91,7 +92,8 @@ public class CharacterMovementHandler : MonoBehaviour
 
     public bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(_groundCheck.position, _groundCheckRadius, _groundLayer);
+        _isGrounded = Physics2D.OverlapCircle(_groundCheck.position, _groundCheckRadius, _groundLayer);
+        return _isGrounded;
     }
 
     private void CheckDirection(float direction)
@@ -109,5 +111,12 @@ public class CharacterMovementHandler : MonoBehaviour
         Vector3 localScale = transform.localScale;
         localScale.x *= -1;
         transform.localScale = localScale;
+    }
+
+    public int GetFacingDirection()
+    {
+        if (_isFacingRight)
+            return 1;
+        else return -1;
     }
 }

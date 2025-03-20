@@ -25,7 +25,6 @@ public class CharacterDeath : MonoBehaviour
         if(collision.GetComponent<DeathTrigger>() != null)
         {
             OnDeathTriggerEntered?.Invoke();
-            Debug.Log("Death");
             return;
         }
     }
@@ -52,7 +51,6 @@ public class CharacterDeath : MonoBehaviour
             {
                 OnDeathTriggerEntered?.Invoke();
                 StopDeathTimer();
-                Debug.Log("Death in fire");
             }
         }
     }
@@ -67,7 +65,6 @@ public class CharacterDeath : MonoBehaviour
         _isInFire = false;
         _deathTimer = 0f;
         ResetCorutine();
-        Debug.Log("Stop Timer");
     }
     private void ResetCorutine()
     {

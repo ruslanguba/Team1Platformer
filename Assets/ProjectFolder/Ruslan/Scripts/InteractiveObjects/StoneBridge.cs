@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class StoneBridge : MonoBehaviour, IInteractable
@@ -23,6 +24,7 @@ public class StoneBridge : MonoBehaviour, IInteractable
         if(collision.TryGetComponent(out CharacterInterractor character))
         {
             _rb.bodyType = RigidbodyType2D.Dynamic;
+            StartCoroutine(CheckRotation());
         }
     }
 
@@ -60,5 +62,19 @@ public class StoneBridge : MonoBehaviour, IInteractable
         limits.max = _maxAngleLimmit;
         _joint.limits = limits;
         _joint.useLimits = true;
+    }
+
+    IEnumerator CheckRotation()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.5f);
+            Debug.Log(transform.rotation.z);
+            if (Mathf.Abs(transform.rotation.z) > 0.5)
+            {
+                _activatorTrigger.enabled = false;
+                yield break;
+            }
+        }
     }
 }

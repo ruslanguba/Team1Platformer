@@ -5,11 +5,10 @@ using UnityEngine.Rendering.Universal;
 public class CharacterHintActivator : MonoBehaviour
 {
     public event Action<float> OnShowHint;
-    [SerializeField] private PlayerInputHandler _inputHandler;
     [SerializeField] private float _checkRadius = 5;
     [SerializeField] private float _hintShowDuration;
     [SerializeField] private LayerMask _hintLayer;
-    [SerializeField] private Light2D _globalLight;
+    private PlayerInputHandler _inputHandler;
 
     private void Awake()
     {

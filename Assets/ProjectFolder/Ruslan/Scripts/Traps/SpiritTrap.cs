@@ -3,11 +3,11 @@ using UnityEngine;
 public class SpiritTrap : TrapBase
 {
     [SerializeField] private SpriteRenderer[] _sprites;
-    [SerializeField] private Color _spritesStartColor;
     [SerializeField] private float _patrolSpeed;
     [SerializeField] private float _activeSpeed;
     [SerializeField] private Vector2 _patrolAreaMin = new Vector2(-2, 0);
     [SerializeField] private Vector2 _patrolAreaMax = new Vector2(2, 1);
+    private Color _spritesStartColor;
     private Collider2D _deathTrigger;
     private Vector3 _targetPoint;
     private Transform _stoneParent;
@@ -74,9 +74,7 @@ public class SpiritTrap : TrapBase
 
     private void PickNewTarget()
     {
-        // Получаем мировую позицию объекта как центр патрулирования
         Vector2 patrolCenter = transform.position;
-        // Выбираем случайную точку в мировых координатах
         Vector2 offset = new Vector2(
             Random.Range(_patrolAreaMin.x, _patrolAreaMax.x),
             Mathf.Abs(Random.Range(_patrolAreaMin.y, _patrolAreaMax.y)));

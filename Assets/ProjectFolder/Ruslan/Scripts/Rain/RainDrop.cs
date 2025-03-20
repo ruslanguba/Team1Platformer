@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class RainDrop : MonoBehaviour
 {
-    [SerializeField] private RainDropSpawner _spawner;
-    [SerializeField] private int _layer;
+    private RainDropSpawner _spawner;
+    private int _layer;
 
     public void SetSpawner(RainDropSpawner spawner)
     {

@@ -714,71 +714,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &55582159
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2000572491469916484, guid: aa25fb44f902a3d4c9d2853f2037ae64, type: 3}
-      propertyPath: m_Name
-      value: BigStoneRainStopper (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2731650281318486978, guid: aa25fb44f902a3d4c9d2853f2037ae64, type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: 22.27751
-      objectReference: {fileID: 0}
-    - target: {fileID: 2731650281318486978, guid: aa25fb44f902a3d4c9d2853f2037ae64, type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: 2.3341312
-      objectReference: {fileID: 0}
-    - target: {fileID: 2776096915657709116, guid: aa25fb44f902a3d4c9d2853f2037ae64, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 27
-      objectReference: {fileID: 0}
-    - target: {fileID: 2776096915657709116, guid: aa25fb44f902a3d4c9d2853f2037ae64, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2776096915657709116, guid: aa25fb44f902a3d4c9d2853f2037ae64, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2776096915657709116, guid: aa25fb44f902a3d4c9d2853f2037ae64, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2776096915657709116, guid: aa25fb44f902a3d4c9d2853f2037ae64, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2776096915657709116, guid: aa25fb44f902a3d4c9d2853f2037ae64, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2776096915657709116, guid: aa25fb44f902a3d4c9d2853f2037ae64, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2776096915657709116, guid: aa25fb44f902a3d4c9d2853f2037ae64, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2776096915657709116, guid: aa25fb44f902a3d4c9d2853f2037ae64, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2776096915657709116, guid: aa25fb44f902a3d4c9d2853f2037ae64, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: aa25fb44f902a3d4c9d2853f2037ae64, type: 3}
 --- !u!1 &83119771
 GameObject:
   m_ObjectHideFlags: 0
@@ -5512,6 +5447,7 @@ MonoBehaviour:
   _movement: {fileID: 0}
   _interractPivot: {fileID: 934271144}
   _checkRadius: 0.1
+  _breakingTorque: 200
   _hingeJoint: {fileID: 0}
   _ignoreLayerMask:
     serializedVersion: 2
@@ -11945,71 +11881,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &1007293366
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2000572491469916484, guid: aa25fb44f902a3d4c9d2853f2037ae64, type: 3}
-      propertyPath: m_Name
-      value: BigStoneRainStopper
-      objectReference: {fileID: 0}
-    - target: {fileID: 2731650281318486978, guid: aa25fb44f902a3d4c9d2853f2037ae64, type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: 34.699997
-      objectReference: {fileID: 0}
-    - target: {fileID: 2731650281318486978, guid: aa25fb44f902a3d4c9d2853f2037ae64, type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: -24.440006
-      objectReference: {fileID: 0}
-    - target: {fileID: 2776096915657709116, guid: aa25fb44f902a3d4c9d2853f2037ae64, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 34.199997
-      objectReference: {fileID: 0}
-    - target: {fileID: 2776096915657709116, guid: aa25fb44f902a3d4c9d2853f2037ae64, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -24.440006
-      objectReference: {fileID: 0}
-    - target: {fileID: 2776096915657709116, guid: aa25fb44f902a3d4c9d2853f2037ae64, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2776096915657709116, guid: aa25fb44f902a3d4c9d2853f2037ae64, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2776096915657709116, guid: aa25fb44f902a3d4c9d2853f2037ae64, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2776096915657709116, guid: aa25fb44f902a3d4c9d2853f2037ae64, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2776096915657709116, guid: aa25fb44f902a3d4c9d2853f2037ae64, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2776096915657709116, guid: aa25fb44f902a3d4c9d2853f2037ae64, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2776096915657709116, guid: aa25fb44f902a3d4c9d2853f2037ae64, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2776096915657709116, guid: aa25fb44f902a3d4c9d2853f2037ae64, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: aa25fb44f902a3d4c9d2853f2037ae64, type: 3}
 --- !u!1 &1010253427
 GameObject:
   m_ObjectHideFlags: 0
@@ -19335,9 +19206,7 @@ SceneRoots:
   - {fileID: 287701232}
   - {fileID: 1701940248}
   - {fileID: 890355824}
-  - {fileID: 1007293366}
   - {fileID: 807760849}
   - {fileID: 905739632}
-  - {fileID: 55582159}
   - {fileID: 1034652640}
   - {fileID: 734698726}
