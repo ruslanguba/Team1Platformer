@@ -1,16 +1,22 @@
+using System;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void LoadScene(int index)
     {
-        
+        SceneManager.LoadScene(index);
     }
-
-    // Update is called once per frame
-    void Update()
+    public void QuitApplication()
     {
-        
+#if UNITY_EDITOR
+        // Если игра запущена в редакторе Unity, используем его
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        // Если игра собрана и запущена на платформе
+        Application.Quit();
+#endif
     }
 }
