@@ -5351,6 +5351,7 @@ GameObject:
   - component: {fileID: 6799510307049285745}
   - component: {fileID: 6701366818296488690}
   - component: {fileID: 1294047472730920766}
+  - component: {fileID: 3058050874380301378}
   - component: {fileID: 2526490330109551216}
   - component: {fileID: 317120166717371145}
   - component: {fileID: 6067031479607747624}
@@ -5469,7 +5470,7 @@ HingeJoint2D:
   m_BreakAction: 1
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 35.671173, y: 8.752178}
+  m_ConnectedAnchor: {x: 17.07, y: 4.45}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -5491,6 +5492,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8181fd381af664e48bbf65e041840389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3058050874380301378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6525556814992272854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30e800848cdf986478f82e1c64d4beb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _input: {fileID: 0}
 --- !u!114 &2526490330109551216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5634,9 +5648,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1d28c879970fd94c85eb48de3322a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpForce: 10
-  _fallMultiplier: 2.5
+  _jumpForce: 12
+  _fallMultiplier: 3
   _lowJumpMultiplier: 2
+  _isVelocityMode: 0
 --- !u!1 &6810906683258046097
 GameObject:
   m_ObjectHideFlags: 0

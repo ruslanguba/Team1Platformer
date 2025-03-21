@@ -70,7 +70,7 @@ public class CharacterInterractor : MonoBehaviour
         //    {
         //        interactable.OnInteract(this);
         //    }
-        //    if (!_movement.IsGrounded() && hit.gameObject.TryGetComponent(out Movable movable))
+        //    if (!_movement.IsGrounded() && hit.gameObject.TryGetComponent(out Interactable movable))
         //    {
         //        Vector2 force = new Vector2(_movement.GetFacingDirection() * _kostilMoveBlockForce, 0);
         //        movable.GetComponent<Rigidbody2D>().AddForce(force, ForceMode2D.Impulse);

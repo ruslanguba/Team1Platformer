@@ -22,7 +22,7 @@ public class DinosaurTrap : TrapBase
 
     protected override void HandleTriggerEnter(Collider2D collision)
     {
-        if(collision.TryGetComponent(out Movable movable))
+        if(collision.TryGetComponent(out Interactable movable))
         {
             _isStoneInTrap = true;
             _trapCollider.enabled = false;

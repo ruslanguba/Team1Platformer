@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7894433811460462215}
   - component: {fileID: 9182155209753029575}
   - component: {fileID: 8368723111595360170}
-  - component: {fileID: 3588317664864111818}
+  - component: {fileID: 3250880710390232277}
   m_Layer: 3
   m_Name: MovableBlock
   m_TagString: Untagged
@@ -108,7 +108,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3588317664864111818
+--- !u!114 &3250880710390232277
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,7 +117,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 900198438439407544}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd47bf4197fb6064d9668b5dd6f12f7f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b78726f60ac3cc46bb0803bea6198e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 0}

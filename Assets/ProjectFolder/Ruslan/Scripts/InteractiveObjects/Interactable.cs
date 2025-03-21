@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Movable : MonoBehaviour, IInteractable
+public class Interactable : MonoBehaviour, IInteractable
 {
     [SerializeField] private Rigidbody2D _rb;
     private void Start()

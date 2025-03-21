@@ -1,31 +1,20 @@
 using UnityEngine;
 
-public class CharacterJump : MonoBehaviour
+public class CharacterJump : MonoBehaviour, IJumpable
 {
     private Rigidbody2D _rb;
-    private PlayerInputHandler _inputHandler;
     private CharacterMovementHandler _movementHandler; // Добавляем ссылку на CharacterMovementHandler
 
     [SerializeField] private float _jumpForce = 5f;
     [SerializeField] private float _fallMultiplier = 2.5f;
     [SerializeField] private float _lowJumpMultiplier = 2f;
+    [SerializeField] private bool _isVelocityMode = false;
     private float _gravityAbs;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _movementHandler = GetComponent<CharacterMovementHandler>(); // Получаем ссылку на CharacterMovementHandler
-        _inputHandler = GetComponent<PlayerInputHandler>();
-    }
-
-    private void OnEnable()
-    {
-        _inputHandler.OnJumpInput += Jump;
-    }
-
-    private void OnDisable()
-    {
-        _inputHandler.OnJumpInput -= Jump;
     }
 
     private void Start()
@@ -51,13 +40,27 @@ public class CharacterJump : MonoBehaviour
 
     private void ApplyCustomGravity()
     {
-        if (_rb.linearVelocityY < 0)
+        if(_isVelocityMode)
         {
-            _rb.AddForce(Vector2.down * (_fallMultiplier - 1) * _gravityAbs, ForceMode2D.Force);
+            if (_rb.linearVelocityY < 0)
+            {
+                _rb.linearVelocityY += Physics2D.gravity.y * (_fallMultiplier - 1) * Time.fixedDeltaTime;
+            }
+            else if (_rb.linearVelocityY > 0)
+            {
+                _rb.linearVelocityY += Physics2D.gravity.y * (_lowJumpMultiplier - 1) * Time.fixedDeltaTime;
+            }
         }
-        else if (_rb.linearVelocityY > 0)
+        else
         {
-            _rb.AddForce(Vector2.down * (_lowJumpMultiplier - 1) * _gravityAbs, ForceMode2D.Force);
+            if (_rb.linearVelocityY < 0)
+            {
+                _rb.AddForce(Vector2.down * (_fallMultiplier - 1) * _gravityAbs, ForceMode2D.Force);
+            }
+            else if (_rb.linearVelocityY > 0)
+            {
+                _rb.AddForce(Vector2.down * (_lowJumpMultiplier - 1) * _gravityAbs, ForceMode2D.Force);
+            }
         }
     }
 }

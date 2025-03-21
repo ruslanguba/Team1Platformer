@@ -8534,6 +8534,10 @@ PrefabInstance:
       propertyPath: _jumpForce
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 7581949186887644383, guid: b5599707b21825f438d6ef435cfaeeac, type: 3}
+      propertyPath: _fallMultiplier
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8054672202235499226, guid: b5599707b21825f438d6ef435cfaeeac, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -18100,7 +18104,8 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 40
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3588317664864111818, guid: 67ac2052f42782e49bd897d3bbef084d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
