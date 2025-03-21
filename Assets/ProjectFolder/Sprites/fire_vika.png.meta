@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 598a4cc85a3e5ed42b92bc8e7de188de
+guid: 1a2552475baf1ad438a158d7f944adc7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2897035124409733895
-    second: HeartStone_0
+      213: 4118185946866224906
+    second: fire_vika_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HeartStone_0
+      name: fire_vika_0
       rect:
         serializedVersion: 2
-        x: 86
-        y: 102
-        width: 998
-        height: 1312
+        x: 0
+        y: 0
+        width: 1250
+        height: 1250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9fc6abb47e9abc7d0800000000000000
-      internalID: -2897035124409733895
+      spriteID: a0f87f1bc4cb62930800000000000000
+      internalID: 4118185946866224906
       vertices: []
       indices: 
       edges: []
@@ -147,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      HeartStone_0: -2897035124409733895
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
