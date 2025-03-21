@@ -5360,6 +5360,7 @@ GameObject:
   - component: {fileID: 8754275721166484843}
   - component: {fileID: 8961803866009940903}
   - component: {fileID: 7973959274044525410}
+  - component: {fileID: 7581949186887644383}
   m_Layer: 6
   m_Name: CharacterNew
   m_TagString: Untagged
@@ -5468,7 +5469,7 @@ HingeJoint2D:
   m_BreakAction: 1
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 68, y: 28}
+  m_ConnectedAnchor: {x: 35.671173, y: 8.752178}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -5621,6 +5622,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e2a6d13dc0b7f45982a09169a3c3b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7581949186887644383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6525556814992272854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1d28c879970fd94c85eb48de3322a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _jumpForce: 10
+  _fallMultiplier: 2.5
+  _lowJumpMultiplier: 2
 --- !u!1 &6810906683258046097
 GameObject:
   m_ObjectHideFlags: 0

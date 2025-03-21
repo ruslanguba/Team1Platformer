@@ -42,13 +42,13 @@ public class CharacterMovementHandler : MonoBehaviour
     private void OnEnable()
     {
         _inputHandler.OnMoveInput += Move;
-        _inputHandler.OnJumpInput += Jump;
+        //_inputHandler.OnJumpInput += Jump;
     }
 
     private void OnDisable()
     {
         _inputHandler.OnMoveInput -= Move;
-        _inputHandler.OnJumpInput -= Jump;
+        //_inputHandler.OnJumpInput -= Jump;
     }
 
     private void Move(Vector2 direction)
@@ -83,22 +83,22 @@ public class CharacterMovementHandler : MonoBehaviour
         CheckDirection(direction);
     }
 
-    public void Jump()
-    {
-        if(IsGrounded())
-        {
-            if(_isJumpVelocity)
-            {
-                _rb.linearVelocityY = _jumpForce;
-                Debug.Log("Velocity");
-            }
-            else
-            {
-                _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
-                Debug.Log("AddForceJump");
-            }
-        }
-    }
+    //public void Jump()
+    //{
+    //    if(IsGrounded())
+    //    {
+    //        if(_isJumpVelocity)
+    //        {
+    //            _rb.linearVelocityY = _jumpForce;
+    //            Debug.Log("Velocity");
+    //        }
+    //        else
+    //        {
+    //            _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+    //            Debug.Log("AddForceJump");
+    //        }
+    //    }
+    //}
 
     public bool IsGrounded()
     {
