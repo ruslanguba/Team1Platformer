@@ -46,11 +46,8 @@ public class Connector
         {
             Rigidbody2D rb = _hingeJoint.connectedBody;
             float torque = rb.inertia * rb.angularVelocity;
-
-            if (torque > 1)
-
-            if (torque > _breakingTorque)
-
+            Debug.Log(torque);
+            if (Mathf.Abs(torque) > _breakingTorque)
             {
                 DisconectObject();
             }

@@ -54,13 +54,13 @@ public class CharacterMovementHandler : MonoBehaviour
     private void Move(Vector2 direction)
     {
         _currentMoveDirection = direction.x;
+        CheckDirection(direction.x);
     }
 
     public void GroundMovement(float direction)
     {
         _rb.linearVelocityX = direction * _moveSpeed;
         //_rb.linearVelocity = new Vector2(direction * _moveSpeed, _rb.linearVelocityY);
-        CheckDirection(direction);
     }
 
     public void AirMovement(float direction)
@@ -80,7 +80,6 @@ public class CharacterMovementHandler : MonoBehaviour
                 _rb.AddForce(force, ForceMode2D.Force);
             }
         }
-        CheckDirection(direction);
     }
 
     //public void Jump()
@@ -118,9 +117,7 @@ public class CharacterMovementHandler : MonoBehaviour
     public void FlipDirection()
     {
         _isFacingRight = !_isFacingRight;
-        Vector3 localScale = transform.localScale;
-        localScale.x *= -1;
-        transform.localScale = localScale;
+        transform.Rotate(0f, 180f, 0f);
     }
 
     public int GetFacingDirection()
