@@ -7,18 +7,29 @@ public class GlobalLightHandler : MonoBehaviour
     [SerializeField] private Light2D _globalLigth;
     [SerializeField] private Color _normalColor = Color.white;
     [SerializeField] private Color _spiritualColor;
-    [SerializeField] private Coroutine _coroutine;
-    [SerializeField] private CharacterHintActivator _characterHintActivator;
+    private Coroutine _coroutine;
+    private CharacterHintActivator _characterHintActivator;
 
-    private void Awake()
+
+    public GlobalLightHandler(Transform character, GlobalLightHintSettings colorSettings, Light2D light) 
     {
-        _characterHintActivator = FindFirstObjectByType<CharacterHintActivator>();
+        _characterHintActivator = character.GetComponent<CharacterHintActivator>();
+        _normalColor = colorSettings.NormalColor;
+
     }
-
-    private void OnEnable()
+    //private void Awake()
+    //{
+    //    _characterHintActivator = FindFirstObjectByType<CharacterHintActivator>();
+    //}
+    public void SetCharacterHintActivator(CharacterHintActivator hintActivator)
     {
+        _characterHintActivator = hintActivator;
         _characterHintActivator.OnShowHint += SetSpiritLighting;
     }
+    //private void OnEnable()
+    //{
+    //    _characterHintActivator.OnShowHint += SetSpiritLighting;
+    //}
 
     private void OnDisable()
     {

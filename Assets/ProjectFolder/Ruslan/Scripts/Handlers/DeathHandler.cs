@@ -1,21 +1,33 @@
 using System;
 using UnityEngine;
 
-public class DeathHandler : MonoBehaviour
+public class DeathHandler
 {
     public Action OnDeath;
     private CharacterDeath _characterDeath;
-    private void Awake()
-    {
-        _characterDeath = FindFirstObjectByType<CharacterDeath>();
-    }
 
-    private void OnEnable()
+    public DeathHandler(CharacterDeath characterDeath)
     {
+        _characterDeath = characterDeath;
         _characterDeath.OnDeathTriggerEntered += Death;
     }
 
-    private void OnDisable()
+    //private void Awake()
+    //{
+    //    _characterDeath = FindFirstObjectByType<CharacterDeath>();
+    //}
+
+    //private void OnEnable()
+    //{
+    //    _characterDeath.OnDeathTriggerEntered += Death;
+    //}
+
+    //private void OnDisable()
+    //{
+    //    _characterDeath.OnDeathTriggerEntered -= Death;
+    //}
+
+    public void Unsubscribe()
     {
         _characterDeath.OnDeathTriggerEntered -= Death;
     }
