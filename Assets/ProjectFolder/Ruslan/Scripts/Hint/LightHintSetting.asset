@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5071034cacfceef46a776a98855f5734, type: 3}
   m_Name: LightHintSetting
   m_EditorClassIdentifier: 
+  _normalColor: {r: 1, g: 1, b: 1, a: 1}
+  _spiritualColor: {r: 0.2784314, g: 0.10980392, b: 0.90588236, a: 0}

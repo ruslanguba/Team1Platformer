@@ -9,6 +9,7 @@ public class SceneLuncher : MonoBehaviour
     [SerializeField] private CinemachineCamera _virtualCamera;
     [SerializeField] private Light2D _globalLight;
     [SerializeField] private GlobalLightHintSettings _globalLightHintSettings;
+    [SerializeField] private CollectHandler _collectHandler; 
     private RespawnHandler _respawnHandler;
     private DeathHandler _deathHandler;
     private GlobalLightHandler _lightHandler;
@@ -24,6 +25,7 @@ public class SceneLuncher : MonoBehaviour
         _deathHandler = new DeathHandler(_character.GetComponent<CharacterDeath>());
         _respawnHandler = new RespawnHandler(_character.transform, _intialSpawnPosition.position, _deathHandler);
         _lightHandler = new GlobalLightHandler(_character.transform, _globalLightHintSettings, _globalLight);
+        _collectHandler.SetCharacter(_character.GetComponent<CharacterCollect>()); 
     }
 
     private void OnDestroy()

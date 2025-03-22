@@ -7,15 +7,21 @@ public class CollectHandler : MonoBehaviour
     private CharacterCollect _characterCollect;
     private int _collectedBananas;
 
-    private void Awake()
-    {
-        _characterCollect = FindFirstObjectByType<CharacterCollect>();
-    }
+    //private void Awake()
+    //{
+    //    _characterCollect = FindFirstObjectByType<CharacterCollect>();
+    //}
 
-    private void OnEnable()
+    public void SetCharacter(CharacterCollect characterCollect)
     {
+        _characterCollect = characterCollect;
         _characterCollect.OnCollect += CollectBanana;
     }
+
+    //private void OnEnable()
+    //{
+    //    _characterCollect.OnCollect += CollectBanana;
+    //}
 
     private void OnDisable()
     {
