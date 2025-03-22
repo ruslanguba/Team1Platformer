@@ -28,12 +28,10 @@ public class VolumeSettings : MonoBehaviour
         }
 
         // Загружаем сохраненные значения громкости
-        float savedMusicVolume = PlayerPrefs.GetFloat(MusicVolumeKey, 0.75f);
-        float savedSFXVolume = PlayerPrefs.GetFloat(SFXVolumeKey, 0.75f);
+        float savedMusicVolume = PlayerPrefs.GetFloat(MusicVolumeKey, 0.5f);
+        float savedSFXVolume = PlayerPrefs.GetFloat(SFXVolumeKey, 0.5f);
 
-        // Применяем настройки громкости
-        SetMusicVolume(savedMusicVolume);
-        SetSFXVolume(savedSFXVolume);
+       
 
         // Если слайдеры есть на текущей сцене (стартовое меню), настраиваем их
         if (musicSlider != null && SFXSlider != null)
@@ -45,6 +43,9 @@ public class VolumeSettings : MonoBehaviour
             musicSlider.onValueChanged.AddListener(SetMusicVolume);
             SFXSlider.onValueChanged.AddListener(SetSFXVolume);
         }
+        // Применяем настройки громкости
+        SetMusicVolume(savedMusicVolume);
+        SetSFXVolume(savedSFXVolume);
     }
 
     public void SetMusicVolume(float volume)
