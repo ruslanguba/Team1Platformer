@@ -21,5 +21,4 @@ public class FinishPoint : MonoBehaviour
             PlayerPrefs.Save();
         }
     }
-
 }

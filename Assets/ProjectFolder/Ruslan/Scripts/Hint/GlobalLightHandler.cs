@@ -17,19 +17,19 @@ public class GlobalLightHandler : MonoBehaviour
         _normalColor = colorSettings.NormalColor;
 
     }
-    //private void Awake()
-    //{
-    //    _characterHintActivator = FindFirstObjectByType<CharacterHintActivator>();
-    //}
-    public void SetCharacterHintActivator(CharacterHintActivator hintActivator)
+    private void Awake()
     {
-        _characterHintActivator = hintActivator;
-        _characterHintActivator.OnShowHint += SetSpiritLighting;
+        _characterHintActivator = FindFirstObjectByType<CharacterHintActivator>();
     }
-    //private void OnEnable()
+    //public void SetCharacterHintActivator(CharacterHintActivator hintActivator)
     //{
+    //    _characterHintActivator = hintActivator;
     //    _characterHintActivator.OnShowHint += SetSpiritLighting;
     //}
+    private void OnEnable()
+    {
+        _characterHintActivator.OnShowHint += SetSpiritLighting;
+    }
 
     private void OnDisable()
     {

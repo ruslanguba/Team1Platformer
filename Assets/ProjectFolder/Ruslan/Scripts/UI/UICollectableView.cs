@@ -10,10 +10,22 @@ public class UICollectableView : MonoBehaviour
         _collectHandler = FindFirstObjectByType<CollectHandler>();
     }
 
+    //public void Bind(CollectHandler collectHandler)
+    //{
+    //    _collectHandler = collectHandler;
+    //    collectHandler.OnCollectValueChanged += ChangeImage;
+    //}
+
     private void OnEnable()
     {
         _collectHandler.OnCollectValueChanged += ChangeImage;
     }
+
+    private void OnDisable()
+    {
+        _collectHandler.OnCollectValueChanged -= ChangeImage;
+    }
+
     private void Start()
     {
         _images = GetComponentsInChildren<UIColectableImage>();
