@@ -6,8 +6,9 @@ public class FinishPoint : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         CharacterFire characterFire = collision.GetComponent<CharacterFire>();
-        if (characterFire.IsBurning)
+        if (characterFire != null && characterFire.IsBurning)
         {
+            Debug.Log("Fin");
             UnlockNewLevel();
             SceneController.instance.NextLevel();
         }
