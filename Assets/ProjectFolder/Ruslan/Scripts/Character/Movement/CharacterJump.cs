@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 
 public class CharacterJump : MonoBehaviour, IJumpable
 {
+    public Action OnJump;
     private Rigidbody2D _rb;
     private CharacterMovementHandler _movementHandler; // Добавляем ссылку на CharacterMovementHandler
 
@@ -27,6 +29,7 @@ public class CharacterJump : MonoBehaviour, IJumpable
         if (_movementHandler.IsGrounded()) // Используем метод из CharacterMovementHandler
         {
             _rb.linearVelocityY = _jumpForce;
+            OnJump?.Invoke();
         }
     }
 
