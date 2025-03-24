@@ -1,7 +1,10 @@
+using System;
 using UnityEngine;
 
 public class CharacterInterractor : MonoBehaviour
 {
+    public Action<Transform> OnConnect;
+    public Action OnDisconnect;
     //[SerializeField] private Transform _interractPivot;
     //[SerializeField] private float _checkRadius;
     [SerializeField] private float _breakingTorque = 200;
@@ -53,6 +56,7 @@ public class CharacterInterractor : MonoBehaviour
         if (_connector._isConnected)
         {
             _connector.DisconectObject();
+            OnDisconnect?.Invoke();
             return;
         }
         _currentInterractable?.OnInteract(this);
@@ -82,11 +86,14 @@ public class CharacterInterractor : MonoBehaviour
     public void ConnectToObject(Rigidbody2D rb)
     {
         _connector.ConnectToObject(rb);
+        Debug.Log("ConnectToObject");
+        OnConnect?.Invoke(rb.transform);
     }
 
     private void OnJointBreak2D(Joint2D brokenJoint)
     {
         _connector.DisconectObject();
+        OnDisconnect?.Invoke();
     }
 
     private void FixedUpdate()
@@ -97,6 +104,7 @@ public class CharacterInterractor : MonoBehaviour
             if (!_movement.IsGrounded())
             {
                 _connector.DisconectObject();
+                OnDisconnect?.Invoke();
             }
         }
     }

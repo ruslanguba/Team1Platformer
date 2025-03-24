@@ -8,15 +8,34 @@ public class CharacterMovementHandler : MonoBehaviour, IMoveable
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private float _groundCheckRadius = 0.2f;
+    private CharacterInterractor _characterInterractor;
+    private bool _isFlipBlocked = false;
     private bool _isFacingRight = true;
     private bool _isGrounded;
     private float _currentMoveDirection;
     private Rigidbody2D _rb;
 
+    private void Awake()
+    {
+        _characterInterractor = GetComponent<CharacterInterractor>();
+    }
     void Start()
     {
-        _rb = GetComponent<Rigidbody2D>(); ;
+        _rb = GetComponent<Rigidbody2D>(); 
     }
+
+    private void OnEnable()
+    {
+        _characterInterractor.OnConnect += BlockFlip;
+        _characterInterractor.OnDisconnect += UnlockFlip;
+    }
+
+    private void OnDisable()
+    {
+        _characterInterractor.OnConnect -= BlockFlip;
+        _characterInterractor.OnDisconnect -= UnlockFlip;
+    }
+
 
     private void FixedUpdate()
     {
@@ -77,8 +96,11 @@ public class CharacterMovementHandler : MonoBehaviour, IMoveable
 
     public void FlipDirection()
     {
-        _isFacingRight = !_isFacingRight;
-        transform.Rotate(0f, 180f, 0f);
+        if (!_isFlipBlocked)
+        {
+            _isFacingRight = !_isFacingRight;
+            transform.Rotate(0f, 180f, 0f);
+        }
     }
 
     public int GetFacingDirection()
@@ -86,5 +108,15 @@ public class CharacterMovementHandler : MonoBehaviour, IMoveable
         if (_isFacingRight)
             return 1;
         else return -1;
+    }
+
+    private void BlockFlip(Transform _)
+    {
+        _isFlipBlocked = true;   
+    }
+
+    private void UnlockFlip()
+    {
+        _isFlipBlocked = false;
     }
 }
