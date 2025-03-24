@@ -104,8 +104,8 @@ MonoBehaviour:
   _maxGreen: 0.6
   _minBlue: 0.1
   _maxBlue: 0.3
-  _minRadius: 10
-  _maxRadius: 15
+  _minRadius: 15
+  _maxRadius: 20
   _minFalloff: 0.6
   _maxFalloff: 0.8
 --- !u!1 &2007600559988427287
