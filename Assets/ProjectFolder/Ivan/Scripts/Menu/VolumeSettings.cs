@@ -7,11 +7,15 @@ public class VolumeSettings : MonoBehaviour
     public static VolumeSettings Instance; // Синглтон
 
     public AudioMixer audioMixer; // Ссылка на AudioMixer
-    public Slider musicSlider;    // Слайдер для музыки 
+    public Slider MusicSlider;    // Слайдер для музыки 
     public Slider SFXSlider;    // Слайдер для звуков 
 
     private const string MusicVolumeKey = "MusicVolume";
     private const string SFXVolumeKey = "SFXVolume";
+
+    float savedMusicVolume;
+    float savedSFXVolume;
+
 
     private void Awake()
     {
@@ -28,25 +32,26 @@ public class VolumeSettings : MonoBehaviour
         }
 
         // Загружаем сохраненные значения громкости
-        float savedMusicVolume = PlayerPrefs.GetFloat(MusicVolumeKey, 0.5f);
-        float savedSFXVolume = PlayerPrefs.GetFloat(SFXVolumeKey, 0.5f);
-
-       
-
+          savedMusicVolume = PlayerPrefs.GetFloat(MusicVolumeKey, 0.5f);
+          savedSFXVolume = PlayerPrefs.GetFloat(SFXVolumeKey, 0.5f); 
+    }  
+    void Start()
+    {
         // Если слайдеры есть на текущей сцене (стартовое меню), настраиваем их
-        if (musicSlider != null && SFXSlider != null)
+        if (MusicSlider != null && SFXSlider != null)
         {
-            musicSlider.value = savedMusicVolume;
+            MusicSlider.value = savedMusicVolume;
             SFXSlider.value = savedSFXVolume;
 
             // Подписываемся на изменения слайдеров
-            musicSlider.onValueChanged.AddListener(SetMusicVolume);
+            MusicSlider.onValueChanged.AddListener(SetMusicVolume);
             SFXSlider.onValueChanged.AddListener(SetSFXVolume);
         }
         // Применяем настройки громкости
         SetMusicVolume(savedMusicVolume);
         SetSFXVolume(savedSFXVolume);
     }
+    
 
     public void SetMusicVolume(float volume)
     {
