@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0ceb6fc6f31791c468f772314768c850
+guid: d666731322eef0643a52311ee4bf1c58
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6145280286201746101
-    second: wood_bridge01_0
+      213: 609589731762392139
+    second: HeartFire_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -24,7 +24,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -57,7 +57,7 @@ TextureImporter:
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 8
+  textureType: 7
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: wood_bridge01_0
+      name: HeartFire_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 181
-        height: 897
+        width: 48
+        height: 75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b4debb7832497baa0800000000000000
-      internalID: -6145280286201746101
+      spriteID: b4c4c6c91a2b57800800000000000000
+      internalID: 609589731762392139
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      wood_bridge01_0: -6145280286201746101
+      HeartFire_0: 609589731762392139
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

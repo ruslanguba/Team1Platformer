@@ -26,13 +26,13 @@ public class CharacterMovementHandler : MonoBehaviour, IMoveable
 
     private void OnEnable()
     {
-        _characterInterractor.OnConnect += BlockFlip;
+        _characterInterractor.OnConnect += LockFlip;
         _characterInterractor.OnDisconnect += UnlockFlip;
     }
 
     private void OnDisable()
     {
-        _characterInterractor.OnConnect -= BlockFlip;
+        _characterInterractor.OnConnect -= LockFlip;
         _characterInterractor.OnDisconnect -= UnlockFlip;
     }
 
@@ -110,13 +110,14 @@ public class CharacterMovementHandler : MonoBehaviour, IMoveable
         else return -1;
     }
 
-    private void BlockFlip(Transform _)
+    public void LockFlip(Transform _)
     {
         _isFlipBlocked = true;   
     }
 
-    private void UnlockFlip()
+    public void UnlockFlip()
     {
         _isFlipBlocked = false;
+        FlipDirection();
     }
 }
