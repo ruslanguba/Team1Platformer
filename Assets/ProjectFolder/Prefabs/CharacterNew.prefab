@@ -5482,6 +5482,7 @@ GameObject:
   - component: {fileID: 8961803866009940903}
   - component: {fileID: 7973959274044525410}
   - component: {fileID: 7581949186887644383}
+  - component: {fileID: 2278938174474110254}
   m_Layer: 6
   m_Name: CharacterNew
   m_TagString: Untagged
@@ -5769,6 +5770,14 @@ MonoBehaviour:
   _fallMultiplier: 3
   _lowJumpMultiplier: 2
   _isVelocityMode: 0
+--- !u!81 &2278938174474110254
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6525556814992272854}
+  m_Enabled: 1
 --- !u!1 &6810906683258046097
 GameObject:
   m_ObjectHideFlags: 0

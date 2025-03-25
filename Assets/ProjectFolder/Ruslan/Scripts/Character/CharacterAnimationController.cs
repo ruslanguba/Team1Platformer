@@ -4,6 +4,7 @@ public class CharacterAnimationController : MonoBehaviour
 {
     [SerializeField] private Collider2D _pushCollider;
     private CharacterInterractor _characterInterractor;
+    private CharacterMovementHandler _characterMovementHandler;
     private Transform _pullObject;
     private Rigidbody2D _rb;
     private Animator _animator;
@@ -14,6 +15,7 @@ public class CharacterAnimationController : MonoBehaviour
     {
         _characterJump = GetComponent<CharacterJump>();
         _characterInterractor = GetComponent<CharacterInterractor>();
+        _characterMovementHandler = GetComponent<CharacterMovementHandler>();
     }
 
     private void OnEnable()
@@ -80,6 +82,7 @@ public class CharacterAnimationController : MonoBehaviour
     {
         _pullObject = pullObject;
         _isPulling = true;
+        //_characterMovementHandler.LockFlip();
         Debug.Log("SET isPulling = true");
         _animator.SetBool("isPulling", true);
     }
@@ -88,6 +91,7 @@ public class CharacterAnimationController : MonoBehaviour
     {
         _pullObject = null;
         _isPulling = false;
+        //_characterMovementHandler.UnlockFlip();
         Debug.Log("SET isPulling = false");
         _animator.SetBool("isPulling", false);
         _animator.SetBool("isPushing", false);
