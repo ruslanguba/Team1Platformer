@@ -32,8 +32,8 @@ public class VolumeSettings : MonoBehaviour
         }
 
         // Загружаем сохраненные значения громкости
-         savedMusicVolume = PlayerPrefs.GetFloat(MusicVolumeKey, 0.5f);
-         savedSFXVolume = PlayerPrefs.GetFloat(SFXVolumeKey, 0.5f); 
+          savedMusicVolume = PlayerPrefs.GetFloat(MusicVolumeKey, 0.5f);
+          savedSFXVolume = PlayerPrefs.GetFloat(SFXVolumeKey, 0.5f); 
     }  
     void Start()
     {
