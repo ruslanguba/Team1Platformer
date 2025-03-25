@@ -6,6 +6,7 @@ public class UIManager : MonoBehaviour
 {
     public Button[] buttons;
     public GameObject levelButtons;
+
     private void Awake()
     {
         ButtonsToArray();
@@ -20,6 +21,7 @@ public class UIManager : MonoBehaviour
             buttons[i].interactable = true;
         }
     }
+
     public void LoadScene(int index)
     {
         SceneManager.LoadScene(index);
