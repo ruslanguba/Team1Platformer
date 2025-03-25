@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class CharacterFire : FireBase
 {
+    public Action<bool> OnFire;
     private void Start()
     {
         _isBurning = true;
@@ -20,9 +21,19 @@ public class CharacterFire : FireBase
     {
         if (fire.IsBurning)
         {
-            this._isBurning = true;
-            _fire.SetActive(this._isBurning);
+            _isBurning = true;
+            _fire.SetActive(_isBurning);
+            OnFire?.Invoke(_isBurning);
         }
         fire.HandleFire(_isBurning);
+    }
+
+    public override void BraiseFire()
+    {
+        if (_isBurning)
+        {
+            OnFire?.Invoke(false);
+        }
+        base.BraiseFire();
     }
 }

@@ -8,13 +8,7 @@ public class FireBase : MonoBehaviour, IFireable
 
     public virtual void HandleFire(bool isFireStarterBurning) { }
 
-    //public void OnInteract(CharacterInterractor interactor) 
-    //{
-    //    _isBurning = interactor.GetComponent<CharacterFire>().IsBurning;
-    //    HandleFire(_isBurning);
-    //}
-
-    public void BraiseFire()
+    public virtual void BraiseFire()
     {
         if (_isBurning)
         {

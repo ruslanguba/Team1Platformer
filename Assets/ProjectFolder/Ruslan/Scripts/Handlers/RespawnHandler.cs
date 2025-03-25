@@ -9,26 +9,6 @@ public class RespawnHandler : MonoBehaviour
     private DeathHandler _deathHandler;
     private Vector2 _respawnPosition;
 
-    //public RespawnHandler(Transform character, Vector2 initialRespawnPosition, DeathHandler deathHandler)
-    //{
-    //    _characterTransform = character;
-    //    _respawnPosition = initialRespawnPosition;
-    //    _deathHandler = deathHandler;
-    //    Initialize();
-    //}
-
-    //private void Initialize()
-    //{
-    //    _characterRespown = _characterTransform.GetComponent<CharacterRespown>();
-    //    _deathHandler.OnDeath += RespawnCharacter;
-    //    _characterRespown.OnRespownPoindFound += SetRespanPoint;
-    //}
-
-    //public void Unsubscribe()
-    //{
-    //    _deathHandler.OnDeath -= RespawnCharacter;
-    //    _characterRespown.OnRespownPoindFound -= SetRespanPoint;
-    //}
     private void Awake()
     {
         _deathHandler = GetComponent<DeathHandler>();
