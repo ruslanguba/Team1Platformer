@@ -31,6 +31,7 @@ public class PlayerInputHandler : MonoBehaviour
         _inputActions.Gameplay.Movement.canceled -= MovementCanceled;
         _inputActions.Gameplay.Use.performed -= UsePerformed;
         _inputActions.Gameplay.Help.performed -= HelpPerformed;
+        _inputActions.Disable();
     }
 
     private void MovementCanceled(UnityEngine.InputSystem.InputAction.CallbackContext obj)
