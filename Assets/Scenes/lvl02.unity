@@ -7299,7 +7299,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.6
+  m_Intensity: 0.5
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -9997,9 +9997,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -101
-  m_Sprite: {fileID: 9081129160940804312, guid: cd8b3810b73b3e24888594a499a53146, type: 3}
+  m_Sprite: {fileID: 7374481965080408345, guid: e164e1074d7e3af4495af45f1f58d35e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 25.6, y: 10.8}
@@ -37477,15 +37477,8 @@ EdgeCollider2D:
   - {x: 118.08245, y: -5.3143563}
   - {x: 118.127525, y: -4.6410513}
   - {x: 118.30542, y: -4.220598}
-  - {x: 138.99, y: -4.138493}
-  - {x: 142.65045, y: -4.2463074}
-  - {x: 142.94328, y: -6.1287603}
-  - {x: 146.68532, y: -6.2814784}
-  - {x: 146.94606, y: -8.145172}
-  - {x: 150.5874, y: -8.30718}
-  - {x: 150.99626, y: -10.270304}
-  - {x: 154.63475, y: -10.31384}
-  - {x: 154.80202, y: -16.812243}
+  - {x: 133.59566, y: -4.2019415}
+  - {x: 133.59787, y: 6.1428766}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -45671,9 +45664,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -100
-  m_Sprite: {fileID: 9081129160940804312, guid: cd8b3810b73b3e24888594a499a53146, type: 3}
+  m_Sprite: {fileID: 7374481965080408345, guid: e164e1074d7e3af4495af45f1f58d35e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 25.6, y: 10.8}

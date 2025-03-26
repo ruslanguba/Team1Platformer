@@ -483,14 +483,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _trapObject: {fileID: 1670730010185814549}
-  _characterTransform: {fileID: 0}
   _speed: 2
-  _respawnTrigger: {fileID: 0}
   _sprites:
   - {fileID: 5843958616630086773}
   - {fileID: 8026231640445613288}
   - {fileID: 971856735289548817}
-  _spritesStartColor: {r: 0, g: 0, b: 0, a: 0}
   _patrolSpeed: 2
   _activeSpeed: 5
   _patrolAreaMin: {x: -2, y: 0}
