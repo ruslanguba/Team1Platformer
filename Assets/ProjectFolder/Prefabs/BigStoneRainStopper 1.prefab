@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2382538890607907655}
   - component: {fileID: 1742319967162363019}
   - component: {fileID: 7543710513278606446}
+  - component: {fileID: 1992139667655517140}
   m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
@@ -172,6 +173,18 @@ CapsuleCollider2D:
   m_Offset: {x: -0.010073106, y: -0.30200812}
   m_Size: {x: 1.9101472, y: 11.045986}
   m_Direction: 0
+--- !u!114 &1992139667655517140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684180799361478356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d2f9fc97a142074f8c7db6c57c6e4e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4760781995157360338
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,7 +266,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.5, y: 0}
-  m_ConnectedAnchor: {x: 0.5, y: 0}
+  m_ConnectedAnchor: {x: 114.32, y: -4.35}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:

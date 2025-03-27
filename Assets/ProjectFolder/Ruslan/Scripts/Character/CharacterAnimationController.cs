@@ -3,7 +3,7 @@ using UnityEngine;
 public class CharacterAnimationController : MonoBehaviour
 {
     [SerializeField] private Collider2D _pushCollider;
-    private CharacterInterractor _characterInterractor;
+    private Connector _connector;
     private CharacterMovementHandler _characterMovementHandler;
     private Transform _pullObject;
     private Rigidbody2D _rb;
@@ -14,21 +14,21 @@ public class CharacterAnimationController : MonoBehaviour
     private void Awake()
     {
         _characterJump = GetComponent<CharacterJump>();
-        _characterInterractor = GetComponent<CharacterInterractor>();
+        _connector = GetComponent<Connector>();
         _characterMovementHandler = GetComponent<CharacterMovementHandler>();
     }
 
     private void OnEnable()
     {
         _characterJump.OnJump += HandleJump;
-        _characterInterractor.OnConnect += SetPullAnim;
-        _characterInterractor.OnDisconnect += ResetPullAnim;
+        _connector.OnConnect += SetPullAnim;
+        _connector.OnDisconnect += ResetPullAnim;
     }
     private void OnDisable()
     {
         _characterJump.OnJump -= HandleJump;
-        _characterInterractor.OnConnect -= SetPullAnim;
-        _characterInterractor.OnDisconnect -= ResetPullAnim;
+        _connector.OnConnect -= SetPullAnim;
+        _connector.OnDisconnect -= ResetPullAnim;
     }
 
     private void Start()
@@ -82,17 +82,13 @@ public class CharacterAnimationController : MonoBehaviour
     {
         _pullObject = pullObject;
         _isPulling = true;
-        //_characterMovementHandler.LockFlip();
-        Debug.Log("SET isPulling = true");
         _animator.SetBool("isPulling", true);
     }
 
-    private void ResetPullAnim()
+    private void ResetPullAnim(Transform _)
     {
         _pullObject = null;
         _isPulling = false;
-        //_characterMovementHandler.UnlockFlip();
-        Debug.Log("SET isPulling = false");
         _animator.SetBool("isPulling", false);
         _animator.SetBool("isPushing", false);
         _animator.ResetTrigger("jump");
@@ -108,13 +104,11 @@ public class CharacterAnimationController : MonoBehaviour
 
             if (dot > 0.1f) // Если скалярное произведение положительное, движемся к объекту
             {
-                Debug.Log("Moving TOWARDS pullObject");
                 _animator.SetBool("isPulling", false);
                 _animator.SetBool("isPushing", true);
             }
             else if (dot < -0.1f) // Если отрицательное — движемся в противоположную сторону
             {
-                Debug.Log("Moving AWAY from pullObject");
                 _animator.SetBool("isPulling", true);
                 _animator.SetBool("isPushing", false);
             }

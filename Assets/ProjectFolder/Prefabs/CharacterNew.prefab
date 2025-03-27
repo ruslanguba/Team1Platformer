@@ -157,6 +157,20 @@ MonoBehaviour:
   _grassJump:
   - {fileID: 8300000, guid: 379e2cb021f008d44bf0503582baf797, type: 3}
   - {fileID: 8300000, guid: eb2f80abb205ffe4ab6160ef09a99381, type: 3}
+  _groundStep:
+  - {fileID: 8300000, guid: a46ba4c4d71d567478dab99fe1978c63, type: 3}
+  - {fileID: 8300000, guid: 6d2121d6cab6dd941b59e2ffc72096df, type: 3}
+  - {fileID: 8300000, guid: 383475da2bf637649b01ca8a7684e364, type: 3}
+  - {fileID: 8300000, guid: 4b5b04d74b173a9498be42d6abfd18fc, type: 3}
+  - {fileID: 8300000, guid: 5d2a970e356c27343ae102b4949641b1, type: 3}
+  - {fileID: 8300000, guid: d84182971cf9cb349aee9de7ccf35e63, type: 3}
+  - {fileID: 8300000, guid: 7c58c59dea154d044a9fa1dd86fe0497, type: 3}
+  - {fileID: 8300000, guid: 73a9e8aec2262454da317cd7f981cbe0, type: 3}
+  - {fileID: 8300000, guid: 259d386e0e668454da97f4f3195e3096, type: 3}
+  - {fileID: 8300000, guid: 439e944f238de4446ac46078215daa58, type: 3}
+  _groundJump:
+  - {fileID: 8300000, guid: c4138d85c3dd69a408546b5027dc7350, type: 3}
+  - {fileID: 8300000, guid: f235ee7e2e5cd00449b1dd3ab1959fe2, type: 3}
   _waterStep:
   - {fileID: 8300000, guid: 345f0b4ac14ff0246bce956ffb7b9a05, type: 3}
   - {fileID: 8300000, guid: ca096177a9724974a981bce7ed8bcf38, type: 3}
@@ -202,6 +216,7 @@ MonoBehaviour:
   _fireOn: {fileID: 8300000, guid: eb5c7bf8ddfd4bf4ab707a2a2bdb6cd4, type: 3}
   _fireOff: {fileID: 8300000, guid: 5ad2423d475228541908952125cb29dd, type: 3}
   _stepInterval: 0.4
+  _defoultLevelSurface: 0
 --- !u!58 &5830388769844045013
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5721,6 +5736,7 @@ GameObject:
   - component: {fileID: 7973959274044525410}
   - component: {fileID: 7581949186887644383}
   - component: {fileID: 2278938174474110254}
+  - component: {fileID: 5067131398360418417}
   m_Layer: 6
   m_Name: CharacterNew
   m_TagString: Untagged
@@ -5831,7 +5847,7 @@ HingeJoint2D:
   m_BreakAction: 1
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 12.19, y: 10.4}
+  m_ConnectedAnchor: {x: 15.781805, y: 7.157498}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -5924,6 +5940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _breakingTorque: 200
+  _hingeJoint: {fileID: 0}
   _pressEHint: {fileID: 8697139915092432022}
 --- !u!114 &6974031517562442786
 MonoBehaviour:
@@ -6017,6 +6034,19 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6525556814992272854}
   m_Enabled: 1
+--- !u!114 &5067131398360418417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6525556814992272854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b8cbbe985084334aa9e52e68ba3db5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _breakingTorque: 200
 --- !u!1 &6810906683258046097
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class CharacterMovementHandler : MonoBehaviour, IMoveable
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private float _groundCheckRadius = 0.2f;
-    private CharacterInterractor _characterInterractor;
+    private Connector _connector;
     private bool _isFlipBlocked = false;
     private bool _isFacingRight = true;
     private bool _isGrounded;
@@ -17,7 +17,7 @@ public class CharacterMovementHandler : MonoBehaviour, IMoveable
 
     private void Awake()
     {
-        _characterInterractor = GetComponent<CharacterInterractor>();
+        _connector = GetComponent<Connector>();
     }
     void Start()
     {
@@ -26,14 +26,14 @@ public class CharacterMovementHandler : MonoBehaviour, IMoveable
 
     private void OnEnable()
     {
-        _characterInterractor.OnConnect += LockFlip;
-        _characterInterractor.OnDisconnect += UnlockFlip;
+        _connector.OnConnect += LockFlip;
+        _connector.OnDisconnect += UnlockFlip;
     }
 
     private void OnDisable()
     {
-        _characterInterractor.OnConnect -= LockFlip;
-        _characterInterractor.OnDisconnect -= UnlockFlip;
+        _connector.OnConnect -= LockFlip;
+        _connector.OnDisconnect -= UnlockFlip;
     }
 
 
@@ -115,9 +115,23 @@ public class CharacterMovementHandler : MonoBehaviour, IMoveable
         _isFlipBlocked = true;   
     }
 
-    public void UnlockFlip()
+    public void UnlockFlip(Transform connectedBody)
     {
         _isFlipBlocked = false;
-        FlipDirection();
+
+        bool isMovingBackwards =
+        (_isFacingRight &&
+        ((transform.position.x > connectedBody.position.x && _currentMoveDirection > 0) ||
+         (transform.position.x < connectedBody.position.x && _currentMoveDirection < 0)))
+        ||
+        (!_isFacingRight &&
+        ((transform.position.x > connectedBody.position.x && _currentMoveDirection > 0) ||
+         (transform.position.x < connectedBody.position.x && _currentMoveDirection < 0)));
+        if (isMovingBackwards)
+        {
+            FlipDirection();
+        }
     }
+
+
 }
