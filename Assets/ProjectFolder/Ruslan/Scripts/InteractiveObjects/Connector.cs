@@ -1,19 +1,34 @@
+using System;
 using UnityEngine;
 
-public class Connector
+public class Connector: MonoBehaviour
 {
-    internal HingeJoint2D _hingeJoint;
-    internal bool _isConnected;
-    internal float _breakingTorque;
-    public Connector (HingeJoint2D hingeJoint, float breakingTorque)
+    public Action<Transform> OnConnect;
+    public Action<Transform> OnDisconnect;
+
+    [SerializeField] private float _breakingTorque = 200;
+    private CharacterMovementHandler _movementHandler;
+    private Rigidbody2D _conectedBody;
+    private HingeJoint2D _hingeJoint;
+    private bool _isConnected;
+
+    public bool IsConnected => _isConnected;
+
+    private void Start()
     {
-        _hingeJoint = hingeJoint;
+        _movementHandler = GetComponent<CharacterMovementHandler>();
+        _hingeJoint = GetComponent<HingeJoint2D>();
         _hingeJoint.enabled = false;
         _isConnected = false;
-        _breakingTorque = breakingTorque;
     }
 
-    internal void OnInterract()
+    private void OnJointBreak2D(Joint2D brokenJoint)
+    {
+        Debug.Log("Disconnect From Object");
+        DisconectObject();
+    }
+
+    public void OnInterract()
     {
         if (_isConnected)
         {
@@ -21,32 +36,34 @@ public class Connector
         }
     }
 
-    internal void ConnectToObject(Rigidbody2D rb)
+    public void ConnectToObject(Rigidbody2D rb)
     {
+        OnConnect?.Invoke(rb.transform);
+        _conectedBody = rb;
         _hingeJoint.enabled = true;
-        _hingeJoint.connectedBody = rb;
+        _hingeJoint.connectedBody = _conectedBody;
         _isConnected = true;
-        ////Забираем массу у толкаемого обьекта
-        //rb.mass /= 4;
     }
 
-    internal void DisconectObject()
+    public void DisconectObject()
     {
-        ////Возвращаем массу толкаемому обьекта
-        //_hingeJoint.connectedBody.mass *= 4;
-
+        Debug.Log("Disconnect From Object");
+        if(_conectedBody != null)
+        {
+            OnDisconnect?.Invoke(_conectedBody.transform);
+        }
         _hingeJoint.connectedBody = null;
         _hingeJoint.enabled = false;
-        _isConnected = false;       
+        _isConnected = false;   
+        _conectedBody = null;
     }
 
     internal void FixedUpdate()
     {
         if (_isConnected)
         {
-            Rigidbody2D rb = _hingeJoint.connectedBody;
-            float torque = rb.inertia * rb.angularVelocity;
-            if (Mathf.Abs(torque) > _breakingTorque)
+            float torque = _conectedBody.inertia * _conectedBody.angularVelocity;
+            if (Mathf.Abs(torque) > _breakingTorque || !_movementHandler.IsGrounded())
             {
                 DisconectObject();
             }
