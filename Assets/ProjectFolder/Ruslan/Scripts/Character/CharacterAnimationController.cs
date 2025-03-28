@@ -5,7 +5,6 @@ public class CharacterAnimationController : MonoBehaviour
 {
     public Action OnDeathAnimCompleat;
     public Action OnRespawnAnimCompleat;
-    [SerializeField] private Collider2D _pushCollider;
     private Connector _connector;
     private Transform _pullObject;
     private Rigidbody2D _rb;
@@ -66,7 +65,7 @@ public class CharacterAnimationController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.otherCollider == _pushCollider && collision.gameObject.TryGetComponent(out IInteractable interactable))
+        if(collision.gameObject.TryGetComponent(out IInteractable interactable))
         {
             _animator.SetBool("isPushing", true);
         }
@@ -74,7 +73,7 @@ public class CharacterAnimationController : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.otherCollider == _pushCollider && collision.gameObject.TryGetComponent(out IInteractable interactable))
+        if (collision.gameObject.TryGetComponent(out IInteractable interactable))
         {
             _animator.SetBool("isPushing", false);
         }
