@@ -48,7 +48,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _trapObject: {fileID: 3939340297308601706}
-  _characterTransform: {fileID: 0}
   _speed: 5
 --- !u!61 &298691859242548411
 BoxCollider2D:
@@ -259,7 +258,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4577276763364219365
 Transform:
   m_ObjectHideFlags: 0
