@@ -3,8 +3,10 @@ using UnityEngine;
 public class PredatorTrap : TrapBase
 {
     private bool _isActivated;
+    private Animator _animator;
     void Start()
     {
+        _animator = GetComponentInChildren<Animator>();
         _trapObject.gameObject.SetActive(false);
         _isActivated = false;
     }
@@ -16,6 +18,10 @@ public class PredatorTrap : TrapBase
             _trapObject.gameObject.SetActive(true);
             _isActivated = true;
         }
+        else
+        {
+            _animator.SetBool("isActive",  false);
+        }
     }
 
     protected override void DiactivateTrap()
@@ -23,6 +29,7 @@ public class PredatorTrap : TrapBase
         _isActivated = false;
         _trapObject.position = transform.position;
         _trapObject.gameObject.SetActive(false);
+        _animator.SetBool("isActive", true);
     }
 
     void Update()
