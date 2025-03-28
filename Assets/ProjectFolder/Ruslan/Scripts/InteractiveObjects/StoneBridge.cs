@@ -79,7 +79,6 @@ public class StoneBridge : MonoBehaviour, IInteractable
         while (true)
         {
             yield return new WaitForSeconds(0.5f);
-            Debug.Log(transform.rotation.z);
             if (Mathf.Abs(transform.rotation.z) > 0.5)
             {
                 _activatorTrigger.enabled = false;

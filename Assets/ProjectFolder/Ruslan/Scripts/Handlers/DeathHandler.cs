@@ -1,20 +1,18 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class DeathHandler : MonoBehaviour 
 {
     public Action OnDeath;
     private CharacterDeath _characterDeath;
-
-    //public DeathHandler(CharacterDeath characterDeath)
-    //{
-    //    _characterDeath = characterDeath;
-    //    _characterDeath.OnDeathTriggerEntered += Death;
-    //}
-
+    private CharacterMoveController _characterController;
+    private Animator _animator;
     private void Awake()
     {
         _characterDeath = FindFirstObjectByType<CharacterDeath>();
+        _animator = _characterDeath.GetComponentInChildren<Animator>();
+        _characterController = _characterDeath.GetComponent<CharacterMoveController>();
     }
 
     private void OnEnable()
@@ -27,14 +25,10 @@ public class DeathHandler : MonoBehaviour
         _characterDeath.OnDeathTriggerEntered -= Death;
     }
 
-    public void Unsubscribe()
-    {
-        _characterDeath.OnDeathTriggerEntered -= Death;
-    }
-
     private void Death()
     {
-        // рср бяе врн опнхяундхр опх ялепрх, еякх мюдн бшбеярх лемч, онявхрюрэ йнкхвеярбн ялепреи цкнаюкэмн х р.д.
-        OnDeath?.Invoke();
+        _characterController.StopMovement();
+        _animator.SetTrigger("death");
+        _characterController.enabled = false;
     }
 }

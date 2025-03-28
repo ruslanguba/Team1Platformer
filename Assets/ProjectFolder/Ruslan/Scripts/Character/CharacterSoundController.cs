@@ -63,8 +63,7 @@ public class CharacterSoundController : MonoBehaviour
     {
         StartCoroutine(PlayFootsteps());
         _currentSurface = Surface.grass;
-        int objectLayer = gameObject.layer;
-        int ignoreLayer = _movementHandler.gameObject.layer;
+
         switch (_defoultLevelSurface)
         {
             case Surface.grass:
@@ -80,8 +79,6 @@ public class CharacterSoundController : MonoBehaviour
                 _defaultJump = _grassJump;
                 break;
         }
-
-        Physics2D.IgnoreLayerCollision(objectLayer, ignoreLayer, true);
     }
 
 
@@ -162,16 +159,6 @@ public class CharacterSoundController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.TryGetComponent(out Grass grass))
-        {
-            _currentSurface = Surface.grass;
-            return;
-        }
-        if (collision.TryGetComponent(out Ground ground))
-        {
-            _currentSurface = Surface.ground;
-            return;
-        }
         if (collision.TryGetComponent(out FireStopper fireStopper))
         {
             _currentSurface = Surface.water;
@@ -187,6 +174,16 @@ public class CharacterSoundController : MonoBehaviour
         {
             _currentSurface = Surface.stone;
             _audioSource.PlayOneShot(_stoneStep[Random.Range(0, _stoneStep.Length)]);
+            return;
+        }
+        if (collision.TryGetComponent(out Grass grass))
+        {
+            _currentSurface = Surface.grass;
+            return;
+        }
+        if (collision.TryGetComponent(out Ground ground))
+        {
+            _currentSurface = Surface.ground;
             return;
         }
     }

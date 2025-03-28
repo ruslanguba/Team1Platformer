@@ -11,13 +11,17 @@ public class DinosaurTrap : TrapBase
     [SerializeField] private float _deathDelay = 0.5f;
     private bool _isStoneInTrap = false;
     private Rigidbody2D _stoneInTrapRigidbody;
-    private Collider2D _trapCollider;
-    private Collider2D _stoneInTrapCollider;
+    private Collider2D _trapTriggerCollider;
+    private Transform _stoneInTrapCollider;
+    private Quaternion _leftStartRotation;
+    private Quaternion _rightStartRotation;
 
     private void Start()
     {
         _trapObject.gameObject.SetActive(false);
-        _trapCollider = GetComponent<Collider2D>();
+        _trapTriggerCollider = GetComponent<Collider2D>();
+        _leftStartRotation = _leftPart.rotation;
+        _rightStartRotation = _rightPart.rotation;
     }
 
     protected override void HandleTriggerEnter(Collider2D collision)
@@ -25,21 +29,25 @@ public class DinosaurTrap : TrapBase
         if(collision.TryGetComponent(out Interactable movable))
         {
             _isStoneInTrap = true;
-            _trapCollider.enabled = false;
+            _trapTriggerCollider.enabled = false;
             _stoneInTrapRigidbody = movable.GetComponent<Rigidbody2D>();
-            _stoneInTrapCollider = movable.GetComponent<Collider2D>();
+            _stoneInTrapCollider = movable.GetComponent<Transform>();
             movable.enabled = false;
+            StartCoroutine(CloseJaws());
         }
-        StartCoroutine(CloseJaws());
+        else if (collision.TryGetComponent(out CharacterFire character))
+        {
+            StartCoroutine(CloseJaws());
+        }
     }
 
     private IEnumerator CloseJaws()
     {
         Debug.Log("Start close");
-        Quaternion leftStartRotation = _leftPart.rotation;
+        Quaternion leftRotation = _leftStartRotation;
         Quaternion leftTargetRotation = Quaternion.Euler(0, 0, _leftTargetAngle);
 
-        Quaternion rightStartRotation = _rightPart.rotation;
+        Quaternion rightRotation = _rightStartRotation;
         Quaternion rightTargetRotation = Quaternion.Euler(0, 0, _rigthtTargetAngle);
 
         float elapsedTime = 0f;
@@ -47,8 +55,8 @@ public class DinosaurTrap : TrapBase
         while (elapsedTime < _duration)
         {
             float t = elapsedTime / _duration;
-            _leftPart.rotation = Quaternion.Lerp(leftStartRotation, leftTargetRotation, t);
-            _rightPart.rotation = Quaternion.Lerp(rightStartRotation, rightTargetRotation, t);
+            _leftPart.rotation = Quaternion.Lerp(leftRotation, leftTargetRotation, t);
+            _rightPart.rotation = Quaternion.Lerp(rightRotation, rightTargetRotation, t);
 
             elapsedTime += Time.deltaTime;
             yield return null;
@@ -59,15 +67,15 @@ public class DinosaurTrap : TrapBase
         if (_isStoneInTrap)
         {
             _stoneInTrapRigidbody.bodyType = RigidbodyType2D.Static;
-            _stoneInTrapCollider.transform.position = transform.position;
+            _stoneInTrapCollider.position = transform.position;
             yield break;
         }
         yield return new WaitForSeconds(_deathDelay);
         _trapObject.gameObject.SetActive(true);
 
         yield return new WaitForSeconds(1);
-        _leftPart.rotation = leftStartRotation;
-        _rightPart.rotation = rightStartRotation;
+        _leftPart.rotation = _leftStartRotation;
+        _rightPart.rotation = _rightStartRotation;
         _trapObject.gameObject.SetActive(false);
     }
 }
