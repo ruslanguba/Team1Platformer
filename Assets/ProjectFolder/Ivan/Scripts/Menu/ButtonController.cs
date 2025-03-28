@@ -9,11 +9,11 @@ public class ButtonController : MonoBehaviour, IPointerEnterHandler
     public UnityEvent OnSoundFinished; // Событие, которое будет вызвано после завершения звука
     private Button _button; //Кнопка нажатия   
 
-    MenuAudio MenuAudio;
+    SFXMenu MenuAudio;
 
     private void Awake()
     {
-        MenuAudio = GameObject.FindGameObjectWithTag("Audio").GetComponent<MenuAudio>();
+        MenuAudio = GameObject.FindGameObjectWithTag("Audio").GetComponent<SFXMenu>();
     }
 
     private void Start()

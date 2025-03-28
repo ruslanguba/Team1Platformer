@@ -35,6 +35,7 @@ public class VolumeSettings : MonoBehaviour
           savedMusicVolume = PlayerPrefs.GetFloat(MusicVolumeKey, 0.5f);
           savedSFXVolume = PlayerPrefs.GetFloat(SFXVolumeKey, 0.5f); 
     }  
+
     void Start()
     {
         // Если слайдеры есть на текущей сцене (стартовое меню), настраиваем их
