@@ -16,7 +16,7 @@ public class DinosaurTrap : TrapBase
     private AudioSource _audioSource;
     private Quaternion _leftStartRotation;
     private Quaternion _rightStartRotation;
-    private bool _isOpened;
+    [SerializeField] private bool _isOpened;
 
     private void Start()
     {
@@ -30,24 +30,22 @@ public class DinosaurTrap : TrapBase
 
     protected override void HandleTriggerEnter(Collider2D collision)
     {
-        if(_isOpened)
+        if (collision.TryGetComponent(out CharacterFire character))
         {
-            _isOpened = false;
-            if (collision.TryGetComponent(out CharacterFire character))
-            {
-                StartCoroutine(CloseJaws());
-                return;
-            }
+            Debug.Log("ClosePlayer");
+            StartCoroutine(CloseJaws());
+            return;
+        }
 
-            if (collision.TryGetComponent(out Interactable movable))
-            {
-                _isStoneInTrap = true;
-                _trapTriggerCollider.enabled = false;
-                _stoneInTrapRigidbody = movable.GetComponent<Rigidbody2D>();
-                _stoneInTrapCollider = movable.GetComponent<Transform>();
-                movable.enabled = false;
-                StartCoroutine(CloseJaws());
-            }
+        if (collision.TryGetComponent(out Interactable movable))
+        {
+            Debug.Log("CloseStone");
+            _isStoneInTrap = true;
+            _trapTriggerCollider.enabled = false;
+            _stoneInTrapRigidbody = movable.GetComponent<Rigidbody2D>();
+            _stoneInTrapCollider = movable.GetComponent<Transform>();
+            movable.enabled = false;
+            StartCoroutine(CloseJaws());
         }
     }
 
