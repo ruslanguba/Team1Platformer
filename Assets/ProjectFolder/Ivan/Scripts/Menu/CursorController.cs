@@ -2,17 +2,17 @@ using UnityEngine;
 
 public class CursorController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private Camera _camera;
     void Start()
     {
         Cursor.visible = false;
+        _camera = Camera.main;
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector2 mousePos = Input.mousePosition;
-        Vector2 realPos = Camera.main.ScreenToWorldPoint(mousePos);
+        Vector2 realPos = _camera.ScreenToWorldPoint(mousePos);
         transform.position = realPos;
     }
 }

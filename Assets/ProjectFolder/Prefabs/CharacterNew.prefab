@@ -143,6 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a5d0d6a2e6388439a669db26726bb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _stepInterval: 0.4
+  _defoultLevelSurface: 0
   _grassStep:
   - {fileID: 8300000, guid: bf0dc406a05dc674488fbee5cc42f61f, type: 3}
   - {fileID: 8300000, guid: 3fbd35784d34c5c41b3bfada61201410, type: 3}
@@ -217,8 +219,6 @@ MonoBehaviour:
   _fireOff: {fileID: 8300000, guid: 5ad2423d475228541908952125cb29dd, type: 3}
   _death: {fileID: 8300000, guid: d39de791b9b0c764597814f55b8758e3, type: 3}
   _fireDeath: {fileID: 8300000, guid: bb1ed8d01582385418b52cd5a0106a68, type: 3}
-  _stepInterval: 0.4
-  _defoultLevelSurface: 0
 --- !u!58 &5830388769844045013
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5752,6 +5752,7 @@ GameObject:
   - component: {fileID: 7581949186887644383}
   - component: {fileID: 2278938174474110254}
   - component: {fileID: 5067131398360418417}
+  - component: {fileID: 9113269114382533549}
   m_Layer: 6
   m_Name: CharacterNew
   m_TagString: Untagged
@@ -6046,6 +6047,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _breakingTorque: 200
+--- !u!114 &9113269114382533549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6525556814992272854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a8d39394a18e747852e6d8e6f257af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6810906683258046097
 GameObject:
   m_ObjectHideFlags: 0

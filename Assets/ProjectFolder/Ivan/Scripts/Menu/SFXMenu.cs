@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MenuAudio : AudioManager
+public class SFXMenu : SFXManager
 {
     public AudioClip HoverSound;
     public AudioClip ClickSound;
