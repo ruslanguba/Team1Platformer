@@ -215,6 +215,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f235ee7e2e5cd00449b1dd3ab1959fe2, type: 3}
   _fireOn: {fileID: 8300000, guid: eb5c7bf8ddfd4bf4ab707a2a2bdb6cd4, type: 3}
   _fireOff: {fileID: 8300000, guid: 5ad2423d475228541908952125cb29dd, type: 3}
+  _death: {fileID: 8300000, guid: d39de791b9b0c764597814f55b8758e3, type: 3}
+  _fireDeath: {fileID: 8300000, guid: bb1ed8d01582385418b52cd5a0106a68, type: 3}
   _stepInterval: 0.4
   _defoultLevelSurface: 0
 --- !u!58 &5830388769844045013

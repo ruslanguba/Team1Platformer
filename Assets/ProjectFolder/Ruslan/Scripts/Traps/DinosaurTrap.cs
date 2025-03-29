@@ -13,43 +13,53 @@ public class DinosaurTrap : TrapBase
     private Rigidbody2D _stoneInTrapRigidbody;
     private Collider2D _trapTriggerCollider;
     private Transform _stoneInTrapCollider;
+    private AudioSource _audioSource;
     private Quaternion _leftStartRotation;
     private Quaternion _rightStartRotation;
+    private bool _isOpened;
 
     private void Start()
     {
         _trapObject.gameObject.SetActive(false);
         _trapTriggerCollider = GetComponent<Collider2D>();
+        _audioSource = GetComponent<AudioSource>();
         _leftStartRotation = _leftPart.rotation;
         _rightStartRotation = _rightPart.rotation;
+        _isOpened = true;
     }
 
     protected override void HandleTriggerEnter(Collider2D collision)
     {
-        if(collision.TryGetComponent(out Interactable movable))
+        if(_isOpened)
         {
-            _isStoneInTrap = true;
-            _trapTriggerCollider.enabled = false;
-            _stoneInTrapRigidbody = movable.GetComponent<Rigidbody2D>();
-            _stoneInTrapCollider = movable.GetComponent<Transform>();
-            movable.enabled = false;
-            StartCoroutine(CloseJaws());
-        }
-        else if (collision.TryGetComponent(out CharacterFire character))
-        {
-            StartCoroutine(CloseJaws());
+            _isOpened = false;
+            if (collision.TryGetComponent(out CharacterFire character))
+            {
+                StartCoroutine(CloseJaws());
+                return;
+            }
+
+            if (collision.TryGetComponent(out Interactable movable))
+            {
+                _isStoneInTrap = true;
+                _trapTriggerCollider.enabled = false;
+                _stoneInTrapRigidbody = movable.GetComponent<Rigidbody2D>();
+                _stoneInTrapCollider = movable.GetComponent<Transform>();
+                movable.enabled = false;
+                StartCoroutine(CloseJaws());
+            }
         }
     }
 
     private IEnumerator CloseJaws()
     {
-        Debug.Log("Start close");
         Quaternion leftRotation = _leftStartRotation;
         Quaternion leftTargetRotation = Quaternion.Euler(0, 0, _leftTargetAngle);
 
         Quaternion rightRotation = _rightStartRotation;
         Quaternion rightTargetRotation = Quaternion.Euler(0, 0, _rigthtTargetAngle);
 
+        _audioSource.Play();
         float elapsedTime = 0f;
 
         while (elapsedTime < _duration)
@@ -77,6 +87,7 @@ public class DinosaurTrap : TrapBase
         _leftPart.rotation = _leftStartRotation;
         _rightPart.rotation = _rightStartRotation;
         _trapObject.gameObject.SetActive(false);
+        _isOpened = true;
     }
 }
 

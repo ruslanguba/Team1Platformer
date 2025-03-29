@@ -25,7 +25,7 @@ public class DeathHandler : MonoBehaviour
         _characterDeath.OnDeathTriggerEntered -= Death;
     }
 
-    private void Death()
+    private void Death(bool isInFire)
     {
         _characterController.StopMovement();
         _animator.SetTrigger("death");

@@ -55590,6 +55590,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5830388769844045013, guid: b5599707b21825f438d6ef435cfaeeac, type: 3}
+      propertyPath: m_Radius
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6525556814992272854, guid: b5599707b21825f438d6ef435cfaeeac, type: 3}
       propertyPath: m_Name
       value: CharacterNew
