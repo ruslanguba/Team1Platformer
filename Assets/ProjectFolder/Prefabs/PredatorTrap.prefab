@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _trapObject: {fileID: 3939340297308601706}
-  _speed: 5
+  _speed: 10
   _moveSprite: {fileID: -7810947850561304840, guid: d300506f8761ba948ad1a69ba2366fd2, type: 3}
   _attackSprite: {fileID: -4635084094943298145, guid: d300506f8761ba948ad1a69ba2366fd2, type: 3}
   _claws: {fileID: 9178661774854927608}
@@ -130,7 +130,6 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3595077644448040610}
-  - {fileID: 1463290266064708178}
   m_Father: {fileID: 1345757504748616645}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &6662622231021433680
@@ -216,13 +215,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3393940824588009906}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.258819, w: 0.9659259}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalRotation: {x: -0, y: -0, z: 0.017454104, w: 0.9998477}
+  m_LocalPosition: {x: -0.0515, y: 0.0345, z: 0}
+  m_LocalScale: {x: 0.2148, y: 0.2148, z: 0.2148}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 1463290266064708178}
   m_Father: {fileID: 3939340297308601706}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -30}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2}
 --- !u!212 &1379433663426635292
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -501,13 +501,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9178661774854927608}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.30135918, y: 0.060759425, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalRotation: {x: -0, y: -0, z: 0.02187728, w: 0.9997607}
+  m_LocalPosition: {x: -4.5128665, y: 0.63042897, z: 0}
+  m_LocalScale: {x: 0.93109876, y: 0.93109876, z: 0.93109864}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 3939340297308601706}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 3595077644448040610}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 4.507}
 --- !u!212 &8559083639585704940
 SpriteRenderer:
   m_ObjectHideFlags: 0
