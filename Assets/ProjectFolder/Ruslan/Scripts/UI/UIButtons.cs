@@ -3,12 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class UIButtons : MonoBehaviour
 {
-    [SerializeField] private GameObject GameMenu;
+    [SerializeField] private GameObject _pausePanel;
+    [SerializeField] private GameObject _hintPanel;
     private bool _isPoused;
 
     private void Start()
     {
-        GameMenu.SetActive(false);
+        _pausePanel.SetActive(false);
     }
 
     private void Update()
@@ -37,28 +38,30 @@ public class UIButtons : MonoBehaviour
 
     public void OnClickRestart()
     {
-        GameMenu.SetActive(false);
+        _pausePanel?.SetActive(false);
         Resume();
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void OnClickMenu()
     {
-        GameMenu.SetActive(false);
+        _pausePanel?.SetActive(false);
         Resume();
         SceneManager.LoadScene(0);
     }
 
     private void Pause()
     {
-        GameMenu.SetActive(true);
+        _pausePanel?.SetActive(true);
+        _hintPanel?.SetActive(false);
         _isPoused = true;
         Time.timeScale = 0;
     }
     
     private void Resume()
     {
-        GameMenu.SetActive(false);
+        _pausePanel?.SetActive(false);
+        _hintPanel?.SetActive(true);
         _isPoused = false;
         Time.timeScale = 1.0f;
     }

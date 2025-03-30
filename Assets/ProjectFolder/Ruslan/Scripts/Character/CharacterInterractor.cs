@@ -28,6 +28,7 @@ public class CharacterInterractor : MonoBehaviour
     void Start()
     {
         _connector = GetComponent<Connector>();
+        _pressEHint.SetActive(false);
     }
 
     public void SetInteractable(IInteractable interactable)
