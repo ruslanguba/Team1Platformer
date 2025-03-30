@@ -20,6 +20,7 @@ public class Flammable : FireBase
         _deathCollider.enabled = false;
         _animatedFire.SetActive(false);
     }
+
     public override void HandleFire(bool isFireStarterBurning)
     {
         if (isFireStarterBurning)

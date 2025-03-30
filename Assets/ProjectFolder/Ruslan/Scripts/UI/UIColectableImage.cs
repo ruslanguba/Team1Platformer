@@ -4,15 +4,17 @@ using UnityEngine.UI;
 public class UIColectableImage : MonoBehaviour
 {
     [SerializeField] private Image _image;
+    
 
     private void Start()
     {
         _image = GetComponent<Image>();
     }
+
     public void ChangeColorAlfa()
     {
-        Color color = _image.color; // Получаем текущий цвет
-        color.a = 1; // Изменяем альфа-канал (ограничиваем от 0 до 1)
-        _image.color = color; // Применяем новый цвет
+        Color color = _image.color; 
+        color.a = 1;
+        _image.color = color;
     }
 }

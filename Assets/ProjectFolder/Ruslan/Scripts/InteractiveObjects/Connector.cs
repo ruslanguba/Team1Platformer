@@ -14,17 +14,23 @@ public class Connector: MonoBehaviour
 
     public bool IsConnected => _isConnected;
 
+    private void Awake()
+    {
+        _hingeJoint = GetComponent<HingeJoint2D>();
+    }
+
     private void Start()
     {
-        _movementHandler = GetComponent<CharacterMovementHandler>();
-        _hingeJoint = GetComponent<HingeJoint2D>();
-        _hingeJoint.enabled = false;
         _isConnected = false;
+        _movementHandler = GetComponent<CharacterMovementHandler>();
+        if(_hingeJoint != null)
+        {
+            _hingeJoint.enabled = false;
+        }
     }
 
     private void OnJointBreak2D(Joint2D brokenJoint)
     {
-        Debug.Log("Disconnect From Object");
         DisconectObject();
     }
 
@@ -47,7 +53,6 @@ public class Connector: MonoBehaviour
 
     public void DisconectObject()
     {
-        Debug.Log("Disconnect From Object");
         if(_conectedBody != null)
         {
             OnDisconnect?.Invoke(_conectedBody.transform);
@@ -58,7 +63,7 @@ public class Connector: MonoBehaviour
         _conectedBody = null;
     }
 
-    internal void FixedUpdate()
+    private void FixedUpdate()
     {
         if (_isConnected)
         {

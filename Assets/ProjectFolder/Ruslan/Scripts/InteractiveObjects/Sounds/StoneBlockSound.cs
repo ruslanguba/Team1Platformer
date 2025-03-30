@@ -4,35 +4,44 @@ public class StoneBlockSound : ItemSoundBase
 {
     [SerializeField] private AudioClip _fallInWater;
     [SerializeField] private AudioClip _fallOnGround;
+    [SerializeField] private AudioClip _groundMoveSound;
+    [SerializeField] private AudioClip _waterMoveSound;
+    private AudioClip _moveSound;
     private Rigidbody2D _rb;
     private bool _isMoving;
     private bool _isFalling;
     private bool _isInWater;
+    private bool _isPlaying = false;
 
     protected override void Start()
     {
         base.Start();
         _rb = GetComponent<Rigidbody2D>();
+        _moveSound = _groundMoveSound;
     }
 
     private void Update()
     {
-        
+        CheckMoving();
+        PlayMoveSound();
     }
 
     private void CheckMoving()
     {
-        if(Mathf.Abs(_rb.linearVelocityX) > 0.2f)
-        {
-            _isMoving = true;
-        }
+        _isMoving = Mathf.Abs(_rb.linearVelocityX) > 0.2f;
     }
 
-    private void CheckFalling()
+    private void PlayMoveSound() 
     {
-        if (_rb.linearVelocityY < -2)
+        if (_isMoving && !_audioSource.isPlaying)
         {
-            _isFalling = true;
+            _audioSource.clip = _moveSound;
+            _audioSource.loop = true;
+            _audioSource.Play();
+        }
+        else if (!_isMoving && _audioSource.isPlaying)
+        {
+            _audioSource.Pause();
         }
     }
 
@@ -46,6 +55,7 @@ public class StoneBlockSound : ItemSoundBase
         if (collision.TryGetComponent(out FireStopper watter))
         {
             _isInWater = true;
+            _moveSound = _waterMoveSound;
         }
         if (IsFalling() && _isInWater)
         {
@@ -57,7 +67,24 @@ public class StoneBlockSound : ItemSoundBase
     {
         if(IsFalling() && !_isInWater)
         {
-            _audioSource.PlayOneShot(_fallOnGround);
+            float minSpeed = 0f;
+            float maxSpeed = -5f; // Максимальная скорость падения (отрицательная)
+            float fallSpeed = Mathf.Clamp(_rb.linearVelocityY, maxSpeed, minSpeed); // Ограничиваем диапазон
+            float volume = Mathf.InverseLerp(minSpeed, maxSpeed, fallSpeed); // Приводим к 0-1
+            _audioSource.pitch = Random.Range(0.9f, 1.1f);
+            _audioSource.PlayOneShot(_fallOnGround, volume);
         }
     }
+    public void StartSound()
+    {
+        _isPlaying = true;
+    }
+
+    // Выключить звук
+    public void StopSound()
+    {
+        _isPlaying = false;
+    }
+
+
 }

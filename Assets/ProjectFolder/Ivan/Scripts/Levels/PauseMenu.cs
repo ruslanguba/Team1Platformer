@@ -8,6 +8,11 @@ public class PauseMenu : UIManager
     private bool isPaused = false;
     private Coroutine pauseCheckCoroutine;
 
+    private void Start()
+    {
+        pauseMenu.SetActive(false);
+    }
+
     private void OnEnable()
     {
         pauseCheckCoroutine = StartCoroutine(CheckForPauseInput());
@@ -52,6 +57,12 @@ public class PauseMenu : UIManager
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+    }
+
+    public void BackToMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
     }
 
     public void Restart()

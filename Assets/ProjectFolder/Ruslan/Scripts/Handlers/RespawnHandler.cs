@@ -1,3 +1,5 @@
+using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
@@ -5,24 +7,36 @@ public class RespawnHandler : MonoBehaviour
 {
     [SerializeField] private CharacterRespown _characterRespown;
     [SerializeField] private Transform _initialSpownPosition;
+    private CharacterMoveController _characterController;
+    private CharacterAnimationController _characterAnimationController;
     private Transform _characterTransform;
     private DeathHandler _deathHandler;
+    private Animator _animator;
     private Vector2 _respawnPosition;
+    private Coroutine _coroutine;
 
     private void Awake()
     {
         _deathHandler = GetComponent<DeathHandler>();
         _characterRespown = FindFirstObjectByType<CharacterRespown>();
+        _animator = _characterRespown.GetComponentInChildren<Animator>();
+        _characterController = _characterRespown.GetComponent<CharacterMoveController>();
+        _characterAnimationController = _animator.GetComponent <CharacterAnimationController>();
     }
     private void OnEnable()
     {
         _deathHandler.OnDeath += RespawnCharacter;
         _characterRespown.OnRespownPoindFound += SetRespanPoint;
+        _characterAnimationController.OnDeathAnimCompleat += RespawnCharacter;
+        _characterAnimationController.OnRespawnAnimCompleat += ReturnControl;
     }
 
     private void OnDisable()
     {
         _deathHandler.OnDeath -= RespawnCharacter;
+        _characterRespown.OnRespownPoindFound -= SetRespanPoint;
+        _characterAnimationController.OnDeathAnimCompleat -= RespawnCharacter;
+        _characterAnimationController.OnRespawnAnimCompleat -= ReturnControl;
     }
 
     private void Start()
@@ -35,11 +49,29 @@ public class RespawnHandler : MonoBehaviour
     {
         // рср бяе врн днкфмн опнхяундхрэ опх пеяоюбме лнфмн янгдюрэ йнпсрхмс еякх врн-рн онщрюомн мюдн ядекюрэ
         _characterTransform.position = _respawnPosition;
-        _characterTransform.GetComponent<PlayerInputHandler>().enabled = true;
+        _animator.SetTrigger("respawn");
+        //if (_coroutine == null)
+        //{
+        //    StartCoroutine(RespawnRoutine());
+        //}
     }
 
     public void SetRespanPoint(Vector2 newRespownPoint)
     {
         _respawnPosition = newRespownPoint;
     }
+
+    private void ReturnControl()
+    {
+        _characterController.enabled = true;
+    }
+    //IEnumerator RespawnRoutine()
+    //{
+    //    RespawnCharacter();
+    //    _animator.SetTrigger("respawn");
+    //    yield return new WaitForSeconds(1);
+    //    Debug.Log("юМХЛЮЖХЪ ГЮБЕПЬЕМЮ!");
+    //    _characterController.enabled = true;
+    //    _coroutine = null;
+    //}
 }

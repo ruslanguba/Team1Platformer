@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterDeath : MonoBehaviour
 {
-    public Action OnDeathTriggerEntered;
+    public Action<bool> OnDeathTriggerEntered;
 
     [SerializeField] private float _deathInFireDelay = 1;
     [SerializeField] private float _resetTimerDelay = 0.5f;
@@ -24,7 +24,7 @@ public class CharacterDeath : MonoBehaviour
 
         if(collision.GetComponent<DeathTrigger>() != null)
         {
-            OnDeathTriggerEntered?.Invoke();
+            OnDeathTriggerEntered?.Invoke(true);
             return;
         }
     }
@@ -49,7 +49,7 @@ public class CharacterDeath : MonoBehaviour
             _deathTimer += Time.deltaTime; // Увеличиваем таймер на время, прошедшее с последнего кадра
             if (_deathTimer >= _deathInFireDelay)
             {
-                OnDeathTriggerEntered?.Invoke();
+                OnDeathTriggerEntered?.Invoke(false);
                 StopDeathTimer();
             }
         }

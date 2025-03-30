@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class SpiritTrap : TrapBase
 {
-    [SerializeField] private SpriteRenderer[] _sprites;
+    //[SerializeField] private SpriteRenderer[] _sprites;
+    [SerializeField] private GameObject _greenEyes;
+    [SerializeField] private GameObject _redEyes;
     [SerializeField] private float _patrolSpeed;
     [SerializeField] private float _activeSpeed;
     [SerializeField] private Vector2 _patrolAreaMin = new Vector2(-2, 0);
     [SerializeField] private Vector2 _patrolAreaMax = new Vector2(2, 1);
-    private Color _spritesStartColor;
+    //private Color _spritesStartColor;
     private Collider2D _deathTrigger;
     private Vector3 _targetPoint;
     private Transform _stoneParent;
@@ -18,7 +20,7 @@ public class SpiritTrap : TrapBase
     {
         PickNewTarget();
         _stoneParent = transform.parent;
-        _spritesStartColor = _sprites[0].color;
+        //_spritesStartColor = _sprites[0].color;
         _deathTrigger = _trapObject.GetComponent<Collider2D>();
         _deathTrigger.enabled = false;
         _currentSpeed = _patrolSpeed;
@@ -37,10 +39,12 @@ public class SpiritTrap : TrapBase
         {
             SetTriggerCharaceter();
             _currentSpeed = _activeSpeed;
-            foreach(var sprite in _sprites)
-            {
-                sprite.color = Color.red;
-            }
+            //foreach(var sprite in _sprites)
+            //{
+            //    sprite.color = Color.red;
+            //}
+            _greenEyes.SetActive(false);
+            _redEyes.SetActive(true);
             _deathTrigger.enabled = true;
         }
     }
@@ -50,10 +54,12 @@ public class SpiritTrap : TrapBase
         base.DiactivateTrap();
         PickNewTarget();
         _currentSpeed = _patrolSpeed;
-        foreach (var sprite in _sprites)
-        {
-            sprite.color = _spritesStartColor;
-        }
+        //foreach (var sprite in _sprites)
+        //{
+        //    sprite.color = _spritesStartColor;
+        //}
+        _greenEyes.SetActive(true);
+        _redEyes.SetActive(false);
         _deathTrigger.enabled = false;
     }
 
@@ -86,4 +92,9 @@ public class SpiritTrap : TrapBase
     {
         transform.position = _stoneParent.position;
     }
+
+    private void TogleEyesColor()
+    {
+    }
+
 }

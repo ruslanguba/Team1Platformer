@@ -1,12 +1,14 @@
 using System.Collections;
 using UnityEngine;
 
-public class StoneBridge : MonoBehaviour, IInteractable
+public class StoneBridge : MonoBehaviour
 {
     [SerializeField] private bool _isFallRight;
+    [SerializeField] private float _soundDelay = 0.5f;
     private Rigidbody2D _rb;
     private HingeJoint2D _joint;
     private Collider2D _activatorTrigger;
+    private AudioSource _audioSource;
     private float _triggerPositionOffset;
     private float _maxAngleLimmit;
 
@@ -15,6 +17,7 @@ public class StoneBridge : MonoBehaviour, IInteractable
         _activatorTrigger = GetComponent<Collider2D>();
         _joint = GetComponent<HingeJoint2D>();
         _rb = GetComponent<Rigidbody2D>();
+        _audioSource = GetComponent<AudioSource>();
         _rb.bodyType = RigidbodyType2D.Kinematic;
         SetFallDirection();
     }
@@ -27,18 +30,6 @@ public class StoneBridge : MonoBehaviour, IInteractable
         }
     }
 
-    public void OnInteract(CharacterInterractor interactor)
-    {
-        if (_isFallRight)
-        {
-            _rb.AddForce(Vector2.right, ForceMode2D.Impulse);
-        }
-        else
-        {
-            _rb.AddForce(Vector2.left, ForceMode2D.Impulse);
-        }
-    }
-
     protected virtual void OnTriggerEnterHandler(CharacterFire character)
     {
         _rb.bodyType = RigidbodyType2D.Dynamic;
@@ -47,6 +38,7 @@ public class StoneBridge : MonoBehaviour, IInteractable
 
     protected virtual void StartCheckRotation()
     {
+        _audioSource.PlayDelayed(_soundDelay);
         StartCoroutine(CheckRotation());
     }
 
@@ -79,7 +71,6 @@ public class StoneBridge : MonoBehaviour, IInteractable
         while (true)
         {
             yield return new WaitForSeconds(0.5f);
-            Debug.Log(transform.rotation.z);
             if (Mathf.Abs(transform.rotation.z) > 0.5)
             {
                 _activatorTrigger.enabled = false;

@@ -28,4 +28,9 @@ public class CharacterMoveController : MonoBehaviour
         if (_jumpable != null)
             _input.OnJumpInput -= _jumpable.Jump;
     }
+
+    public void StopMovement()
+    {
+        _moveable.Move(Vector2.zero);
+    }
 }

@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
 
 public class CharacterAnimationController : MonoBehaviour
 {
-    [SerializeField] private Collider2D _pushCollider;
+    public Action OnDeathAnimCompleat;
+    public Action OnRespawnAnimCompleat;
     private Connector _connector;
-    private CharacterMovementHandler _characterMovementHandler;
     private Transform _pullObject;
     private Rigidbody2D _rb;
     private Animator _animator;
@@ -13,9 +14,8 @@ public class CharacterAnimationController : MonoBehaviour
 
     private void Awake()
     {
-        _characterJump = GetComponent<CharacterJump>();
-        _connector = GetComponent<Connector>();
-        _characterMovementHandler = GetComponent<CharacterMovementHandler>();
+        _characterJump = GetComponentInParent<CharacterJump>();
+        _connector = GetComponentInParent<Connector>();
     }
 
     private void OnEnable()
@@ -23,6 +23,7 @@ public class CharacterAnimationController : MonoBehaviour
         _characterJump.OnJump += HandleJump;
         _connector.OnConnect += SetPullAnim;
         _connector.OnDisconnect += ResetPullAnim;
+
     }
     private void OnDisable()
     {
@@ -33,8 +34,8 @@ public class CharacterAnimationController : MonoBehaviour
 
     private void Start()
     {
-        _rb = GetComponent<Rigidbody2D>();
-        _animator = GetComponentInChildren<Animator>();
+        _rb = GetComponentInParent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
         _animator.SetBool("isPulling", false);
     }
 
@@ -64,7 +65,7 @@ public class CharacterAnimationController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.otherCollider == _pushCollider && collision.gameObject.TryGetComponent(out IInteractable interactable))
+        if(collision.gameObject.TryGetComponent(out IInteractable interactable))
         {
             _animator.SetBool("isPushing", true);
         }
@@ -72,7 +73,7 @@ public class CharacterAnimationController : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.otherCollider == _pushCollider && collision.gameObject.TryGetComponent(out IInteractable interactable))
+        if (collision.gameObject.TryGetComponent(out IInteractable interactable))
         {
             _animator.SetBool("isPushing", false);
         }
@@ -117,5 +118,15 @@ public class CharacterAnimationController : MonoBehaviour
                 Debug.Log("Standing still or moving sideways");
             }
         }
+    }
+
+    public void DeathAnimCompleat()
+    {
+        OnDeathAnimCompleat?.Invoke();
+    }
+
+    public void RespawnAnimCompleat()
+    {
+        OnRespawnAnimCompleat?.Invoke();
     }
 }

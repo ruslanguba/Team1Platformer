@@ -3,31 +3,41 @@ using UnityEngine;
 
 public class CharacterSoundController : MonoBehaviour
 {
+
+    [SerializeField] private float _stepInterval = 0.4f;
+    [SerializeField] private Surface _defoultLevelSurface;
+
     [Header("Grass Sounds")]
     [SerializeField] private AudioClip[] _grassStep;
     [SerializeField] private AudioClip[] _grassJump;
     [Header("Ground Sounds")]
+
     [SerializeField] private AudioClip[] _groundStep;
     [SerializeField] private AudioClip[] _groundJump;
     [Header("Water Sounds")]
+
     [SerializeField] private AudioClip[] _waterStep;
     [SerializeField] private AudioClip[] _waterJump;
     [Header("Stone Sounds")]
+
     [SerializeField] private AudioClip[] _stoneStep;
     [SerializeField] private AudioClip[] _stoneJump;
     [Header("Wood Sounds")]
+
     [SerializeField] private AudioClip[] _woodStep;
     [SerializeField] private AudioClip[] _woodJump;
     [Header("Fire Sounds")]
+
     [SerializeField] private AudioClip _fireOn;
     [SerializeField] private AudioClip _fireOff;
+    [Header("Death Sounds")]
 
-
-    [SerializeField] private float _stepInterval = 0.4f;
-    [SerializeField] private Surface _defoultLevelSurface;
+    [SerializeField] private AudioClip _death;
+    [SerializeField] private AudioClip _fireDeath;
     private CharacterMovementHandler _movementHandler;
     private CharacterJump _characterJump;
     private CharacterFire _characterFire;
+    private CharacterDeath _characterDeath;
     private Rigidbody2D _rb;
     private AudioSource _audioSource;
     private AudioClip[] _defaultStep;
@@ -45,26 +55,28 @@ public class CharacterSoundController : MonoBehaviour
         _movementHandler = GetComponentInParent<CharacterMovementHandler>();
         _characterJump = GetComponentInParent<CharacterJump>();
         _characterFire = GetComponentInParent<CharacterFire>();
+        _characterDeath = GetComponentInParent<CharacterDeath>();
     }
 
     private void OnEnable()
     {
         _characterJump.OnJump += PlayJumpClip;
         _characterFire.OnFire += PlayFireSound;
+        _characterDeath.OnDeathTriggerEntered += PlayDeathSound;
     }
 
     private void OnDisable()
     {
         _characterJump.OnJump -= PlayJumpClip;
         _characterFire.OnFire -= PlayFireSound;
+        _characterDeath.OnDeathTriggerEntered -= PlayDeathSound;
     }
 
     void Start()
     {
         StartCoroutine(PlayFootsteps());
         _currentSurface = Surface.grass;
-        int objectLayer = gameObject.layer;
-        int ignoreLayer = _movementHandler.gameObject.layer;
+
         switch (_defoultLevelSurface)
         {
             case Surface.grass:
@@ -80,10 +92,7 @@ public class CharacterSoundController : MonoBehaviour
                 _defaultJump = _grassJump;
                 break;
         }
-
-        Physics2D.IgnoreLayerCollision(objectLayer, ignoreLayer, true);
     }
-
 
     void Update()
     {
@@ -162,18 +171,9 @@ public class CharacterSoundController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.TryGetComponent(out Grass grass))
-        {
-            _currentSurface = Surface.grass;
-            return;
-        }
-        if (collision.TryGetComponent(out Ground ground))
-        {
-            _currentSurface = Surface.ground;
-            return;
-        }
         if (collision.TryGetComponent(out FireStopper fireStopper))
         {
+            Debug.Log("Water");
             _currentSurface = Surface.water;
             _audioSource.PlayOneShot(_waterJump[Random.Range(0, _waterJump.Length)]);
             return;
@@ -189,6 +189,16 @@ public class CharacterSoundController : MonoBehaviour
             _audioSource.PlayOneShot(_stoneStep[Random.Range(0, _stoneStep.Length)]);
             return;
         }
+        if (collision.TryGetComponent(out Grass grass))
+        {
+            _currentSurface = Surface.grass;
+            return;
+        }
+        if (collision.TryGetComponent(out Ground ground))
+        {
+            _currentSurface = Surface.ground;
+            return;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -197,4 +207,6 @@ public class CharacterSoundController : MonoBehaviour
     }
 
     private void PlayFireSound(bool isFireOn) => _audioSource.PlayOneShot(isFireOn ? _fireOn : _fireOff);
+
+    private void PlayDeathSound(bool isNotFire) => _audioSource.PlayOneShot(isNotFire ? _death : _fireDeath);
 }
