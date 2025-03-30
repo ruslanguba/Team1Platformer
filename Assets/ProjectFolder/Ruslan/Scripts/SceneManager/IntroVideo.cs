@@ -13,13 +13,17 @@ public class IntroVideo : MonoBehaviour
         {
             videoPlayer = GetComponent<VideoPlayer>();
         }
-
-        // Подписка на событие завершения видео
         videoPlayer.loopPointReached += OnVideoFinished;
+    }
+
+    private void OnDisable()
+    {
+        videoPlayer.loopPointReached -= OnVideoFinished;
     }
 
     void OnVideoFinished(VideoPlayer vp)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1); // Загружаем следующую сцену
+        Debug.Log("Finished");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // Загружаем следующую сцену
     }
 }
