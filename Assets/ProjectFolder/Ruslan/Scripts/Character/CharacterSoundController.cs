@@ -180,6 +180,7 @@ public class CharacterSoundController : MonoBehaviour
         }
         if (collision.TryGetComponent(out FireBridgeTree woodBridge))
         {
+            Debug.Log("Wood");
             _currentSurface = Surface.wood;
             return;
         }
