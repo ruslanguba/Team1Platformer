@@ -25,7 +25,6 @@ public class UICollectableView : MonoBehaviour
 
     private void Start()
     {
-        _images = GetComponentsInChildren<UIColectableImage>();
         _collectablesPanel = _images[0].transform.parent.gameObject;
         _collectablesPanel.SetActive(false);
     }

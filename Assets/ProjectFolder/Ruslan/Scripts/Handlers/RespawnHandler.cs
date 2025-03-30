@@ -49,6 +49,7 @@ public class RespawnHandler : MonoBehaviour
     {
         // рср бяе врн днкфмн опнхяундхрэ опх пеяоюбме лнфмн янгдюрэ йнпсрхмс еякх врн-рн онщрюомн мюдн ядекюрэ
         _characterTransform.position = _respawnPosition;
+        _characterController.enabled = true;
         _animator.SetTrigger("respawn");
         //if (_coroutine == null)
         //{

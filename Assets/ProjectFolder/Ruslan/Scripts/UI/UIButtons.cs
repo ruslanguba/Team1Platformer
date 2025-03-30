@@ -5,11 +5,13 @@ public class UIButtons : MonoBehaviour
 {
     [SerializeField] private GameObject _pausePanel;
     [SerializeField] private GameObject _hintPanel;
+    [SerializeField] private GameObject _scoreMenu;
     private bool _isPoused;
 
     private void Start()
     {
         _pausePanel.SetActive(false);
+        _scoreMenu.SetActive(false);
     }
 
     private void Update()
@@ -39,6 +41,7 @@ public class UIButtons : MonoBehaviour
     public void OnClickRestart()
     {
         _pausePanel?.SetActive(false);
+        _scoreMenu?.SetActive(false);
         Resume();
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
     }
@@ -53,7 +56,9 @@ public class UIButtons : MonoBehaviour
     private void Pause()
     {
         _pausePanel?.SetActive(true);
+        _scoreMenu?.SetActive(true);
         _hintPanel?.SetActive(false);
+
         _isPoused = true;
         Time.timeScale = 0;
     }
@@ -61,6 +66,7 @@ public class UIButtons : MonoBehaviour
     private void Resume()
     {
         _pausePanel?.SetActive(false);
+        _scoreMenu?.SetActive(false);
         _hintPanel?.SetActive(true);
         _isPoused = false;
         Time.timeScale = 1.0f;

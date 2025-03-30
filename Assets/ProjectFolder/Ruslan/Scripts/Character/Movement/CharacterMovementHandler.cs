@@ -12,7 +12,7 @@ public class CharacterMovementHandler : MonoBehaviour, IMoveable
     private bool _isFlipBlocked = false;
     private bool _isFacingRight = true;
     private bool _isGrounded;
-    private float _currentMoveDirection;
+    [SerializeField] private float _currentMoveDirection; // delate SerializeField
     private Rigidbody2D _rb;
 
     private void Awake()

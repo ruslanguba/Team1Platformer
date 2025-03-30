@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3081932675640558974}
   - component: {fileID: 1889727849379139193}
   - component: {fileID: 280817182582689482}
+  - component: {fileID: 4388183594931574602}
+  - component: {fileID: 5105725536064338457}
   m_Layer: 3
   m_Name: MovableWithSpiritTrap
   m_TagString: Untagged
@@ -135,7 +137,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Size: {x: 1.9334108, y: 1.9334108}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.05
 --- !u!50 &280817182582689482
 Rigidbody2D:
   serializedVersion: 5
@@ -163,6 +165,35 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4388183594931574602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937394818304355896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b78726f60ac3cc46bb0803bea6198e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rb: {fileID: 0}
+--- !u!114 &5105725536064338457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937394818304355896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c8897151da82b442800b9265e4fc2e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fallInWater: {fileID: 8300000, guid: 1f2b25b5fd783774890565d10986a359, type: 3}
+  _fallOnGround: {fileID: 8300000, guid: 825f6b9794a7f0547a59d19a4ad80eea, type: 3}
+  _groundMoveSound: {fileID: 8300000, guid: 7d6198cb87518b64eb1d5e7e6594ade0, type: 3}
+  _waterMoveSound: {fileID: 8300000, guid: 87ad47262aff8884a85aa07778754539, type: 3}
 --- !u!1001 &4366497951065704421
 PrefabInstance:
   m_ObjectHideFlags: 0
