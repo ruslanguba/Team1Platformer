@@ -50,7 +50,7 @@ public class UIButtons : MonoBehaviour
     {
         _pausePanel?.SetActive(false);
         Resume();
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     private void Pause()

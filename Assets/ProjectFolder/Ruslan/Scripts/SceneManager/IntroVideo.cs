@@ -26,4 +26,13 @@ public class IntroVideo : MonoBehaviour
         Debug.Log("Finished");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // Загружаем следующую сцену
     }
+
+    void Update()
+    {
+        if (Input.anyKey)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // Загружаем следующую сцену
+        }
+    }
+    
 }
