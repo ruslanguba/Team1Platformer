@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class VolumeSettings : MonoBehaviour
 {
-    public static VolumeSettings Instance; // Синглтон
+    //public static VolumeSettings Instance; // Синглтон
 
     public AudioMixer audioMixer; // Ссылка на AudioMixer
     public Slider MusicSlider;    // Слайдер для музыки 
@@ -19,17 +19,17 @@ public class VolumeSettings : MonoBehaviour
 
     private void Awake()
     {
-        // Реализация синглтона
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); // Не уничтожать при загрузке новой сцены
-        }
-        else
-        {
-            Destroy(gameObject); // Уничтожить дубликат
-            return;
-        }
+        //// Реализация синглтона
+        //if (Instance == null)
+        //{
+        //    Instance = this;
+        //    DontDestroyOnLoad(gameObject); // Не уничтожать при загрузке новой сцены
+        //}
+        //else
+        //{
+        //    Destroy(gameObject); // Уничтожить дубликат
+        //    return;
+        //}
 
         // Загружаем сохраненные значения громкости
           savedMusicVolume = PlayerPrefs.GetFloat(MusicVolumeKey, 0.5f);
