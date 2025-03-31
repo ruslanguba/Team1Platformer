@@ -3,20 +3,53 @@ using UnityEngine;
 public class CompleatLevel : MonoBehaviour
 {
     [SerializeField] GameObject _scorePanel;
+    [SerializeField] GameObject _block;
     private bool _isMovingToFinish;
     private CharacterMovementHandler _moveable;
+    private CharacterRespown _characterRespown;
+    private CharacterFire _characterFire;
+    private int _activeBonfires = 0;
+    private int _requiredBonfires = 3;
+    private Animator _animator;
 
+    private void Awake()
+    {
+        _characterRespown = FindFirstObjectByType<CharacterRespown>();     
+    }
+
+    private void OnEnable()
+    {
+        _characterRespown.OnRespownPoindFound += AddActiveBonfire;
+    }
+
+    private void OnDisable()
+    {
+        _characterRespown.OnRespownPoindFound -= AddActiveBonfire;
+    }
+
+    private void Start()
+    {
+        _characterFire = _characterRespown.GetComponent<CharacterFire>();
+        _animator = GetComponentInChildren<Animator>();
+
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.TryGetComponent(out CharacterMoveController controller))
+        if(collision.TryGetComponent(out CharacterMoveController controller) && IsCanCombleatLvl())
         {
             TakeControl(controller);
+            _animator.SetTrigger("go");
         }
     }
 
     private void Update()
     {
         MoveToFinish();
+    }
+
+    private bool IsCanCombleatLvl()
+    {
+        return _activeBonfires >= _requiredBonfires && _characterFire.IsBurning;
     }
 
     private void MoveToFinish()
@@ -34,4 +67,10 @@ public class CompleatLevel : MonoBehaviour
         _moveable = controller.gameObject.GetComponent<CharacterMovementHandler>();
         _scorePanel.SetActive(true);
     }
+
+    private void AddActiveBonfire(Vector2 _)
+    {
+        _activeBonfires++;
+    }
+
 }

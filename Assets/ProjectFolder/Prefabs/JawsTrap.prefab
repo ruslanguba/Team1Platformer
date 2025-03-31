@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 8079396258197217221}
   - component: {fileID: 7344861835620303515}
   - component: {fileID: 3650724347669725908}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DeathTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}

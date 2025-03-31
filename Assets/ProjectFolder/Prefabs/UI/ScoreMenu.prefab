@@ -387,6 +387,7 @@ GameObject:
   - component: {fileID: 7050839466534979590}
   - component: {fileID: 5615500892966044913}
   - component: {fileID: 6169384106285294691}
+  - component: {fileID: 5142089021456983986}
   m_Layer: 5
   m_Name: CollectedScoreText
   m_TagString: Untagged
@@ -512,6 +513,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5142089021456983986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6548134303920128109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b928191324145488b827ad0457e859, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collectTracker: {fileID: 0}
 --- !u!1 &6672779729882346399
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,6 +537,7 @@ GameObject:
   - component: {fileID: 7731594083129658308}
   - component: {fileID: 8506509555316391692}
   - component: {fileID: 2910216089769540088}
+  - component: {fileID: 3148388286307824964}
   m_Layer: 5
   m_Name: DeathsScoreText
   m_TagString: Untagged
@@ -648,6 +663,21 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3148388286307824964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6672779729882346399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3501268aa2db1e84e81b80d10155e7d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _deathCounter: {fileID: 0}
+  _deathText: {fileID: 2910216089769540088}
+  _autoUpdate: 1
 --- !u!1 &6951823670952075325
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,6 +854,7 @@ GameObject:
   - component: {fileID: 8368308114091482211}
   - component: {fileID: 189785746114889990}
   - component: {fileID: 2911047442816359124}
+  - component: {fileID: 3292162182799852696}
   m_Layer: 5
   m_Name: TimeScoreText
   m_TagString: Untagged
@@ -949,6 +980,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3292162182799852696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8031725168179923463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d1da8446029a8642bab70af81d3b425, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8383920504953759863
 GameObject:
   m_ObjectHideFlags: 0

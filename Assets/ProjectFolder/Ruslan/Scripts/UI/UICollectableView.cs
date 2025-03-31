@@ -42,8 +42,9 @@ public class UICollectableView : MonoBehaviour
         _collectablesPanel.SetActive(false);
     }
 
-    private void ChangeImage(int imageIndex)
+    private void ChangeImage(int collected)
     {
+        int imageIndex = collected - 1;
         if (imageIndex < _images.Length)
         {
             _images[imageIndex].ChangeColorAlfa();

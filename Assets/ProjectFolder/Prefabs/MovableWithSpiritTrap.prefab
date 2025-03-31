@@ -361,6 +361,10 @@ PrefabInstance:
       value: VFX_Fire_Green
       objectReference: {fileID: 0}
     - target: {fileID: 8330006320348072208, guid: 6e4b6c99591848e4ca95111a6f384e71, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330006320348072208, guid: 6e4b6c99591848e4ca95111a6f384e71, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -388,8 +392,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 1469278606494945206}
     m_Modifications:
     - target: {fileID: 784192095156556904, guid: 6d33971cc3cf90043aaa1560d161d678, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 784192095156556904, guid: 6d33971cc3cf90043aaa1560d161d678, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1001786063143731270, guid: 6d33971cc3cf90043aaa1560d161d678, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1235179135207330845, guid: 6d33971cc3cf90043aaa1560d161d678, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1670730010185814549, guid: 6d33971cc3cf90043aaa1560d161d678, type: 3}
       propertyPath: m_LocalScale.x
@@ -681,6 +697,10 @@ PrefabInstance:
       value: VFX_Fire_Red
       objectReference: {fileID: 0}
     - target: {fileID: 8330006320348072208, guid: 6e4b6c99591848e4ca95111a6f384e71, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330006320348072208, guid: 6e4b6c99591848e4ca95111a6f384e71, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -710,6 +730,10 @@ PrefabInstance:
     - target: {fileID: 4380918445339287248, guid: 4b38b1b3e38ed7e499c047067beb6122, type: 3}
       propertyPath: m_Name
       value: VFX_BlackSmoke
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380918445339287248, guid: 4b38b1b3e38ed7e499c047067beb6122, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5554956669369541121, guid: 4b38b1b3e38ed7e499c047067beb6122, type: 3}
       propertyPath: m_SortingFudge
@@ -792,6 +816,10 @@ PrefabInstance:
     - target: {fileID: 4380918445339287248, guid: 4b38b1b3e38ed7e499c047067beb6122, type: 3}
       propertyPath: m_Name
       value: VFX_BlackSmoke (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380918445339287248, guid: 4b38b1b3e38ed7e499c047067beb6122, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5554956669369541121, guid: 4b38b1b3e38ed7e499c047067beb6122, type: 3}
       propertyPath: m_SortingOrder
