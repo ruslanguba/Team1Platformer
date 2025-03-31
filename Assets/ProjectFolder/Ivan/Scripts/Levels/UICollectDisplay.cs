@@ -1,56 +1,39 @@
 using UnityEngine;
-using TMPro; 
+using TMPro;
 
-[RequireComponent(typeof(TextMeshProUGUI))] // Автоматически добавляет компонент, если его нет
 public class UICollectDisplay : MonoBehaviour
 {
+    [Header("Настройки")]
+    [SerializeField] private CollectTracker _collectTracker;
 
-    [Header("Ссылки")]
-    [SerializeField] private CollectHandler _collectHandler; // Ссылка на CollectHandler
-    private TextMeshProUGUI _collectText; // Компонент текста
+    private TextMeshProUGUI _collectText;
 
     private void Awake()
     {
-        // Получаем компонент TextMeshProUGUI
         _collectText = GetComponent<TextMeshProUGUI>();
 
-        // Если ссылка на CollectHandler не задана в инспекторе, попробуем найти автоматически
-        if (_collectHandler == null)
-        {
-            _collectHandler = FindObjectOfType<CollectHandler>();
-            if (_collectHandler == null)
-            {
-                Debug.LogError("UICollectDisplay: CollectHandler не найден!");
-                enabled = false; // Отключаем скрипт, чтобы избежать ошибок
-                return;
-            }
-        }
+        if (_collectTracker == null)
+            _collectTracker = FindObjectOfType<CollectTracker>();
     }
 
     private void OnEnable()
     {
-        // Подписываемся на событие при включении
-        if (_collectHandler != null)
+        if (_collectTracker != null)
         {
-            _collectHandler.OnCollectValueChanged += UpdateCollectText;
+            _collectTracker.OnCollectedChanged += UpdateText;
+            UpdateText(_collectTracker.GetCurrentCollected()); // Обновляем сразу
         }
     }
 
     private void OnDisable()
     {
-        // Отписываемся при выключении
-        if (_collectHandler != null)
-        {
-            _collectHandler.OnCollectValueChanged -= UpdateCollectText;
-        }
+        if (_collectTracker != null)
+            _collectTracker.OnCollectedChanged -= UpdateText;
     }
 
-    // Обновляем текст при изменении количества предметов
-    private void UpdateCollectText(int collectedCount)
+    private void UpdateText(int amount)
     {
         if (_collectText != null)
-        {
-            _collectText.text = collectedCount.ToString();
-        }
+            _collectText.text = amount.ToString();
     }
 }

@@ -2,36 +2,34 @@ using UnityEngine;
 
 public class CollectTracker : MonoBehaviour
 {
-    [SerializeField] private CollectHandler _collectHandler; // Ссылка на CollectHandler
+    public event System.Action<int> OnCollectedChanged; // Новое событие
 
-    private int _currentCollected; // Текущее количество собранных предметов
+    [SerializeField] private CollectHandler _collectHandler;
+    private int _currentCollected;
+
+    private void Awake()
+    {
+        if (_collectHandler == null)
+            _collectHandler = FindObjectOfType<CollectHandler>();
+    }
 
     private void OnEnable()
     {
         if (_collectHandler != null)
-        {
             _collectHandler.OnCollectValueChanged += HandleCollectUpdate;
-        }
     }
 
     private void OnDisable()
     {
         if (_collectHandler != null)
-        {
             _collectHandler.OnCollectValueChanged -= HandleCollectUpdate;
-        }
     }
 
-    // Обработчик события изменения количества предметов
     private void HandleCollectUpdate(int collectedCount)
     {
         _currentCollected = collectedCount;
-        Debug.Log($"Собрано предметов: {_currentCollected}");      
+        OnCollectedChanged?.Invoke(_currentCollected); // Пробрасываем событие
     }
 
-    // Метод для получения текущего количества (если нужно из другого скрипта)
-    public int GetCurrentCollected()
-    {
-        return _currentCollected;
-    }
+    public int GetCurrentCollected() => _currentCollected;
 }
