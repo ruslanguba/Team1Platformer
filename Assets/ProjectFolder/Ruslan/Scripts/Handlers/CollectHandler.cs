@@ -5,13 +5,8 @@ public class CollectHandler : MonoBehaviour
 {
     public event Action<int> OnCollectValueChanged;
     private CharacterCollect _characterCollect;
-    private int _collectedBananas;
+    private int _collectedValue;
 
-    //public CollectHandler(CharacterCollect characterCollect)
-    //{
-    //    _characterCollect = characterCollect;
-    //    _characterCollect.OnCollect += CollectBanana;
-    //}
     private void Awake()
     {
         _characterCollect = FindFirstObjectByType<CharacterCollect>();
@@ -28,10 +23,6 @@ public class CollectHandler : MonoBehaviour
         _characterCollect.OnCollect += CollectBanana;
     }
 
-    //public void Unsubscribe()
-    //{
-    //    _characterCollect.OnCollect -= CollectBanana;
-    //}
     private void OnDisable()
     {
         _characterCollect.OnCollect -= CollectBanana;
@@ -39,7 +30,7 @@ public class CollectHandler : MonoBehaviour
 
     private void CollectBanana()
     {
-        OnCollectValueChanged?.Invoke(_collectedBananas);
-        _collectedBananas++;
+        _collectedValue++;
+        OnCollectValueChanged?.Invoke(_collectedValue);
     }
 }

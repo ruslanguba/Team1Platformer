@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3139737553187854798}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: CanvasFollowTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 5708761427268854636}
   - component: {fileID: 9189920477504916091}
   - component: {fileID: 7222821032661669406}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -395,7 +395,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4070290757632042020}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -428,7 +428,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5786037274394667769}
   - component: {fileID: 9020797804688477422}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: HeartStoneSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,7 +514,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7239902386658426078}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: FireTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -545,7 +545,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5132663043935361551}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: HeartStone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -578,7 +578,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1800442958549556958}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: BottomPivot
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -609,7 +609,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9152995608202540250}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FirePartical
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -642,7 +642,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3339786099833652163}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: FireTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -758,7 +758,7 @@ GameObject:
   - component: {fileID: 8409432279371734514}
   - component: {fileID: 2283956302281914859}
   - component: {fileID: 2744237464825461778}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6124,7 +6124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8873555977741541849}
   - component: {fileID: 5787835200801185051}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: FireObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
