@@ -259,7 +259,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Logo Primal Flame_0: -8576709262268588289
+      Logo Primal Flame_1: 7963806701399797081
+      Logo Primal Flame_2: 1214081028787020961
+      Logo Primal Flame_3: 5163709153497898459
+      Logo Primal Flame_4: 6790139844458088499
+      Logo Primal Flame_5: -9017371656625700694
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

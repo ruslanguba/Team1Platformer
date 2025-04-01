@@ -47,4 +47,5 @@ MonoBehaviour:
   _deathCounter: {fileID: 0}
   _collectTracker: {fileID: 0}
   _timer: {fileID: 0}
-  _level: 1
+  _level: 0
+  _timeLimit: 3
