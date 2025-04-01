@@ -6160,6 +6160,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _patrolCenter: {fileID: 7239902386658426078}
-  _radius: 0.1
-  _moveSpeed: 0.5
+  _radius: 0.15
+  _moveSpeed: 1
   _randomTimeOffset: 0

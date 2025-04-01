@@ -49,7 +49,7 @@ Canvas:
   m_GameObject: {fileID: 160857560217209550}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -61,7 +61,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 11
   m_TargetDisplay: 0
 --- !u!114 &8063202877453422799
 MonoBehaviour:
@@ -564,7 +564,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0412\u044B\u0445\u043E\u0434 \u043C\u0435\u043D\u044E"
+  m_text: "\u0412\u044B\u0445\u043E\u0434 \u0432 \u043C\u0435\u043D\u044E"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c34fb79caa5342d41a43e5737fd81c12, type: 2}
   m_sharedMaterial: {fileID: 6570782202494154545, guid: c34fb79caa5342d41a43e5737fd81c12, type: 2}
@@ -2991,9 +2991,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1994058531526477434}
     m_Modifications:
+    - target: {fileID: 82672379834056668, guid: 365ab9e7dd7759545b8ab44b4a56d54e, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2806759899790350020, guid: 365ab9e7dd7759545b8ab44b4a56d54e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2806759899790350020, guid: 365ab9e7dd7759545b8ab44b4a56d54e, type: 3}
+      propertyPath: _frequency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2806759899790350020, guid: 365ab9e7dd7759545b8ab44b4a56d54e, type: 3}
+      propertyPath: _intensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5203472569750464822, guid: 365ab9e7dd7759545b8ab44b4a56d54e, type: 3}
       propertyPath: m_Name
       value: Cursor
+      objectReference: {fileID: 0}
+    - target: {fileID: 6647817537406752577, guid: 365ab9e7dd7759545b8ab44b4a56d54e, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7860601948736215828, guid: 365ab9e7dd7759545b8ab44b4a56d54e, type: 3}
       propertyPath: m_LocalPosition.x

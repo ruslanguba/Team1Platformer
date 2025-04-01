@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7860601948736215828}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 15
   m_Sprite: {fileID: 609589731762392139, guid: 9569cc91c8b9b7c4183dcf84bec893da, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -231,17 +231,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c9209b1c489a104f82b767d92e71129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _changeDuration: 10
-  _minRed: 0.8
-  _maxRed: 0.9
-  _minGreen: 0.4
-  _maxGreen: 0.6
-  _minBlue: 0.2
-  _maxBlue: 0.3
-  _minRadius: 3
-  _maxRadius: 5
-  _minFalloff: 0.6
-  _maxFalloff: 0.8
+  _light: {fileID: 0}
+  _intensity: 0
+  _frequency: 0
 --- !u!1001 &6396585579998089490
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -252,15 +244,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 728576751314082672, guid: c2f6a8962aac3814aa56cb9647c93470, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 728576751314082672, guid: c2f6a8962aac3814aa56cb9647c93470, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 728576751314082672, guid: c2f6a8962aac3814aa56cb9647c93470, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 728576751314082672, guid: c2f6a8962aac3814aa56cb9647c93470, type: 3}
       propertyPath: m_LocalPosition.x
@@ -332,7 +324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3671969431788343597, guid: c2f6a8962aac3814aa56cb9647c93470, type: 3}
       propertyPath: m_SortingOrder
-      value: 9
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4387606990991518489, guid: c2f6a8962aac3814aa56cb9647c93470, type: 3}
       propertyPath: useUnscaledTime
@@ -348,7 +340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7734368496949923242, guid: c2f6a8962aac3814aa56cb9647c93470, type: 3}
       propertyPath: m_SortingOrder
-      value: 9
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

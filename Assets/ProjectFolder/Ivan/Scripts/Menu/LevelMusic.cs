@@ -22,7 +22,7 @@ public class LevelMusic : MusicManager
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // Если загрузилось меню (можно проверять по имени или тегу), уничтожаем этот объект
-        if (scene.name == "0_Menu" || scene.buildIndex >= 1)
+        if (scene.name == "0_Menu" || scene.buildIndex == 1)
         {
             SceneManager.sceneLoaded -= OnSceneLoaded;
             Destroy(gameObject);
