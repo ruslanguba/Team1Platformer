@@ -499,17 +499,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c9209b1c489a104f82b767d92e71129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _changeDuration: 0.2
-  _minRed: 0.8
-  _maxRed: 1
-  _minGreen: 0.4
-  _maxGreen: 0.6
-  _minBlue: 0.1
-  _maxBlue: 0.3
-  _minRadius: 4
-  _maxRadius: 5
-  _minFalloff: 0.5
-  _maxFalloff: 1.5
+  _light: {fileID: 0}
+  _intensity: 0
+  _frequency: 0
 --- !u!1 &9217532453713630999
 GameObject:
   m_ObjectHideFlags: 0
@@ -730,6 +722,10 @@ PrefabInstance:
     - target: {fileID: 7251879486380165639, guid: c2f6a8962aac3814aa56cb9647c93470, type: 3}
       propertyPath: m_Name
       value: VFX_Fire
+      objectReference: {fileID: 0}
+    - target: {fileID: 7734368496949923242, guid: c2f6a8962aac3814aa56cb9647c93470, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
