@@ -5,6 +5,7 @@ using static UnityEngine.PlayerPrefs;
 
 public class SaveData :  DataNames
 {
+    [HideInInspector]public int Star = 0;
     [SerializeField] private DeathCounter _deathCounter;
     [SerializeField] private CollectTracker _collectTracker;
     [SerializeField] private Timer _timer;
@@ -15,6 +16,8 @@ public class SaveData :  DataNames
     [SerializeField] private float _timeLimit = 5;
 
     private int _index;
+
+    
 
 
     private void Start()
@@ -34,19 +37,25 @@ public class SaveData :  DataNames
 
     public void SaveAll()
     {
-        SaveTimer();
+        SaveTimer(_timeLimit);
         SaveCollects();
         SaveDeaths();
-        SaveStar();
+        SaveStar(Star);
     }
 
-     void SaveTimer()
+     void SaveTimer(float timeLimit)
     {
         string Key = TimerName + _level;
         _timer.StopTimer();
-        if(_timer.TimeElapsed > GetFloat(Key,0))
+        if(_timer.TimeElapsed < GetFloat(Key,99999))
         {
             SetFloat(Key, _timer.TimeElapsed);
+
+            if (GetFloat(Key, 0) <= timeLimit * 60)
+            {
+                Star++;
+            }
+
             Save();
         }
     }
@@ -56,45 +65,41 @@ public class SaveData :  DataNames
         if (_collectTracker.GetCurrentCollected() > GetInt(Key, 0))
         {
             SetInt(Key, _collectTracker.GetCurrentCollected());
+            if (GetInt(Key, 0) == 3)
+            {
+                Star++;
+            }
+
             Save();
         }
     }
      void SaveDeaths()
     {
         string Key = DethsName + _level;
-        if(_deathCounter.GetTotalDeaths() < GetInt(Key, 0))
+        if(_deathCounter.GetTotalDeaths() < GetInt(Key, 999))
         {
             SetInt(Key, _deathCounter.GetTotalDeaths());
+            if (GetInt(Key, 999) <= 0)
+            {
+                Star++;
+            }
+
             Save();
         }
     }
 
-    void SaveStar()
+    void SaveStar(int starCurent)
     {
         string Key = StarName + _level;
-        if(Stars(_timeLimit ) >= GetInt(Key, 0))
+        if(starCurent > GetInt(Key, 0))
         {
-            SetInt(Key, Stars(_timeLimit));
+            SetInt(Key, starCurent);
             Save();
         }
     }
-
-
-    public int Stars(float timeLimit)
+    public void SaveFinish()
     {
-        int star = 0;
-        if (_timer.TimeElapsed <= timeLimit * 60)
-        {
-            star++;
-        }
-        if (_deathCounter.GetTotalDeaths() == 0)
-        {
-            star++;
-        }
-        if (_collectTracker.GetCurrentCollected() == 3)
-        {
-            star++;
-        }
-        return star;
+        if(GetInt(AchivementName, 0) != 1)
+        SetInt(AchivementName, 1);
     }
 }

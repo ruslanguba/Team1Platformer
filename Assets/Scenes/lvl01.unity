@@ -10614,14 +10614,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6514464170453422826, guid: 5a08b5c73f030124b92bf01490dbfb98, type: 3}
-      propertyPath: _characterDeath
-      value: 
-      objectReference: {fileID: 1788328586}
-    - target: {fileID: 6514464170453422826, guid: 5a08b5c73f030124b92bf01490dbfb98, type: 3}
-      propertyPath: _autoFindCharacterDeath
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 653429326613468503, guid: 5a08b5c73f030124b92bf01490dbfb98, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.5
@@ -10660,6 +10652,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 653429326613468503, guid: 5a08b5c73f030124b92bf01490dbfb98, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514464170453422826, guid: 5a08b5c73f030124b92bf01490dbfb98, type: 3}
+      propertyPath: _characterDeath
+      value: 
+      objectReference: {fileID: 1788328586}
+    - target: {fileID: 6514464170453422826, guid: 5a08b5c73f030124b92bf01490dbfb98, type: 3}
+      propertyPath: _autoFindCharacterDeath
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7224209184707531472, guid: 5a08b5c73f030124b92bf01490dbfb98, type: 3}
@@ -10769,6 +10769,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &557926825 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8585714064408089360, guid: 41e14602b4a0e5c4fb0a058c7f26be07, type: 3}
+  m_PrefabInstance: {fileID: 629087822}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 129754ffeb8c7f44488ac628e540f4ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &558910056 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7717079703407453271, guid: 1affea22272551b4b9fd52199226e84f, type: 3}
@@ -48440,14 +48451,6 @@ PrefabInstance:
       propertyPath: _scorePanel
       value: 
       objectReference: {fileID: 664187361}
-    - target: {fileID: 2302679700546496990, guid: 4ebf61cb1fe8b2842b1addc29a9cca79, type: 3}
-      propertyPath: _scorePanel
-      value: 
-      objectReference: {fileID: 664187361}
-    - target: {fileID: 3299292662214133252, guid: 4ebf61cb1fe8b2842b1addc29a9cca79, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4799558998538168662, guid: 130aaee8cc21aa740bf832a1fedf20b4, type: 3}
       propertyPath: m_Name
       value: CompleatLevelTrigger
@@ -48494,6 +48497,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7875801400121417362, guid: 130aaee8cc21aa740bf832a1fedf20b4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2302679700546496990, guid: 4ebf61cb1fe8b2842b1addc29a9cca79, type: 3}
+      propertyPath: _scorePanel
+      value: 
+      objectReference: {fileID: 664187361}
+    - target: {fileID: 3299292662214133252, guid: 4ebf61cb1fe8b2842b1addc29a9cca79, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -56953,14 +56964,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1831701656141828262, guid: 1975a234038cd594684c3e6b144df6ff, type: 3}
-      propertyPath: _collectHandler
-      value: 
-      objectReference: {fileID: 1540150927}
     - target: {fileID: 384649339549018955, guid: 1975a234038cd594684c3e6b144df6ff, type: 3}
       propertyPath: m_Name
       value: CollectCounter
       objectReference: {fileID: 0}
+    - target: {fileID: 1831701656141828262, guid: 1975a234038cd594684c3e6b144df6ff, type: 3}
+      propertyPath: _collectHandler
+      value: 
+      objectReference: {fileID: 1540150927}
     - target: {fileID: 4039426219411268019, guid: 1975a234038cd594684c3e6b144df6ff, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.5
@@ -63727,7 +63738,7 @@ PrefabInstance:
     - target: {fileID: 1108170308811277136, guid: ff4ac8e9a3ca21a44a144faa821edf0d, type: 3}
       propertyPath: _saveData
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 557926825}
     - target: {fileID: 1108170308811277136, guid: ff4ac8e9a3ca21a44a144faa821edf0d, type: 3}
       propertyPath: m_Enabled
       value: 1
