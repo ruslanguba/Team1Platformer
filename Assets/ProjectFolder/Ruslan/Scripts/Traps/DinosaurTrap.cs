@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -9,14 +10,13 @@ public class DinosaurTrap : TrapBase
     [SerializeField] private float _rigthtTargetAngle = 90;
     [SerializeField] private float _duration = 0.5f;
     [SerializeField] private float _deathDelay = 0.5f;
+    private Collider2D _leftCollider;
+    private Collider2D _rightCollider;
     private bool _isStoneInTrap = false;
-    private Rigidbody2D _stoneInTrapRigidbody;
     private Collider2D _trapTriggerCollider;
-    private Transform _stoneInTrapCollider;
     private AudioSource _audioSource;
     private Quaternion _leftStartRotation;
     private Quaternion _rightStartRotation;
-    [SerializeField] private bool _isOpened;
 
     private void Start()
     {
@@ -25,28 +25,31 @@ public class DinosaurTrap : TrapBase
         _audioSource = GetComponent<AudioSource>();
         _leftStartRotation = _leftPart.rotation;
         _rightStartRotation = _rightPart.rotation;
-        _isOpened = true;
+        _leftCollider = _leftPart.GetComponentInChildren<Collider2D>();
+        _rightCollider = _rightPart.GetComponentInChildren<Collider2D>();
+        SetCollidersEnabled(false);
     }
 
     protected override void HandleTriggerEnter(Collider2D collision)
     {
         if (collision.TryGetComponent(out CharacterFire character))
         {
-            Debug.Log("ClosePlayer");
-            StartCoroutine(CloseJaws());
+            SetCollidersEnabled(true);
+            CloseJawsAction(false);
             return;
         }
+    }
 
-        if (collision.TryGetComponent(out Interactable movable))
-        {
-            Debug.Log("CloseStone");
-            _isStoneInTrap = true;
-            _trapTriggerCollider.enabled = false;
-            _stoneInTrapRigidbody = movable.GetComponent<Rigidbody2D>();
-            _stoneInTrapCollider = movable.GetComponent<Transform>();
-            movable.enabled = false;
-            StartCoroutine(CloseJaws());
-        }
+    public void SetCollidersEnabled(bool isActive)
+    {
+        _leftCollider.enabled = isActive;
+        _rightCollider.enabled = isActive;
+    }
+
+    public void CloseJawsAction(bool isStoneInTrap)
+    {
+        _isStoneInTrap = isStoneInTrap;
+        StartCoroutine(CloseJaws());
     }
 
     private IEnumerator CloseJaws()
@@ -56,7 +59,7 @@ public class DinosaurTrap : TrapBase
 
         Quaternion rightRotation = _rightStartRotation;
         Quaternion rightTargetRotation = Quaternion.Euler(0, 0, _rigthtTargetAngle);
-
+        _trapTriggerCollider.enabled = false;
         _audioSource.Play();
         float elapsedTime = 0f;
 
@@ -71,21 +74,20 @@ public class DinosaurTrap : TrapBase
         }
         _leftPart.rotation = leftTargetRotation;
         _rightPart.rotation = rightTargetRotation;
-
-        if (_isStoneInTrap)
+        if(_isStoneInTrap )
         {
-            _stoneInTrapRigidbody.bodyType = RigidbodyType2D.Static;
-            _stoneInTrapCollider.position = transform.position;
             yield break;
         }
+
         yield return new WaitForSeconds(_deathDelay);
         _trapObject.gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.5f);
         _leftPart.rotation = _leftStartRotation;
         _rightPart.rotation = _rightStartRotation;
         _trapObject.gameObject.SetActive(false);
-        _isOpened = true;
+        _trapTriggerCollider.enabled = true;
+        SetCollidersEnabled(false);
     }
 }
 
