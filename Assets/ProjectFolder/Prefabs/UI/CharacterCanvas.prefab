@@ -872,8 +872,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hintPanel: {fileID: 4966979560909513004}
   hintText: {fileID: 5954447738507221438}
-  typingSpeed: 0.05
-  _hideDelay: 10
+  fadeDuration: 1
+  _hideDelay: 5
 --- !u!114 &3321269317288175230
 MonoBehaviour:
   m_ObjectHideFlags: 0

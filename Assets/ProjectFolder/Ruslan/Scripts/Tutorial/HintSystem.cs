@@ -6,7 +6,7 @@ public class HintSystem : MonoBehaviour
 {
     [SerializeField] private GameObject hintPanel;
     [SerializeField] private TMP_Text hintText;
-    [SerializeField] private float typingSpeed = 0.05f; // Скорость появления букв
+    [SerializeField] private float fadeDuration = 1; // Скорость появления букв
     [SerializeField] private float _hideDelay;
     private HintDetector _hintDetector;
 
@@ -51,15 +51,32 @@ public class HintSystem : MonoBehaviour
 
     private IEnumerator TypeText(string message)
     {
-        hintText.text = "";
+        hintText.text = message;
+        Color textColor = hintText.color;
 
-        foreach (char letter in message)
+        // Плавное появление
+        for (float t = 0; t < 1; t += Time.deltaTime / fadeDuration)
         {
-            hintText.text += letter;
-            yield return new WaitForSeconds(typingSpeed);
+            textColor.a = t;
+            hintText.color = textColor;
+            yield return null;
         }
+        textColor.a = 1;
+        hintText.color = textColor;
 
+        // Ждём перед исчезновением
         yield return new WaitForSeconds(_hideDelay);
+
+        // Плавное исчезновение
+        for (float t = 1; t > 0; t -= Time.deltaTime / fadeDuration)
+        {
+            textColor.a = t;
+            hintText.color = textColor;
+            yield return null;
+        }
+        textColor.a = 0;
+        hintText.color = textColor;
+
         HideHint();
     }
 }
