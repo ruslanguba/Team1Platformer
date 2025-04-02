@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Intro.unity
+    path: Assets/Scenes/VideoScenes/GameIntro.unity
     guid: 602b924b8e21dae4dbf7801999b54a8e
   - enabled: 1
     path: Assets/ProjectFolder/Ivan/0_Menu.unity
@@ -32,6 +32,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/lvl07.unity
     guid: 7c622c4e14bc1b04e8362537429677d4
+  - enabled: 1
+    path: Assets/Scenes/VideoScenes/Outro.unity
+    guid: 3b3f47e98d57c6c41af5fd52febbf8a9
+  - enabled: 1
+    path: Assets/Scenes/VideoScenes/IntroLevel.unity
+    guid: ca663a71159a03c4ea7595c1d7706e83
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

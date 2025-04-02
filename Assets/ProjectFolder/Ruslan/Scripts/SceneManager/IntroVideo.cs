@@ -4,35 +4,52 @@ using UnityEngine.Video;
 
 public class IntroVideo : MonoBehaviour
 {
-    public VideoPlayer videoPlayer;
-    public string nextSceneName; // Название следующей сцены
+    [SerializeField] private bool _isLoadingMenu;
+    private VideoPlayer _videoPlayer;
+    private string _mainMenuName = "0_Menu"; // Название следующей сцены
+    private string _firstLevelName = "lvl01"; // Название следующей сцены
 
     void Start()
     {
-        if (videoPlayer == null)
+        if(LevelMusic.Instance != null)
         {
-            videoPlayer = GetComponent<VideoPlayer>();
+            Destroy(LevelMusic.Instance);
         }
-        videoPlayer.loopPointReached += OnVideoFinished;
+        if (_videoPlayer == null)
+        {
+            _videoPlayer = GetComponent<VideoPlayer>();
+        }
+
+        _videoPlayer.loopPointReached += OnVideoFinished;
     }
 
     private void OnDisable()
     {
-        videoPlayer.loopPointReached -= OnVideoFinished;
+        _videoPlayer.loopPointReached -= OnVideoFinished;
     }
 
     void OnVideoFinished(VideoPlayer vp)
     {
-        Debug.Log("Finished");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // Загружаем следующую сцену
+        LoadNextScene();
     }
 
     void Update()
     {
         if (Input.anyKey)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // Загружаем следующую сцену
+            LoadNextScene();
         }
     }
     
+    private void LoadNextScene()
+    {
+        if (_isLoadingMenu)
+        {
+            SceneManager.LoadScene(_mainMenuName); // Загружаем меню
+        }
+        else
+        {
+            SceneManager.LoadScene(_firstLevelName);
+        }
+    }
 }

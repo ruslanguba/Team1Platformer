@@ -48,5 +48,9 @@ public class LevelManager : UIManager
         }
     }
 
+    public void OnClickNewGame()
+    {
+        SceneManager.LoadScene("IntroLevel");
+    }
 
 }
