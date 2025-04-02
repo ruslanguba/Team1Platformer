@@ -336,7 +336,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 0.50000006, b: 0, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.4
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -436,7 +436,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 0.8895351, b: 0, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.4
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -6135,6 +6135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd7652df0e5f86c4c9d032a3e4ba50e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: 4d7c04f2aaa26154eb334eeaed85a211, type: 3}
 --- !u!114 &7581949186887644383
 MonoBehaviour:
   m_ObjectHideFlags: 0
