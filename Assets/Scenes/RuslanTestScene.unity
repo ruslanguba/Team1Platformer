@@ -1573,6 +1573,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 980213862324280598, guid: 1affea22272551b4b9fd52199226e84f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 980213862324280598, guid: 1affea22272551b4b9fd52199226e84f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 980213862324280598, guid: 1affea22272551b4b9fd52199226e84f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1209462907233640062, guid: 1affea22272551b4b9fd52199226e84f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 960
@@ -1761,6 +1773,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6019342720924760326, guid: 1affea22272551b4b9fd52199226e84f, type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6128656277538378142, guid: 1affea22272551b4b9fd52199226e84f, type: 3}
       propertyPath: _hintPanel
       value: 
@@ -1782,8 +1798,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6853562502934587231, guid: 1affea22272551b4b9fd52199226e84f, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
+    - target: {fileID: 6853562502934587231, guid: 1affea22272551b4b9fd52199226e84f, type: 3}
       propertyPath: m_SortingOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6878454285980307929, guid: 1affea22272551b4b9fd52199226e84f, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1800,6 +1820,10 @@ PrefabInstance:
     - target: {fileID: 6878454285980307929, guid: 1affea22272551b4b9fd52199226e84f, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6941059930536878121, guid: 1affea22272551b4b9fd52199226e84f, type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7339131445702800395, guid: 1affea22272551b4b9fd52199226e84f, type: 3}
       propertyPath: m_AnchorMax.y

@@ -3007,12 +3007,32 @@ PrefabInstance:
       propertyPath: _intensity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4194468628159061531, guid: 365ab9e7dd7759545b8ab44b4a56d54e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 14.999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194468628159061531, guid: 365ab9e7dd7759545b8ab44b4a56d54e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 14.999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194468628159061531, guid: 365ab9e7dd7759545b8ab44b4a56d54e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 14.999999
+      objectReference: {fileID: 0}
     - target: {fileID: 5203472569750464822, guid: 365ab9e7dd7759545b8ab44b4a56d54e, type: 3}
       propertyPath: m_Name
       value: Cursor
       objectReference: {fileID: 0}
+    - target: {fileID: 6340026579429188388, guid: 365ab9e7dd7759545b8ab44b4a56d54e, type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6647817537406752577, guid: 365ab9e7dd7759545b8ab44b4a56d54e, type: 3}
       propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216690740196145675, guid: 365ab9e7dd7759545b8ab44b4a56d54e, type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7860601948736215828, guid: 365ab9e7dd7759545b8ab44b4a56d54e, type: 3}
