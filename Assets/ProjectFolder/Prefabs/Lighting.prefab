@@ -102,6 +102,7 @@ MonoBehaviour:
   _minDelay: 0.3
   _maxDelay: 8
   _flashDuration: 0.1
+  _thunderSound: {fileID: 8300000, guid: d1e4d8a967711cb499cc9192b9831b6f, type: 3}
 --- !u!114 &5706826151522335325
 MonoBehaviour:
   m_ObjectHideFlags: 0

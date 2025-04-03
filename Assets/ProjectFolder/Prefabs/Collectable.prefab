@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7830998137971393860}
   - component: {fileID: 4985310383307237128}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1701293192701558415}
   - component: {fileID: 3220087481098973682}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 3382883081467077107}
   - component: {fileID: 5560868137654835704}
   - component: {fileID: 9127213358596054958}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Collectable
   m_TagString: Untagged
   m_Icon: {fileID: 0}

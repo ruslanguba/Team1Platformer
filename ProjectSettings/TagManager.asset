@@ -19,7 +19,7 @@ TagManager:
   - CharacterFire
   - Fire
   - Hint
-  - DeathTrigger
+  - OnlyCharacter
   - IgnoreCharacter
   - 
   - 
