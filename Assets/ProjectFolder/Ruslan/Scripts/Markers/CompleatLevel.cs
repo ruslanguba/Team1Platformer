@@ -39,7 +39,8 @@ public class CompleatLevel : MonoBehaviour
         if(collision.TryGetComponent(out CharacterMoveController controller) && IsCanCompleteLvl())
         {
             TakeControl(controller);
-            _animator.SetTrigger("go");
+            _animator.SetTrigger("go"); 
+            _conditionsHint.gameObject.SetActive(false);
         }
         else
         {
@@ -80,14 +81,7 @@ public class CompleatLevel : MonoBehaviour
 
     private void SetHintText()
     {
-        if(IsCanCompleteLvl())
-        {
-            _conditionsHint.gameObject.SetActive(false);
-        }
-        else
-        {
-            _conditionsHint.gameObject.SetActive(true);
-            _conditionsHint.SetHintText(_activeBonfires < _requiredBonfires);
-        }
+        _conditionsHint.gameObject.SetActive(true);
+        _conditionsHint.SetHintText(_activeBonfires < _requiredBonfires);
     }
 }
