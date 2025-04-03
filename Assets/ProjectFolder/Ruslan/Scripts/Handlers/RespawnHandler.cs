@@ -1,10 +1,9 @@
-using System.Collections;
-using TMPro;
+using System;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 
 public class RespawnHandler : MonoBehaviour
 {
+    public Action OnRespawn;
     [SerializeField] private CharacterRespown _characterRespown;
     [SerializeField] private Transform _initialSpownPosition;
     private CharacterMoveController _characterController;
@@ -49,6 +48,7 @@ public class RespawnHandler : MonoBehaviour
         // рср бяе врн днкфмн опнхяундхрэ опх пеяоюбме лнфмн янгдюрэ йнпсрхмс еякх врн-рн онщрюомн мюдн ядекюрэ
         _characterTransform.position = _respawnPosition;
         _characterController.enabled = true;
+        OnRespawn?.Invoke();
         _animator.SetTrigger("respawn");
     }
 

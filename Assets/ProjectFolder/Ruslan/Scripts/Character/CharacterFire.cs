@@ -4,10 +4,25 @@ using UnityEngine;
 public class CharacterFire : FireBase
 {
     public Action<bool> OnFire;
+    private RespawnHandler _respawnHandler;
+
+    private void Awake()
+    {
+        _respawnHandler = FindFirstObjectByType<RespawnHandler>();
+    }
+
+    private void OnEnable()
+    {
+        _respawnHandler.OnRespawn += StartFire;
+    }
+
+    private void OnDisable()
+    {
+        _respawnHandler.OnRespawn -= StartFire;
+    }
     private void Start()
     {
-        _isBurning = true;
-        _fire.SetActive(_isBurning);
+        StartFire();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -35,5 +50,11 @@ public class CharacterFire : FireBase
             OnFire?.Invoke(false);
         }
         base.BraiseFire();
+    }
+
+    private void StartFire()
+    {
+        _isBurning = true;
+        _fire.SetActive(_isBurning);
     }
 }
