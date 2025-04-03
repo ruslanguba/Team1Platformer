@@ -10719,7 +10719,7 @@ MonoBehaviour:
   m_Intensity: 0.6
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 000000002d0598cb
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -26260,7 +26260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4029653069048855218, guid: 3fcf9737d2a3d314a89fdac299b20766, type: 3}
       propertyPath: m_SortingOrder
-      value: 7
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4417572698820846204, guid: 3fcf9737d2a3d314a89fdac299b20766, type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -73820,6 +73820,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6853562502934587231, guid: 1affea22272551b4b9fd52199226e84f, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 6853562502934587231, guid: 1affea22272551b4b9fd52199226e84f, type: 3}
       propertyPath: m_SortingOrder
       value: 10
