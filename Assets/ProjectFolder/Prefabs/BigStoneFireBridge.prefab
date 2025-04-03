@@ -19663,7 +19663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isFallRight: 0
-  _soundDelay: 0
+  _soundDelay: 0.2
   _flamable: {fileID: 8557061116562913544}
 --- !u!82 &3298837968442117287
 AudioSource:
@@ -19675,8 +19675,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -1346156250353469402, guid: ebde27144954c164096fde961a1c60f1, type: 2}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 3c9cdd25ab09114409c32ab6bce14ca1, type: 3}
+  m_Resource: {fileID: 8300000, guid: 3c9cdd25ab09114409c32ab6bce14ca1, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

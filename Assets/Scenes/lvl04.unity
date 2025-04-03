@@ -1341,7 +1341,7 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 6853562502934587231, guid: 1affea22272551b4b9fd52199226e84f, type: 3}
       propertyPath: m_SortingOrder
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6878454285980307929, guid: 1affea22272551b4b9fd52199226e84f, type: 3}
       propertyPath: m_AnchorMax.y
@@ -25351,6 +25351,67 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &991846113
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 944990058097485244, guid: 23fbb5b70c5a63041bed5adc142b7307, type: 3}
+      propertyPath: m_Name
+      value: Lighting
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158297397509732343, guid: 23fbb5b70c5a63041bed5adc142b7307, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 64.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158297397509732343, guid: 23fbb5b70c5a63041bed5adc142b7307, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158297397509732343, guid: 23fbb5b70c5a63041bed5adc142b7307, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158297397509732343, guid: 23fbb5b70c5a63041bed5adc142b7307, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158297397509732343, guid: 23fbb5b70c5a63041bed5adc142b7307, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158297397509732343, guid: 23fbb5b70c5a63041bed5adc142b7307, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158297397509732343, guid: 23fbb5b70c5a63041bed5adc142b7307, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158297397509732343, guid: 23fbb5b70c5a63041bed5adc142b7307, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158297397509732343, guid: 23fbb5b70c5a63041bed5adc142b7307, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158297397509732343, guid: 23fbb5b70c5a63041bed5adc142b7307, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5706826151522335325, guid: 23fbb5b70c5a63041bed5adc142b7307, type: 3}
+      propertyPath: _target
+      value: 
+      objectReference: {fileID: 1165049247}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 23fbb5b70c5a63041bed5adc142b7307, type: 3}
 --- !u!1001 &997967558
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -75851,9 +75912,17 @@ PrefabInstance:
       propertyPath: _scorePanel
       value: 
       objectReference: {fileID: 129759832}
+    - target: {fileID: 2785902902678235018, guid: 130aaee8cc21aa740bf832a1fedf20b4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.6143599
+      objectReference: {fileID: 0}
     - target: {fileID: 4799558998538168662, guid: 130aaee8cc21aa740bf832a1fedf20b4, type: 3}
       propertyPath: m_Name
       value: CompleatLevelTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 5371772522624022133, guid: 130aaee8cc21aa740bf832a1fedf20b4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.1143646
       objectReference: {fileID: 0}
     - target: {fileID: 7875801400121417362, guid: 130aaee8cc21aa740bf832a1fedf20b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -83023,3 +83092,4 @@ SceneRoots:
   - {fileID: 97392314}
   - {fileID: 1919239650}
   - {fileID: 789652589}
+  - {fileID: 991846113}

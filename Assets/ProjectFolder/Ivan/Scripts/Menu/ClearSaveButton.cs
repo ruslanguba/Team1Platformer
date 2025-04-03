@@ -11,7 +11,7 @@ public class ClearSaveButton : MonoBehaviour
         clearButton.onClick.AddListener(ClearSave);
     }
 
-    void ClearSave()
+    public void ClearSave()
     {
         // Очищаем сохранение (PlayerPrefs)
         PlayerPrefs.DeleteAll();

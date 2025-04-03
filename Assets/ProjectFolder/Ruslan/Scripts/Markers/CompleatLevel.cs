@@ -8,6 +8,7 @@ public class CompleatLevel : MonoBehaviour
     private CharacterMovementHandler _moveable;
     private CharacterRespown _characterRespown;
     private CharacterFire _characterFire;
+    private ConditionsHint _conditionsHint;
     private int _activeBonfires = 0;
     private int _requiredBonfires = 3;
     private Animator _animator;
@@ -31,14 +32,18 @@ public class CompleatLevel : MonoBehaviour
     {
         _characterFire = _characterRespown.GetComponent<CharacterFire>();
         _animator = GetComponentInChildren<Animator>();
-
+        _conditionsHint = GetComponentInChildren<ConditionsHint>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.TryGetComponent(out CharacterMoveController controller) && IsCanCombleatLvl())
+        if(collision.TryGetComponent(out CharacterMoveController controller) && IsCanCompleteLvl())
         {
             TakeControl(controller);
             _animator.SetTrigger("go");
+        }
+        else
+        {
+            SetHintText();
         }
     }
 
@@ -47,7 +52,7 @@ public class CompleatLevel : MonoBehaviour
         MoveToFinish();
     }
 
-    private bool IsCanCombleatLvl()
+    private bool IsCanCompleteLvl()
     {
         return _activeBonfires >= _requiredBonfires && _characterFire.IsBurning;
     }
@@ -73,4 +78,16 @@ public class CompleatLevel : MonoBehaviour
         _activeBonfires++;
     }
 
+    private void SetHintText()
+    {
+        if(IsCanCompleteLvl())
+        {
+            _conditionsHint.gameObject.SetActive(false);
+        }
+        else
+        {
+            _conditionsHint.gameObject.SetActive(true);
+            _conditionsHint.SetHintText(_activeBonfires < _requiredBonfires);
+        }
+    }
 }

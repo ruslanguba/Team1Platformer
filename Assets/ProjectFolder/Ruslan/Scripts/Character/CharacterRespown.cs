@@ -14,7 +14,11 @@ public class CharacterRespown : MonoBehaviour
     {
         if(collision.TryGetComponent(out RespawnPoint respawnPoint) && _characterFire.IsBurning)
         {
-            OnRespownPoindFound?.Invoke(respawnPoint.transform.position);
+            if(!respawnPoint.IsFound)
+            {
+                respawnPoint.SaveRespownPoint();
+                OnRespownPoindFound?.Invoke(respawnPoint.transform.position);
+            }
         }
     }
 }

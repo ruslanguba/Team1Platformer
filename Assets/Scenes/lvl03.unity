@@ -27909,7 +27909,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8172219385719059902, guid: ff4ac8e9a3ca21a44a144faa821edf0d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 166.14
+      value: 168
       objectReference: {fileID: 0}
     - target: {fileID: 8172219385719059902, guid: ff4ac8e9a3ca21a44a144faa821edf0d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -64096,7 +64096,7 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 4029653069048855218, guid: 3fcf9737d2a3d314a89fdac299b20766, type: 3}
       propertyPath: m_SortingOrder
-      value: 7
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4417572698820846204, guid: 3fcf9737d2a3d314a89fdac299b20766, type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -76998,7 +76998,7 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 6853562502934587231, guid: 1affea22272551b4b9fd52199226e84f, type: 3}
       propertyPath: m_SortingOrder
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6878454285980307929, guid: 1affea22272551b4b9fd52199226e84f, type: 3}
       propertyPath: m_AnchorMax.y
@@ -79188,9 +79188,25 @@ PrefabInstance:
       propertyPath: _scorePanel
       value: 
       objectReference: {fileID: 1830385918}
+    - target: {fileID: 2785902902678235018, guid: 130aaee8cc21aa740bf832a1fedf20b4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.8322706
+      objectReference: {fileID: 0}
     - target: {fileID: 4799558998538168662, guid: 130aaee8cc21aa740bf832a1fedf20b4, type: 3}
       propertyPath: m_Name
       value: CompleatLevelTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 5371772522624022133, guid: 130aaee8cc21aa740bf832a1fedf20b4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.332275
+      objectReference: {fileID: 0}
+    - target: {fileID: 6839634906193821223, guid: 130aaee8cc21aa740bf832a1fedf20b4, type: 3}
+      propertyPath: m_Size.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6839634906193821223, guid: 130aaee8cc21aa740bf832a1fedf20b4, type: 3}
+      propertyPath: m_Offset.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7875801400121417362, guid: 130aaee8cc21aa740bf832a1fedf20b4, type: 3}
       propertyPath: m_LocalPosition.x
