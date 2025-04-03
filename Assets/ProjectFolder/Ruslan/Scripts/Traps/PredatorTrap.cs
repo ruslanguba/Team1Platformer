@@ -5,8 +5,6 @@ public class PredatorTrap : TrapBase
     [SerializeField] private Sprite _moveSprite;
     [SerializeField] private Sprite _attackSprite;
     [SerializeField] private GameObject _claws;
-    private float _waitAfterKillTime = 1;
-    private float _killTimer;
     private bool _isActivated;
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;

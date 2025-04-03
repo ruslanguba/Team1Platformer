@@ -13,7 +13,6 @@ public class RespawnHandler : MonoBehaviour
     private DeathHandler _deathHandler;
     private Animator _animator;
     private Vector2 _respawnPosition;
-    private Coroutine _coroutine;
 
     private void Awake()
     {
@@ -51,10 +50,6 @@ public class RespawnHandler : MonoBehaviour
         _characterTransform.position = _respawnPosition;
         _characterController.enabled = true;
         _animator.SetTrigger("respawn");
-        //if (_coroutine == null)
-        //{
-        //    StartCoroutine(RespawnRoutine());
-        //}
     }
 
     public void SetRespanPoint(Vector2 newRespownPoint)
@@ -66,13 +61,4 @@ public class RespawnHandler : MonoBehaviour
     {
         _characterController.enabled = true;
     }
-    //IEnumerator RespawnRoutine()
-    //{
-    //    RespawnCharacter();
-    //    _animator.SetTrigger("respawn");
-    //    yield return new WaitForSeconds(1);
-    //    Debug.Log("Анимация завершена!");
-    //    _characterController.enabled = true;
-    //    _coroutine = null;
-    //}
 }
