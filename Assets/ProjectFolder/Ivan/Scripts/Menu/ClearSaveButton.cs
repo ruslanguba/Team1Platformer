@@ -3,12 +3,13 @@ using UnityEngine.UI;
 
 public class ClearSaveButton : MonoBehaviour
 {
-    public Button clearButton;
+    [SerializeField] private Button _clearButton;
+    [SerializeField] private LevelManager _levelManager;
 
     void Start()
     {
         // Назначаем метод на событие нажатия кнопки
-        clearButton.onClick.AddListener(ClearSave);
+        _clearButton.onClick.AddListener(ClearSave);
     }
 
     public void ClearSave()
@@ -16,5 +17,6 @@ public class ClearSaveButton : MonoBehaviour
         // Очищаем сохранение (PlayerPrefs)
         PlayerPrefs.DeleteAll();
         Debug.Log("Сохранение очищено!");
+        _levelManager.OnClickLoadScene("0_Menu");
     }
 }
