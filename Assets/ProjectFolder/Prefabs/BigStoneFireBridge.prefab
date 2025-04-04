@@ -19663,7 +19663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isFallRight: 0
-  _soundDelay: 0.2
+  _soundDelay: 0
   _flamable: {fileID: 8557061116562913544}
 --- !u!82 &3298837968442117287
 AudioSource:

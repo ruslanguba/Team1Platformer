@@ -38,7 +38,7 @@ public class StoneBridge : MonoBehaviour
 
     protected virtual void StartCheckRotation()
     {
-        _audioSource.PlayDelayed(_soundDelay);
+        //_audioSource.PlayDelayed(_soundDelay);
         StartCoroutine(CheckRotation());
     }
 
@@ -70,12 +70,14 @@ public class StoneBridge : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.5f);
-            if (Mathf.Abs(transform.rotation.z) > 0.5)
+            if (Mathf.Abs(transform.rotation.z) > 0.1f)
             {
+                _audioSource.PlayDelayed(_soundDelay);
+                _rb.mass = 100;
                 _activatorTrigger.enabled = false;
                 yield break;
             }
+            yield return null;
         }
     }
 }
