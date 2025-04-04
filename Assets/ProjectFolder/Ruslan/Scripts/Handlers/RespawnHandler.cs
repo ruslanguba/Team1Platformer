@@ -50,6 +50,7 @@ public class RespawnHandler : MonoBehaviour
         _characterController.enabled = true;
         OnRespawn?.Invoke();
         _animator.SetTrigger("respawn");
+        _characterTransform.GetComponent<CharacterDeath>().Resurrect();
     }
 
     public void SetRespanPoint(Vector2 newRespownPoint)

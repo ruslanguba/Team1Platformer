@@ -12,6 +12,7 @@ public class CharacterDeath : MonoBehaviour
     private float _deathTimer = 0;
     private bool _isInFire;
     private Coroutine _resetCoroutine;
+    private bool _isDead;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -24,7 +25,7 @@ public class CharacterDeath : MonoBehaviour
 
         if(collision.GetComponent<DeathTrigger>() != null)
         {
-            OnDeathTriggerEntered?.Invoke(true);
+            Die();
             return;
         }
     }
@@ -49,7 +50,7 @@ public class CharacterDeath : MonoBehaviour
             _deathTimer += Time.deltaTime; // Увеличиваем таймер на время, прошедшее с последнего кадра
             if (_deathTimer >= _deathInFireDelay)
             {
-                OnDeathTriggerEntered?.Invoke(false);
+                Die();
                 StopDeathTimer();
             }
         }
@@ -78,5 +79,19 @@ public class CharacterDeath : MonoBehaviour
     {
         yield return new WaitForSeconds(_resetTimerDelay);
         StopDeathTimer();
+    }
+
+    private void Die()
+    {
+        if (!_isDead)
+        {
+            OnDeathTriggerEntered?.Invoke(false);
+            _isDead = true;
+        }
+    }
+
+    public void Resurrect()
+    { 
+        _isDead = false;
     }
 }

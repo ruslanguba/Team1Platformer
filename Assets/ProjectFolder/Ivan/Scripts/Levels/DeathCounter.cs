@@ -22,7 +22,7 @@ public class DeathCounter : MonoBehaviour
     {
         if (_autoFindCharacterDeath)
         {
-            _characterDeath = FindObjectOfType<CharacterDeath>();
+            _characterDeath = FindFirstObjectByType<CharacterDeath>();
         }
 
         if (_characterDeath == null)
@@ -79,6 +79,4 @@ public class DeathCounter : MonoBehaviour
         _fireDeaths = 0;
         _instantDeaths = 0;
     }
-
-
 }

@@ -8,6 +8,7 @@ public class DeathHandler : MonoBehaviour
     private CharacterDeath _characterDeath;
     private CharacterMoveController _characterController;
     private Animator _animator;
+    private bool _isAlive = true;
     private void Awake()
     {
         _characterDeath = FindFirstObjectByType<CharacterDeath>();
@@ -30,5 +31,6 @@ public class DeathHandler : MonoBehaviour
         _characterController.StopMovement();
         _animator.SetTrigger("death");
         _characterController.enabled = false;
+        _isAlive = false;
     }
 }
