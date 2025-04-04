@@ -8501,6 +8501,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6514464170453422826, guid: 5a08b5c73f030124b92bf01490dbfb98, type: 3}
+      propertyPath: _characterDeath
+      value: 
+      objectReference: {fileID: 1410801456474776259}
     - target: {fileID: 7224209184707531472, guid: 5a08b5c73f030124b92bf01490dbfb98, type: 3}
       propertyPath: m_Name
       value: DeathCounter
@@ -27893,7 +27897,7 @@ PrefabInstance:
       objectReference: {fileID: 332610444}
     - target: {fileID: 1108170308811277136, guid: ff4ac8e9a3ca21a44a144faa821edf0d, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5872132822073016754, guid: ff4ac8e9a3ca21a44a144faa821edf0d, type: 3}
       propertyPath: m_Name
@@ -72772,6 +72776,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CollectCounter
       objectReference: {fileID: 0}
+    - target: {fileID: 1831701656141828262, guid: 1975a234038cd594684c3e6b144df6ff, type: 3}
+      propertyPath: _collectHandler
+      value: 
+      objectReference: {fileID: 287701235}
     - target: {fileID: 4039426219411268019, guid: 1975a234038cd594684c3e6b144df6ff, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.5
@@ -88261,6 +88269,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3139737553187854798, guid: b5599707b21825f438d6ef435cfaeeac, type: 3}
   m_PrefabInstance: {fileID: 1410801456474776257}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1410801456474776259 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6974031517562442786, guid: b5599707b21825f438d6ef435cfaeeac, type: 3}
+  m_PrefabInstance: {fileID: 1410801456474776257}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 962c58336f4d6c34a94de45487b69f14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

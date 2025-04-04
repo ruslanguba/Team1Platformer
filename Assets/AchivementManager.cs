@@ -31,7 +31,7 @@ public class AchivementManager : DataNames
     {
         Image image = achivmentObject.GetComponentInChildren<Image>();
         Color currentColor = image.color;
-        currentColor.a = condition ? 0.8f : 0.3f;
+        currentColor.a = condition ? 1f : 0.05f;
         image.color = currentColor;
     }
 
