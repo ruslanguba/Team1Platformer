@@ -1,35 +1,51 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelMusic : MusicManager
+public class LevelMusic : MonoBehaviour
 {
     public static LevelMusic Instance;
 
+    private AudioSource _audioSource;
+
     private void Awake()
     {
-        // Если уже есть другой MusicManager (например, из меню), уничтожаем его
+        // Удаляем дубликат, если он есть
         if (Instance != null && Instance != this)
         {
-            Destroy(Instance.gameObject);
+            Destroy(gameObject);
+            return;
         }
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        // Подписываемся на событие смены сцены
+        _audioSource = GetComponent<AudioSource>();
+
+        // Убедимся, что музыка настроена на повтор и играет
+        _audioSource.loop = true;
+        if (!_audioSource.isPlaying)
+        {
+            _audioSource.Play();
+        }
+
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Если загрузилось меню (можно проверять по имени или тегу), уничтожаем этот объект
+        // Уничтожаем объект, если это сцена меню
         if (scene.name == "0_Menu" || scene.buildIndex == 1 || scene.buildIndex == 9 || scene.buildIndex == 10)
         {
             SceneManager.sceneLoaded -= OnSceneLoaded;
             Destroy(gameObject);
         }
     }
+
     private void OnDestroy()
     {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        if (Instance == this)
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
     }
 }
