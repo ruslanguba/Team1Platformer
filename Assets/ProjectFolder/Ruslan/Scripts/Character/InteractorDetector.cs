@@ -4,7 +4,10 @@ public class InteractorDetector : MonoBehaviour
 {
     [SerializeField] private Collider2D _pushCollider;
     private CharacterInterractor _interactionHandler;
-
+    private void Start()
+    {
+        _pushCollider.enabled = false;
+    }
     public void Initialize(CharacterInterractor interactionHandler)
     {
         _interactionHandler = interactionHandler;

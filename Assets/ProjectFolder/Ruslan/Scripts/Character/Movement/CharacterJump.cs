@@ -7,17 +7,18 @@ public class CharacterJump : MonoBehaviour, IJumpable
     public Action OnJump;
     private Rigidbody2D _rb;
     private CharacterMovementHandler _movementHandler; // Добавляем ссылку на CharacterMovementHandler
+    [SerializeField] private float _holdTimeToLongJump = 0.2f;
 
 
-    [SerializeField] private int _jumpMaxCount = 1;
-    [SerializeField] private float _firstJumpForce = 9;
-    [SerializeField] private float _doubleJumpForc = 8;
-    [SerializeField] private int _currentJumpsCount = 0;
-
-    //[SerializeField] private float _jumpForce = 5f;
+    [SerializeField] private float _longJumpForce = 12f;
+    [SerializeField] private float _shortJumpForce = 8f;
     [SerializeField] private float _fallMultiplier = 2.5f;
     [SerializeField] private float _lowJumpMultiplier = 2f;
     [SerializeField] private bool _isVelocityMode = false;
+
+
+    private bool _isJumpHeld = false;
+    private float _jumpHeldTime = 0;
     private float _gravityAbs;
 
     private void Awake()
@@ -33,33 +34,48 @@ public class CharacterJump : MonoBehaviour, IJumpable
 
     public void Jump()
     {
-        if (_movementHandler.IsGrounded() && _currentJumpsCount == 0) // Используем метод из CharacterMovementHandler
+        if (_movementHandler.IsGrounded()) // Используем метод из CharacterMovementHandler
         {
-            _currentJumpsCount++;
-            _rb.linearVelocityY = _firstJumpForce;
+            _rb.linearVelocityY = _shortJumpForce;
             OnJump?.Invoke();
+            _isJumpHeld = true;
+            _jumpHeldTime = 0;
         }
-        else if (_currentJumpsCount < _jumpMaxCount && !_movementHandler.IsGrounded())
-        {
-            DoubleJump();
-        }
-        StartCoroutine(CheckLanding());
     }
 
-    public void DoubleJump()
+    public void CancelLongJump()
     {
-        if(_currentJumpsCount < _jumpMaxCount)
-        {
-            _currentJumpsCount++;
+        _isJumpHeld = false;
+        _jumpHeldTime = 0;
+    }
 
-            _rb.linearVelocityY = _doubleJumpForc;
+    private void CheckLongJump()
+    {
+        if (_jumpHeldTime >= _holdTimeToLongJump)
+        {
+            _rb.linearVelocityY = _longJumpForce;
             OnJump?.Invoke();
+            _isJumpHeld = false;
         }
+    }
+
+    private void CheckHoldTime()
+    {
+        if (_isJumpHeld)
+        {
+            _jumpHeldTime += Time.deltaTime;
+            CheckLongJump();
+        }
+    }
+
+    private void Update()
+    {
+        CheckHoldTime();
     }
 
     private void FixedUpdate()
     {
-        if(!_movementHandler.IsGrounded())
+        if (!_movementHandler.IsGrounded())
         {
             ApplyCustomGravity();
         }
@@ -67,7 +83,7 @@ public class CharacterJump : MonoBehaviour, IJumpable
 
     private void ApplyCustomGravity()
     {
-        if(_isVelocityMode)
+        if (_isVelocityMode)
         {
             if (_rb.linearVelocityY < 0)
             {
@@ -83,26 +99,10 @@ public class CharacterJump : MonoBehaviour, IJumpable
             if (_rb.linearVelocityY < 0)
             {
                 _rb.AddForce(Vector2.down * (_fallMultiplier - 1) * _gravityAbs, ForceMode2D.Force);
-                if (_movementHandler.IsGrounded())
-                {
-                    _currentJumpsCount = 0;
-                }
             }
             else if (_rb.linearVelocityY > 0)
             {
                 _rb.AddForce(Vector2.down * (_lowJumpMultiplier - 1) * _gravityAbs, ForceMode2D.Force);
-            }
-        }
-    }
-
-    private IEnumerator CheckLanding()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(0.4f);
-            if (_movementHandler.IsGrounded())
-            {
-                _currentJumpsCount = 0;
             }
         }
     }

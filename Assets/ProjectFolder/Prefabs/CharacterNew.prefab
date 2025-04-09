@@ -5925,8 +5925,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.1}
-  m_Size: {x: 1, y: 1.8}
+  m_Offset: {x: 0, y: -0.2}
+  m_Size: {x: 0.8, y: 1.6}
   m_Direction: 0
 --- !u!50 &6799510307049285745
 Rigidbody2D:
@@ -6133,14 +6133,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1d28c879970fd94c85eb48de3322a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpMaxCount: 2
-  _firstJumpForce: 9
-  _doubleJumpForc: 8
-  _currentJumpsCount: 0
-  _jumpForce: 12
+  _holdTimeToLongJump: 0.4
+  _longJumpForce: 10
+  _shortJumpForce: 9
   _fallMultiplier: 3
   _lowJumpMultiplier: 2
-  _isVelocityMode: 0
+  _isVelocityMode: 1
 --- !u!81 &2278938174474110254
 AudioListener:
   m_ObjectHideFlags: 0

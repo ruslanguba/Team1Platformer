@@ -173,7 +173,6 @@ public class CharacterSoundController : MonoBehaviour
     {
         if (collision.TryGetComponent(out FireStopper fireStopper))
         {
-            Debug.Log("Water");
             _currentSurface = Surface.water;
             _audioSource.PlayOneShot(_waterJump[Random.Range(0, _waterJump.Length)]);
             return;

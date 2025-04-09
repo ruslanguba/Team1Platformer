@@ -17,8 +17,11 @@ public class CharacterMoveController : MonoBehaviour
     {
         if(_moveable != null)
             _input.OnMoveInput += _moveable.Move;
-        if(_jumpable != null) 
+        if (_jumpable != null)
+        {
             _input.OnJumpInput += _jumpable.Jump;
+            _input.OnJumpCanceled += _jumpable.CancelLongJump;
+        }
     }
 
     private void OnDisable()
@@ -26,7 +29,10 @@ public class CharacterMoveController : MonoBehaviour
         if (_moveable != null)
             _input.OnMoveInput -= _moveable.Move;
         if (_jumpable != null)
+        {
             _input.OnJumpInput -= _jumpable.Jump;
+            _input.OnJumpCanceled += _jumpable.CancelLongJump;
+        }
     }
 
     public void StopMovement()

@@ -5,6 +5,7 @@ public class PlayerInputHandler : MonoBehaviour
 {
     public event Action<Vector2> OnMoveInput;
     public event Action OnJumpInput;
+    public event Action OnJumpCanceled;
     public event Action OnUseInput;
     public event Action OnHelpInput;
     private PlayerInput _inputActions;
@@ -18,6 +19,7 @@ public class PlayerInputHandler : MonoBehaviour
     private void OnEnable()
     {
         _inputActions.Gameplay.Jump.performed += JumpPerformed;
+        _inputActions.Gameplay.Jump.canceled += JumpCanceled;
         _inputActions.Gameplay.Movement.performed += MovementPerformed;
         _inputActions.Gameplay.Movement.canceled += MovementCanceled;
         _inputActions.Gameplay.Use.performed += UsePerformed;
@@ -27,6 +29,7 @@ public class PlayerInputHandler : MonoBehaviour
     private void OnDisable()
     {
         _inputActions.Gameplay.Jump.performed -= JumpPerformed;
+        _inputActions.Gameplay.Jump.canceled -= JumpCanceled;
         _inputActions.Gameplay.Movement.performed -= MovementPerformed;
         _inputActions.Gameplay.Movement.canceled -= MovementCanceled;
         _inputActions.Gameplay.Use.performed -= UsePerformed;
@@ -48,6 +51,11 @@ public class PlayerInputHandler : MonoBehaviour
     private void JumpPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         OnJumpInput?.Invoke();
+    }
+
+    private void JumpCanceled(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnJumpCanceled.Invoke();
     }
 
     private void HelpPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
