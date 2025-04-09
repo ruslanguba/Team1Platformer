@@ -6070,6 +6070,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 138973945}
     - target: {fileID: 8585714064408089360, guid: 41e14602b4a0e5c4fb0a058c7f26be07, type: 3}
+      propertyPath: _timeLimit
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8585714064408089360, guid: 41e14602b4a0e5c4fb0a058c7f26be07, type: 3}
       propertyPath: _deathCounter
       value: 
       objectReference: {fileID: 419438720}

@@ -13012,7 +13012,7 @@ PrefabInstance:
       objectReference: {fileID: 998072322}
     - target: {fileID: 8585714064408089360, guid: 41e14602b4a0e5c4fb0a058c7f26be07, type: 3}
       propertyPath: _timeLimit
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8585714064408089360, guid: 41e14602b4a0e5c4fb0a058c7f26be07, type: 3}
       propertyPath: _deathCounter
