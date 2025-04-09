@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class LedgeGrabDetector : MonoBehaviour
 {
-    public event Action OnLedgeDetected;
-    public event Action OnLedgeLost;
+    //public event Action OnLedgeDetected;
+    //public event Action OnLedgeLost;
 
     [SerializeField] private Transform _upPoint;
     [SerializeField] private Transform _downPoint;

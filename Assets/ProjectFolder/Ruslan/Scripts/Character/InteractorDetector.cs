@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class InteractorDetector : MonoBehaviour
 {
+    [SerializeField] private Collider2D _pushCollider;
     private CharacterInterractor _interactionHandler;
 
     public void Initialize(CharacterInterractor interactionHandler)
@@ -14,6 +15,7 @@ public class InteractorDetector : MonoBehaviour
         if (collision.TryGetComponent(out IInteractable interactable))
         {
             _interactionHandler.SetInteractable(interactable);
+            _pushCollider.enabled = true;
         }
     }
 
@@ -22,6 +24,7 @@ public class InteractorDetector : MonoBehaviour
         if (collision.TryGetComponent(out IInteractable interactable))
         {
             _interactionHandler.ClearInteractable();
+            _pushCollider.enabled = false;
         }
     }
 }

@@ -8,7 +8,7 @@ public class UITimer : MonoBehaviour
 
     void Start()
     {
-        _timer = FindObjectOfType<Timer>(); // Находим таймер в сцене
+        _timer = FindFirstObjectByType<Timer>(); // Находим таймер в сцене
         if (_timer != null)
         {
             _timer.OnTimeChanged += UpdateTimerText; // Подписываемся на событие изменения времени

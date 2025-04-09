@@ -14,24 +14,39 @@ public class Connector: MonoBehaviour
 
     public bool IsConnected => _isConnected;
 
-    private void Awake()
-    {
-        _hingeJoint = GetComponent<HingeJoint2D>();
-    }
+    //private void Awake()
+    //{
+    //    _hingeJoint = GetComponent<HingeJoint2D>();
+    //}
 
     private void Start()
     {
         _isConnected = false;
         _movementHandler = GetComponent<CharacterMovementHandler>();
-        if(_hingeJoint != null)
+        _hingeJoint = GetComponent<HingeJoint2D>();
+
+        if (_hingeJoint != null)
         {
             _hingeJoint.enabled = false;
         }
     }
-
+    private void FixedUpdate()
+    {
+        if (_isConnected)
+        {
+            float torque = _conectedBody.inertia * _conectedBody.angularVelocity;
+            if (Mathf.Abs(torque) > _breakingTorque || !_movementHandler.IsGrounded())
+            {
+                DisconectObject();
+            }
+        }
+    }
     private void OnJointBreak2D(Joint2D brokenJoint)
     {
-        DisconectObject();
+        if( brokenJoint != null )
+        {
+            DisconectObject();
+        }
     }
 
     public void OnInterract()
@@ -61,17 +76,5 @@ public class Connector: MonoBehaviour
         _hingeJoint.enabled = false;
         _isConnected = false;   
         _conectedBody = null;
-    }
-
-    private void FixedUpdate()
-    {
-        if (_isConnected)
-        {
-            float torque = _conectedBody.inertia * _conectedBody.angularVelocity;
-            if (Mathf.Abs(torque) > _breakingTorque || !_movementHandler.IsGrounded())
-            {
-                DisconectObject();
-            }
-        }
     }
 }

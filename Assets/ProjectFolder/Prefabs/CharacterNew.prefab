@@ -747,6 +747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81257384d74a1284691b5426d155ffa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pushCollider: {fileID: 2182541116214090878}
 --- !u!1 &5472248195719986788
 GameObject:
   m_ObjectHideFlags: 0
@@ -6132,6 +6133,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1d28c879970fd94c85eb48de3322a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _jumpMaxCount: 2
+  _firstJumpForce: 9
+  _doubleJumpForc: 8
+  _currentJumpsCount: 0
   _jumpForce: 12
   _fallMultiplier: 3
   _lowJumpMultiplier: 2
