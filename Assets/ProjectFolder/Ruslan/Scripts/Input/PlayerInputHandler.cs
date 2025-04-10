@@ -23,7 +23,7 @@ public class PlayerInputHandler : MonoBehaviour
         _inputActions.Gameplay.Movement.performed += MovementPerformed;
         _inputActions.Gameplay.Movement.canceled += MovementCanceled;
         _inputActions.Gameplay.Use.performed += UsePerformed;
-        _inputActions.Gameplay.Help.performed += HelpPerformed;
+        //_inputActions.Gameplay.Help.performed += HelpPerformed;
     }
 
     private void OnDisable()
@@ -33,7 +33,7 @@ public class PlayerInputHandler : MonoBehaviour
         _inputActions.Gameplay.Movement.performed -= MovementPerformed;
         _inputActions.Gameplay.Movement.canceled -= MovementCanceled;
         _inputActions.Gameplay.Use.performed -= UsePerformed;
-        _inputActions.Gameplay.Help.performed -= HelpPerformed;
+        //_inputActions.Gameplay.Help.performed -= HelpPerformed;
         _inputActions.Disable();
     }
 
@@ -59,10 +59,10 @@ public class PlayerInputHandler : MonoBehaviour
         OnJumpCanceled?.Invoke(false);
     }
 
-    private void HelpPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
-    {
-        OnHelpInput?.Invoke();
-    }
+    //private void HelpPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    //{
+    //    OnHelpInput?.Invoke();
+    //}
 
     private void UsePerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
