@@ -5,7 +5,7 @@ public class PlayerInputHandler : MonoBehaviour
 {
     public event Action<Vector2> OnMoveInput;
     public event Action OnJumpInput;
-    public event Action OnJumpCanceled;
+    public event Action<bool> OnJumpCanceled;
     public event Action OnUseInput;
     public event Action OnHelpInput;
     private PlayerInput _inputActions;
@@ -50,12 +50,13 @@ public class PlayerInputHandler : MonoBehaviour
 
     private void JumpPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
+        OnJumpCanceled?.Invoke(true);
         OnJumpInput?.Invoke();
     }
 
     private void JumpCanceled(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        OnJumpCanceled.Invoke();
+        OnJumpCanceled?.Invoke(false);
     }
 
     private void HelpPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj)

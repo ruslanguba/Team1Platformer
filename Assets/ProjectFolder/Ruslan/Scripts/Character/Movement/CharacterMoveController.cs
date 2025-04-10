@@ -20,7 +20,7 @@ public class CharacterMoveController : MonoBehaviour
         if (_jumpable != null)
         {
             _input.OnJumpInput += _jumpable.Jump;
-            _input.OnJumpCanceled += _jumpable.CancelLongJump;
+            _input.OnJumpCanceled += _jumpable.SetJumpHeld;
         }
     }
 
@@ -31,7 +31,7 @@ public class CharacterMoveController : MonoBehaviour
         if (_jumpable != null)
         {
             _input.OnJumpInput -= _jumpable.Jump;
-            _input.OnJumpCanceled += _jumpable.CancelLongJump;
+            _input.OnJumpCanceled += _jumpable.SetJumpHeld;
         }
     }
 

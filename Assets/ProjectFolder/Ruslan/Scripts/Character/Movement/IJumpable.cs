@@ -3,5 +3,5 @@ using UnityEngine;
 public interface IJumpable
 {
     public void Jump();
-    public void CancelLongJump();
+    public void SetJumpHeld(bool isHeld);
 }

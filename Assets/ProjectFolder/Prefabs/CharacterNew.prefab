@@ -6133,9 +6133,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1d28c879970fd94c85eb48de3322a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _holdTimeToLongJump: 0.4
-  _longJumpForce: 10
-  _shortJumpForce: 9
+  _maxHoldTime: 0.5
+  _minHoldTime: 0.15
+  _shortJumpMaxTime: 2
+  _shortJumpHeight: 4.5
+  _longJumpExtraForce: 12
   _fallMultiplier: 3
   _lowJumpMultiplier: 2
   _isVelocityMode: 1
