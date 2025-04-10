@@ -6137,7 +6137,7 @@ MonoBehaviour:
   _minHoldTime: 0.15
   _shortJumpMaxTime: 2
   _shortJumpHeight: 4.5
-  _longJumpExtraForce: 12
+  _longJumpExtraForce: 14
   _fallMultiplier: 3
   _lowJumpMultiplier: 2
   _isVelocityMode: 1
