@@ -47005,7 +47005,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 29
-      m_TileSpriteIndex: 29
+      m_TileSpriteIndex: 48
       m_TileMatrixIndex: 0
       m_TileColorIndex: 24
       m_TileObjectToInstantiateIndex: 65535
@@ -47015,7 +47015,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 31
-      m_TileSpriteIndex: 31
+      m_TileSpriteIndex: 47
       m_TileMatrixIndex: 0
       m_TileColorIndex: 24
       m_TileObjectToInstantiateIndex: 65535
@@ -64376,12 +64376,12 @@ Tilemap:
     m_Data: {fileID: -1502019192, guid: b0be2566220beaa40a06fa2d9e87b657, type: 3}
   - m_RefCount: 11
     m_Data: {fileID: 1162886950, guid: b0be2566220beaa40a06fa2d9e87b657, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -645238704, guid: b0be2566220beaa40a06fa2d9e87b657, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: -1011862520, guid: b0be2566220beaa40a06fa2d9e87b657, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 0
@@ -64412,10 +64412,10 @@ Tilemap:
     m_Data: {fileID: -1409296899, guid: b0be2566220beaa40a06fa2d9e87b657, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -1011862520, guid: b0be2566220beaa40a06fa2d9e87b657, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: -645238704, guid: b0be2566220beaa40a06fa2d9e87b657, type: 3}
   - m_RefCount: 132
     m_Data: {fileID: 131999429, guid: b0be2566220beaa40a06fa2d9e87b657, type: 3}
   - m_RefCount: 148
@@ -74812,6 +74812,10 @@ PrefabInstance:
     - target: {fileID: 900198438439407544, guid: 67ac2052f42782e49bd897d3bbef084d, type: 3}
       propertyPath: m_Name
       value: MovableBlock (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7103535377984504779, guid: 67ac2052f42782e49bd897d3bbef084d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7894433811460462215, guid: 67ac2052f42782e49bd897d3bbef084d, type: 3}
       propertyPath: m_LocalPosition.x
