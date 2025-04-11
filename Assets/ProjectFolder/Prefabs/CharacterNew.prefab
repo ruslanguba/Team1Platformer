@@ -6121,6 +6121,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioClip: {fileID: 8300000, guid: 4d7c04f2aaa26154eb334eeaed85a211, type: 3}
+  _collectableMoveTarget: {fileID: 3139737553187854798}
+  _collectingTime: 1
 --- !u!114 &7581949186887644383
 MonoBehaviour:
   m_ObjectHideFlags: 0

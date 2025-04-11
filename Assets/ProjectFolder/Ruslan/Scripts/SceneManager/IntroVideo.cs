@@ -35,7 +35,7 @@ public class IntroVideo : MonoBehaviour
 
     void Update()
     {
-        if (Input.anyKey)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             LoadNextScene();
         }

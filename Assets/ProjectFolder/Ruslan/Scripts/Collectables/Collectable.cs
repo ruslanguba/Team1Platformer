@@ -5,8 +5,12 @@ public class Collectable : MonoBehaviour, ICollectable
 {
     public void Collect()
     {
-
-        Destroy(gameObject);
+        GetComponent<Collider2D>().enabled = false;
         // TODO Анимация подбора
+    }
+
+    public Transform GetCollectableTransform()
+    {
+        return transform;
     }
 }
