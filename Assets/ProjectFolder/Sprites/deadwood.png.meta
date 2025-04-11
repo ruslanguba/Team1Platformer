@@ -3,23 +3,23 @@ guid: 3cd2bc072b78dc74489cfd1dc7949b55
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1921799083635386881
-    second: "\u0421\u0443\u0445\u043E\u0441\u0442\u043E\u0439_0"
+      213: 6051061337835218490
+    second: deadwood_0
   - first:
-      213: 6799071422923320903
-    second: "\u0421\u0443\u0445\u043E\u0441\u0442\u043E\u0439_1"
+      213: -7895923269462952158
+    second: deadwood_1
   - first:
-      213: 7158087594402811400
-    second: "\u0421\u0443\u0445\u043E\u0441\u0442\u043E\u0439_2"
+      213: -2247001248316505062
+    second: deadwood_2
   - first:
-      213: 8800055684488392563
-    second: "\u0421\u0443\u0445\u043E\u0441\u0442\u043E\u0439_3"
+      213: 387829324679118497
+    second: deadwood_3
   - first:
-      213: -7608858425081994610
-    second: "\u0421\u0443\u0445\u043E\u0441\u0442\u043E\u0439_4"
+      213: 5781095487559826344
+    second: deadwood_4
   - first:
-      213: 8474164380415193612
-    second: "\u0421\u0443\u0445\u043E\u0441\u0442\u043E\u0439_5"
+      213: -5124837350551453730
+    second: deadwood_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -111,19 +111,6 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -131,20 +118,20 @@ TextureImporter:
       name: deadwood_0
       rect:
         serializedVersion: 2
-        x: 9
+        x: 7
         y: 0
-        width: 177
-        height: 183
+        width: 181
+        height: 184
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ccca90709ae86684caf779446c45d193
-      internalID: -1571058945
+      spriteID: a36a4c31a30b9f350800000000000000
+      internalID: 6051061337835218490
       vertices: []
       indices: 
       edges: []
@@ -153,20 +140,20 @@ TextureImporter:
       name: deadwood_1
       rect:
         serializedVersion: 2
-        x: 212
+        x: 211
         y: 0
-        width: 170
-        height: 192
+        width: 173
+        height: 193
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 37120dcc7b78a494cbd7bc28a7c47fe7
-      internalID: 314009430
+      spriteID: 2277bedee9b0c6290800000000000000
+      internalID: -7895923269462952158
       vertices: []
       indices: 
       edges: []
@@ -175,20 +162,20 @@ TextureImporter:
       name: deadwood_2
       rect:
         serializedVersion: 2
-        x: 422
+        x: 420
         y: 0
-        width: 153
-        height: 163
+        width: 156
+        height: 164
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 7a52aa26a9089214fa00086ac81a0b1a
-      internalID: -2053045162
+      spriteID: a144c30154c01d0e0800000000000000
+      internalID: -2247001248316505062
       vertices: []
       indices: 
       edges: []
@@ -197,20 +184,20 @@ TextureImporter:
       name: deadwood_3
       rect:
         serializedVersion: 2
-        x: 604
+        x: 603
         y: 0
-        width: 158
-        height: 163
+        width: 161
+        height: 164
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 962fb36d511733e4db4ebdb2fedd7e43
-      internalID: -1817931210
+      spriteID: 1ae7afa47b8d16500800000000000000
+      internalID: 387829324679118497
       vertices: []
       indices: 
       edges: []
@@ -219,20 +206,20 @@ TextureImporter:
       name: deadwood_4
       rect:
         serializedVersion: 2
-        x: 794
+        x: 792
         y: 0
-        width: 138
-        height: 193
+        width: 141
+        height: 194
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 47a9f82ba1dbbdf4ba3d1d29879e4b46
-      internalID: 1196714001
+      spriteID: 8abfd9467b39a3050800000000000000
+      internalID: 5781095487559826344
       vertices: []
       indices: 
       edges: []
@@ -241,20 +228,20 @@ TextureImporter:
       name: deadwood_5
       rect:
         serializedVersion: 2
-        x: 974
+        x: 973
         y: 0
-        width: 212
-        height: 193
+        width: 215
+        height: 195
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5edf7ba718ec5c44f93ee18e0d679547
-      internalID: 1675437027
+      spriteID: edff9bc059be0e8b0800000000000000
+      internalID: -5124837350551453730
       vertices: []
       indices: 
       edges: []
@@ -263,7 +250,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 610872fe32d1304429b931204d5d440a
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -272,13 +259,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      deadwood_0: -1571058945
-      deadwood_1: 314009430
-      deadwood_2: -2053045162
-      deadwood_3: -1817931210
-      deadwood_4: 1196714001
-      deadwood_5: 1675437027
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
