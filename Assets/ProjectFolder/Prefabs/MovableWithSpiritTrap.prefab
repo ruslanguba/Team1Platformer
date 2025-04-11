@@ -364,6 +364,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5447363188459559373, guid: 6d33971cc3cf90043aaa1560d161d678, type: 3}
+      propertyPath: m_Size.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447363188459559373, guid: 6d33971cc3cf90043aaa1560d161d678, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5484422132341791737, guid: 6d33971cc3cf90043aaa1560d161d678, type: 3}
       propertyPath: m_IsActive
       value: 0
