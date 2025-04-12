@@ -31187,12 +31187,16 @@ PrefabInstance:
       value: FinishTrigger
       objectReference: {fileID: 0}
     - target: {fileID: 8172219385719059902, guid: ff4ac8e9a3ca21a44a144faa821edf0d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.9272
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172219385719059902, guid: ff4ac8e9a3ca21a44a144faa821edf0d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 168
+      value: 174.55
       objectReference: {fileID: 0}
     - target: {fileID: 8172219385719059902, guid: ff4ac8e9a3ca21a44a144faa821edf0d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.46
+      value: -6.14
       objectReference: {fileID: 0}
     - target: {fileID: 8172219385719059902, guid: ff4ac8e9a3ca21a44a144faa821edf0d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -83455,6 +83459,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 4.8322706
       objectReference: {fileID: 0}
+    - target: {fileID: 4146629619979995677, guid: 130aaee8cc21aa740bf832a1fedf20b4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.16
+      objectReference: {fileID: 0}
     - target: {fileID: 4799558998538168662, guid: 130aaee8cc21aa740bf832a1fedf20b4, type: 3}
       propertyPath: m_Name
       value: CompleatLevelTrigger
@@ -83473,7 +83481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7875801400121417362, guid: 130aaee8cc21aa740bf832a1fedf20b4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 155.66772
+      value: 159.7
       objectReference: {fileID: 0}
     - target: {fileID: 7875801400121417362, guid: 130aaee8cc21aa740bf832a1fedf20b4, type: 3}
       propertyPath: m_LocalPosition.y
